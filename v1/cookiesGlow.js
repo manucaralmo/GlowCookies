@@ -23,6 +23,22 @@ cookies.innerHTML = `
     </div>
 </div>`;
 
+// Seguimientos
+function activarSeguimiento(){
+  if(typeof(AnalyticsCode) != "undefined" && AnalyticsCode !== null){
+    var Analytics = document.createElement('script');
+    Analytics.setAttribute('src',`https://www.googletagmanager.com/gtag/js?id=${AnalyticsCode}`);
+    document.head.appendChild(Analytics);
+    var AnalyticsData = document.createElement('script');
+    AnalyticsData.text = `window.dataLayer = window.dataLayer || [];
+                          function gtag(){dataLayer.push(arguments);}
+                          gtag('js', new Date());
+                          gtag('config', '${AnalyticsCode}');`;
+    document.head.appendChild(AnalyticsData);
+    console.log(`Activado el seguimiento de Analytics para: ${AnalyticsCode}`);
+  }
+}
+
 // Añadimos el CSS
 var linkElement = document.createElement('link');
 linkElement.setAttribute('rel', 'stylesheet');
@@ -30,7 +46,7 @@ linkElement.setAttribute('href', 'https://glowcookies.b-cdn.net/v1/cookiesGlow.m
 
 // Nombre de las cookies
 var hostname = window.location.hostname;
-var cookieName = `cookies${hostname}`;
+var cookieName = `cookies${hostname}zxbdu`;
 
 // Aceptar Cookies
 function aceptarCookies(){
@@ -39,6 +55,7 @@ function aceptarCookies(){
   var expires = "expires="+ d.toUTCString();
   document.cookie = `${cookieName}=aceptadas; ${expires}`;
   cookies.innerHTML = "";
+  activarSeguimiento();
 }
 
 // Denegar Cookies
@@ -46,7 +63,7 @@ function rechazarCookies(){
   var d = new Date();
   d.setTime(d.getTime() + (30*24*60*60*1000));
   var expires = "expires="+ d.toUTCString();
-  document.cookie = `${cookieName}=aceptadas; ${expires}`;
+  document.cookie = `${cookieName}=denegadas; ${expires}`;
   cookies.innerHTML = "";
 }
 
@@ -61,7 +78,13 @@ function rechazarCookies(){
         c = c.substring(1);
       }
       if (c.indexOf(name) == 0) {
-        return "ok";
+        if(c.substring(name.length, c.length) == "aceptadas"){
+          console.log('Cookies: Aceptadas');
+          return "ok";
+        } else if (c.substring(name.length, c.length) == "denegadas") {
+          console.log('Cookies: Rechazadas');
+          return "denegadas";
+        }
       }
     }
     return "";
@@ -69,7 +92,11 @@ function rechazarCookies(){
 
   // Verificamos si se han aceptado o no las cookies
   var isCookieSet = getCookie(cookieName);
-  if(isCookieSet != "ok"){
+
+  if(isCookieSet != "ok" && "denegadas"){
     document.body.appendChild(linkElement);
     document.body.appendChild(cookies); 
-  } 
+  } else if (isCookieSet == "ok") {
+    activarSeguimiento();
+  } else if (isCookieSet == "denegadas"){
+  }

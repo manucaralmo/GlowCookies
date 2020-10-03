@@ -46,7 +46,7 @@ linkElement.setAttribute('href', 'https://glowcookies.b-cdn.net/v1/cookiesGlow.m
 
 // Nombre de las cookies
 var hostname = window.location.hostname;
-var cookieName = `cookies${hostname}x`;
+var cookieName = `cookies${hostname}`;
 
 // Aceptar Cookies
 function aceptarCookies(){

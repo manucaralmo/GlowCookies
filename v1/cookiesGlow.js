@@ -56,7 +56,7 @@ document.body.appendChild(linkElement);
 
 // Nombre de las cookies
 var hostname = window.location.hostname;
-var cookieName = `cookies${hostname}dE`;
+var cookieName = `cookies${hostname}`;
 
 // Aceptar Cookies
 function aceptarCookies(){

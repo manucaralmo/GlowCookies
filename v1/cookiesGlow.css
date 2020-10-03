@@ -23,13 +23,6 @@
     margin-bottom: 20px;
   }
   
-  .cookie-consent-banner__header {
-    margin-bottom: 8px;
-    font-weight: normal;
-    font-size: 16px;
-    line-height: 24px;
-  }
-  
   .cookie-consent-banner__description {
     font-weight: normal;
     color: #838F93;
@@ -47,6 +40,10 @@
     font-weight: normal;
   }
 
+  .cookie-consent-btn:hover {
+    text-decoration: none;
+  }
+
   .cookie-consent-btn-secondary{
     display: inline-block;
     padding: 11px 13px;
@@ -54,7 +51,7 @@
     font-size: 0.9em;
     margin-left: 0.3em;
     background-color: rgb(243, 243, 243);
-    color: #838383;
+    color: #7c7c7c;
     text-decoration: none;
     text-align: center;
     font-weight: normal;

@@ -112,8 +112,8 @@ function abrirSelector(){
   switch(isCookieSet) {
     case "ok":
       console.log('Cookies: Aceptadas');
-      activarSeguimiento();
       document.body.appendChild(preBanner);
+      activarSeguimiento();
       break;
     case "no":
       console.log('Cookies: Denegadas');

@@ -60,7 +60,10 @@ function aceptarCookies(){
 
 // Denegar Cookies
 function rechazarCookies(){
-  document.cookie = `${cookieName}=denegadas; max-age=86400;`;
+  var d = new Date();
+  d.setTime(d.getTime() + (1*24*60*60*1000));
+  var expires = "expires="+ d.toUTCString();
+  document.cookie = `${cookieName}=denegadas; ${expires}`;
   cookies.innerHTML = "";
 }
 

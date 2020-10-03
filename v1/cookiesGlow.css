@@ -34,6 +34,7 @@
     width: 200px;
     padding: 11px 13px;
     border-radius: 7px;
+    border: none;
     font-size: 0.9em;
     text-decoration: none;
     text-align: center;
@@ -48,6 +49,7 @@
     display: inline-block;
     padding: 11px 13px;
     border-radius: 7px;
+    border: none;
     font-size: 0.9em;
     margin-left: 0.3em;
     background-color: rgb(243, 243, 243);

@@ -121,15 +121,14 @@ function abrirSelector(){
   switch(isCookieSet) {
     case "ok":
       console.log('Cookies: Aceptadas');
-      //document.body.appendChild(preBanner);
       preBanner.style.display = "block";
       activarSeguimiento();
       break;
     case "no":
       console.log('Cookies: Denegadas');
-      //document.body.appendChild(preBanner);
+      preBanner.style.display = "block";
       break;
     default:
       console.log('Cookies: Sin escoger');
-      //document.body.appendChild(cookies);
+      preBanner.style.display = "block";
   }

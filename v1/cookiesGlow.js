@@ -46,7 +46,7 @@ linkElement.setAttribute('href', 'https://glowcookies.b-cdn.net/v1/cookiesGlow.m
 
 // Nombre de las cookies
 var hostname = window.location.hostname;
-var cookieName = `cookies${hostname}`;
+var cookieName = `cookies${hostname}x`;
 
 // Aceptar Cookies
 function aceptarCookies(){
@@ -79,11 +79,9 @@ function rechazarCookies(){
       }
       if (c.indexOf(name) == 0) {
         if(c.substring(name.length, c.length) == "aceptadas"){
-          console.log('Cookies: Aceptadas');
           return "ok";
         } else if (c.substring(name.length, c.length) == "denegadas") {
-          console.log('Cookies: Rechazadas');
-          return "denegadas";
+          return "no";
         }
       }
     }
@@ -93,10 +91,17 @@ function rechazarCookies(){
   // Verificamos si se han aceptado o no las cookies
   var isCookieSet = getCookie(cookieName);
 
-  if(isCookieSet != "ok" && "denegadas"){
-    document.body.appendChild(linkElement);
-    document.body.appendChild(cookies); 
-  } else if (isCookieSet == "ok") {
-    activarSeguimiento();
-  } else if (isCookieSet == "denegadas"){
+  switch(isCookieSet) {
+    case "ok":
+      console.log('Cookies: Aceptadas');
+      activarSeguimiento();
+      break;
+    case "no":
+      console.log('Cookies: Denegadas');
+      // code block
+      break;
+    default:
+      console.log('Cookies: Sin escoger');
+      document.body.appendChild(linkElement);
+      document.body.appendChild(cookies);
   }

@@ -1,3 +1,9 @@
+/*
+  GLOW COOKIES V1.
+  CREATED BY GLOW MEDIA
+  2020
+*/
+
 // Añadimos el HTML
 var cookies = document.createElement("cookieconsent");
 cookies.innerHTML = `<div class="cookie-consent-banner">

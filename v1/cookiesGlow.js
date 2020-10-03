@@ -26,7 +26,7 @@ cookies.innerHTML = `
 // Añadimos el CSS
 var linkElement = document.createElement('link');
 linkElement.setAttribute('rel', 'stylesheet');
-linkElement.setAttribute('href', 'https://glowcookies.b-cdn.net/v1/cookiesGlow.css'); 
+linkElement.setAttribute('href', 'https://glowcookies.b-cdn.net/v1/cookiesGlow.min.css'); 
 
 // Nombre de las cookies
 var hostname = window.location.hostname;

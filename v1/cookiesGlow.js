@@ -130,5 +130,5 @@ function abrirSelector(){
       break;
     default:
       console.log('Cookies: Sin escoger');
-      preBanner.style.display = "block";
+      cookies.style.display = "block";
   }

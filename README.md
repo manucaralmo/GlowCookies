@@ -16,7 +16,7 @@ You just have to install the code. When the user clicks on accept cookies, the g
 ## How to install it?
 Add this code to your html `<head>` tag.
 ```html
-<script src="https://glowcookies.b-cdn.net/v1/cookiesGlow.js" async></script>
+<script src="https://cdn.statically.io/gh/manucaralmo/GlowCookies/0ccee2da/v1/cookiesGlow.js" async></script>
 <script> 
     var colorBtnPrincipal = "#000"; 
     var colorTextoBtnPrincipal = "#fff";

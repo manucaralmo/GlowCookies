@@ -9,30 +9,78 @@
     <!-- Glow Cookies v1 -->
     <script src="v1/cookiesGlow.js" async></script>
     <script> 
-        var colorBtnPrincipal = "#3755BE"; 
-        var colorTextoBtnPrincipal = "#fff"; 
-        var AnalyticsCode = "UA-156923259-1";
-        var linkHref = "https://google.es";
+        var AnalyticsCode = "UA-156900259-00";
+        var bannerPosition = "left";
+        // Link
+        var linkHref = "https://link-to-your-cookies.html";
+        var linkTexto = "Ver más sobre las cookies";
+        // btn 1
+        var btn1Text = "Aceptar cookies";
+        var btn2Text = "Rechazar";
+        var colorBtn1 = "#34445C"; 
+        var colorTextoBtn1 = "#fff";
+        // prebanner
+        var colorPrebannerTexto = "#34445C";
+        var colorPrebanner = "#fff";
     </script>
     <!-- Glow Cookies v1 -->
     
     <title>Glow Cookies</title>
   </head>
   <body>
-    <h1>Glow Cookies v1</h1>
-    <div>
-        <br><br><br><br><br><br><br><br><br><br><br><br><br>
-        <h1>Hello, world!</h1>
-        <br><br><br><br><br><br><br><br><br><br><br><br><br>
-        <br><br><br><br><br><br><br><br><br><br><br><br><br>
-        <h1>Hello, world!</h1>
-        <br><br><br><br><br><br><br><br><br><br><br><br><br>
-        <br><br><br><br><br><br><br><br><br><br><br><br><br>
-        <h1>Hello, world!</h1>
-        <br><br><br><br><br><br><br><br><br><br><br><br><br>
-        <br><br><br><br><br><br><br><br><br><br><br><br><br>
-        <h1>Hello, world!</h1>
-        <br><br><br><br><br><br><br><br><br><br><br><br><br>
+    
+    <div class="container my-5">
+      <img src="https://img.shields.io/badge/GlowCookies-v.1.3-blue" alt="">
+      <br><br>
+      <h1><b>GlowCookies</b></h1>
+      <h4>Automatic GDPR Cookies Banner for Google Analytics (more coming soon)</h4>
+      <p>
+        Simple and full automated cookies banner for any website. Complies with the new European regulations with only two lines of code. Activate and deactivate Google Analytics (more coming soon) cookies whenever the user wishes, with just 1 click.</p>
+      <div class="my-4">
+        <a href="https://www.producthunt.com/posts/glowcookies?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-glowcookies" target="_blank"><img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=269430&theme=dark" alt="GlowCookies - Automatic GDPR Cookies Banner for Google Analytics | Product Hunt" style="width: 250px; height: 54px;" width="250" height="54" /></a>
+      </div>
+
+      <div class="mt-5">
+        <h4><b>How it works?</b></h4>
+        <p>
+          You just have to install the code. When the user clicks on accept cookies, the google analytics tracking code starts tracking. If the user rejects cookies, the tracking code will not start working.
+        </p>
+      </div>
+
+      <div class="mt-4">
+        <h4><b>How to install it?</b></h4>
+        <p>Add this code to your html <code>&lt;head&gt;</code> tag.</p>
+<pre class="bg-light rounded">
+  <code>
+      &lt;script src="https://cdn.jsdelivr.net/gh/manucaralmo/GlowCookies@1.2.2/v1/cookiesGlow.js" async>&lt;/script&gt;
+      &lt;script&gt; 
+        var colorBtnPrincipal = "#000"; 
+        var colorTextoBtnPrincipal = "#fff";
+        var AnalyticsCode = "UA-156900259-00";
+        var linkHref = "https://link-to-your-cookies.html";
+      &lt;/script&gt;
+  </code>
+  </pre>
+      </div>
+
+      <div class="mt-4">
+        <h4><b>Important</b></h4>
+        <ul>
+          <li>In <code>AnalyticsCode</code> you must add your tracking id that you can find in Google Analytics.</li>
+          <li>In <code>linkHref</code> you must add the link where users can read more about cookies.</li>
+        </ul>
+      </div>
+
+      <div class="mt-3">
+        <h4><b>Customize banner</b></h4>
+        <p>And that's it. Now there are certain parameters that you can change to customize your banner.</p>
+        <ul>
+          <li><code>colorBtnPrincipal</code> You can choose the color of the main button.</li>
+          <li><code>colorTextoBtnPrincipal</code> You can choose the color of the main button text.</li>
+          <li><code>bannerDescription</code> You can choose the text that appears on the banner. The default text is: "Utilizamos cookies propias y de terceros para personalizar el contenido y para analizar el tráfico de la web."</li>
+        </ul>
+      </div>
+
     </div>
 
     <!-- Optional JavaScript -->

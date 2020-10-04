@@ -31,6 +31,7 @@ Add this code to your html `<head>` tag.
 And that's it. Now there are certain parameters that you can change to customize your banner.
 
 1. `bannerPosition` (left or right) Left default
+2. `btn1Text` You can choose the text of the main button.
 2. `colorBtn1` You can choose the color of the main button.
 3. `colorTextoBtn1` You can choose the color of the main button text.
 4. `bannerDescription` You can choose the text that appears on the banner. The default text is: "Utilizamos cookies propias y de terceros para personalizar el contenido y para analizar el tráfico de la web."
@@ -46,11 +47,14 @@ And that's it. Now there are certain parameters that you can change to customize
     var AnalyticsCode = "UA-156900259-00";
     var linkHref = "https://link-to-your-cookies.html";
     var bannerPosition = "right";
+    var btn1Text = "Accept cookies";
     var colorBtn1 = "#000";
     var colorTextoBtn1 = "#fff";
     var btn2Text = "Decline";
     var bannerDescription = "We use our own and third-party cookies to personalize content and to analyze web traffic.";
     var linkTexto = "Show more about cookies";
+    var colorPrebanner = "#000";
+    var colorPrebannerTexto = "#fff";
 </script>
 ```
 

@@ -8,7 +8,7 @@
 // Añadimos el CSS
 var linkElement = document.createElement('link');
 linkElement.setAttribute('rel', 'stylesheet');
-linkElement.setAttribute('href', 'v1/cookiesGlow.min.css'); 
+linkElement.setAttribute('href', 'https://cdn.jsdelivr.net/gh/manucaralmo/GlowCookies@1.4/v1/cookiesGlow.min.css'); 
 document.body.appendChild(linkElement);
 
 //Variables del usuario
@@ -28,7 +28,7 @@ if (typeof(btn2Text) == "undefined" && btn2Text == null){
   var btn2Text = "Denegar";
 }
 if (typeof(colorBtn1) == "undefined" && colorBtn1 == null){
-  var colorBtn1 = "#fafafa";
+  var colorBtn1 = "#34445C";
 }
 if (typeof(colorTextoBtn1) == "undefined" && colorTextoBtn1 == null){
   var colorTextoBtn1 = "#fff";

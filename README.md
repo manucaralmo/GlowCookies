@@ -16,7 +16,7 @@ You just have to install the code. When the user clicks on accept cookies, the g
 ## How to install it?
 Add this code to your html `<head>` tag.
 ```html
-<script src="https://cdn.jsdelivr.net/gh/manucaralmo/GlowCookies@1.4/v1/cookiesGlow.js" async></script>
+<script src="https://cdn.jsdelivr.net/gh/manucaralmo/GlowCookies@1.5/v1/cookiesGlow.js" async></script>
 <script>
     var AnalyticsCode = "UA-156900259-00"; // Your Analytics tracking code
     var FacebookPixelCode = "96272777700000"; // Your Facebook Pixel code

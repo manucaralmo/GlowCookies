@@ -1,6 +1,6 @@
-![Badge-glow](https://img.shields.io/badge/GlowCookies-v.1.4-blue)
-# GlowCookies - Automatic GDPR Cookies Banner for Google Analytics (more coming soon)
-Simple and full automated cookies banner for any website. Complies with the new European regulations with only two lines of code. Activate and deactivate Google Analytics (more coming soon) cookies whenever the user wishes, with just 1 click.
+![Badge-glow](https://img.shields.io/badge/GlowCookies-v.1.5-blue)
+# GlowCookies - Automatic GDPR Cookies Banner for Google Analytics & Facebook Pixel
+Simple and full automated cookies banner for any website. Complies with the new European regulations with only two lines of code. Activate and deactivate Google Analytics & Facebook Pixel (more coming soon) cookies whenever the user wishes, with just 1 click.
 
 <br>
 The cookies banner
@@ -18,14 +18,16 @@ Add this code to your html `<head>` tag.
 ```html
 <script src="https://cdn.jsdelivr.net/gh/manucaralmo/GlowCookies@1.4/v1/cookiesGlow.js" async></script>
 <script>
-    var AnalyticsCode = "UA-156900259-00";
-    var linkHref = "https://link-to-your-cookies.html";
+    var AnalyticsCode = "UA-156900259-00"; // Your Analytics tracking code
+    var FacebookPixelCode = "96272777700000"; // Your Facebook Pixel code
+    var linkHref = "https://link-to-your-cookies.html"; // Your Cookies Policy link
 </script>
 ```
 
 ## Important
-1. In `AnalyticsCode` you must add your tracking id that you can find in Google Analytics.
-2. In `linkHref` you must add the link where users can read more about cookies.
+1. In `AnalyticsCode` (optional) you must add your tracking id that you can find in Google Analytics.
+2. In `FacebookPixelCode` (optional) you must add your Facebook Pixel Code (Event: PageView).
+3. In `linkHref` you must add the link where users can read more about cookies.
 
 ## Customize banner
 And that's it. Now there are certain parameters that you can change to customize your banner.
@@ -45,6 +47,7 @@ And that's it. Now there are certain parameters that you can change to customize
 <script src="https://cdn.jsdelivr.net/gh/manucaralmo/GlowCookies@1.4/v1/cookiesGlow.js" async></script>
 <script>
     var AnalyticsCode = "UA-156900259-00";
+    var FacebookPixelCode = "96272777700000";
     var linkHref = "https://link-to-your-cookies.html";
     var bannerPosition = "right";
     var btn1Text = "Accept cookies";

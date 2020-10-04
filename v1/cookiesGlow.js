@@ -2,13 +2,13 @@
   GLOW COOKIES
   CREATED BY GLOW MEDIA
   WWW.GLOWMEDIA.ES
-  2020
+  2020 - v 1.5
 */
 
 // Añadimos el CSS
 var linkElement = document.createElement('link');
 linkElement.setAttribute('rel', 'stylesheet');
-linkElement.setAttribute('href', 'https://cdn.jsdelivr.net/gh/manucaralmo/GlowCookies@1.4/v1/cookiesGlow.min.css'); 
+linkElement.setAttribute('href', 'https://cdn.jsdelivr.net/gh/manucaralmo/GlowCookies@1.5/v1/cookiesGlow.min.css'); 
 document.body.appendChild(linkElement);
 
 //Variables del usuario
@@ -82,6 +82,8 @@ document.body.appendChild(cookies);
 
 // Seguimientos
 function activarSeguimiento(){
+
+// Analytics code
   if(typeof(AnalyticsCode) != "undefined" && AnalyticsCode !== null){
     var Analytics = document.createElement('script');
     Analytics.setAttribute('src',`https://www.googletagmanager.com/gtag/js?id=${AnalyticsCode}`);
@@ -94,6 +96,34 @@ function activarSeguimiento(){
     document.head.appendChild(AnalyticsData);
     console.log(`Activado el seguimiento de Analytics para: ${AnalyticsCode}`);
   }
+
+  // facebook pixel code
+  if(typeof(FacebookPixelCode) != "undefined" && FacebookPixelCode !== null){
+    var FacebookPixelData = document.createElement('script');
+    FacebookPixelData.text = `
+                                !function(f,b,e,v,n,t,s)
+                                {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+                                n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+                                if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+                                n.queue=[];t=b.createElement(e);t.async=!0;
+                                t.src=v;s=b.getElementsByTagName(e)[0];
+                                s.parentNode.insertBefore(t,s)}(window, document,'script',
+                                'https://connect.facebook.net/en_US/fbevents.js');
+                                fbq('init', '${FacebookPixelCode}');
+                                fbq('track', 'PageView');
+                            `;
+    document.head.appendChild(FacebookPixelData);
+
+    var FacebookPixel = document.createElement('noscript');
+    FacebookPixel.setAttribute('height',`1`);
+    FacebookPixel.setAttribute('width',`1`);
+    FacebookPixel.setAttribute('style',`display:none`);
+    FacebookPixel.setAttribute('src',`https://www.facebook.com/tr?id=${FacebookPixelCode}&ev=PageView&noscript=1`);
+    document.head.appendChild(FacebookPixel);
+
+    console.log(`Activado el seguimiento de Facebook Pixel para: ${FacebookPixelCode}`);
+  }
+
 }
 
 // Desactivar seguimientos - Future update

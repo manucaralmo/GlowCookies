@@ -39,5 +39,21 @@ And that's it. Now there are certain parameters that you can change to customize
 7. `colorPrebannerTexto`
 8. `linkTexto`
 
+### Example
+```html
+<script src="https://cdn.jsdelivr.net/gh/manucaralmo/GlowCookies@1.4/v1/cookiesGlow.js" async></script>
+<script>
+    var AnalyticsCode = "UA-156900259-00";
+    var linkHref = "https://link-to-your-cookies.html";
+    var bannerPosition = "right";
+    var colorBtn1 = "#000";
+    var colorTextoBtn1 = "#fff";
+    var btn2Text = "Decline";
+    var bannerDescription = "We use our own and third-party cookies to personalize content and to analyze web traffic.";
+    var linkTexto = "Show more about cookies";
+</script>
+```
+
+
 ## how to contribute?
 Coming soon

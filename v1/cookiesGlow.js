@@ -8,7 +8,7 @@
 // Añadimos el CSS
 var linkElement = document.createElement('link');
 linkElement.setAttribute('rel', 'stylesheet');
-linkElement.setAttribute('href', 'https://cdn.jsdelivr.net/gh/manucaralmo/GlowCookies@1.3/v1/cookiesGlow.min.css'); 
+linkElement.setAttribute('href', 'v1/cookiesGlow.min.css'); 
 document.body.appendChild(linkElement);
 
 //Variables del usuario

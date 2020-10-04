@@ -1,5 +1,5 @@
 /*
-  GLOW COOKIES V 1.2
+  GLOW COOKIES V 1.2.1
   CREATED BY GLOW MEDIA
   WWW.GLOWMEDIA.ES
   2020
@@ -28,11 +28,14 @@ var cookies = document.createElement("div");
 if (typeof(bannerDescription) == "undefined" && bannerDescription == null){
   var bannerDescription = "Utilizamos cookies propias y de terceros para personalizar el contenido y para analizar el tráfico de la web.";
 }
+if (typeof(linkHref) == "undefined" && linkHref == null){
+  var linkHref = "#";
+}
 cookies.innerHTML = `
 <div class="cookie-consent-banner">
     <div class="cookie-consent-banner__inner">
       <div class="cookie-consent-banner__copy">
-          <div class="cookie-consent-banner__description">${bannerDescription} <a href="#" class="link-btn" target="_blank">Ver más sobre las cookies</a></div>
+          <div class="cookie-consent-banner__description">${bannerDescription} <a href="${linkHref}" class="link-btn" target="_blank">Ver más sobre las cookies</a></div>
       </div>
       <div class="buttons">
         <button type="button" id="aceptarCookies" onClick="aceptarCookies()" class="cookie-consent-btn" style="background-color: ${colorBtnPrincipal}; color: ${colorTextoBtnPrincipal};">

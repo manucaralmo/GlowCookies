@@ -84,5 +84,5 @@ And that's it. Now there are certain parameters that you can change to customize
 
 
 ## how to contribute?
-Coming soon
+Coming soon<br>
 Email - manuel@glowmedia.es

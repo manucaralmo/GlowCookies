@@ -2,6 +2,8 @@
 # GlowCookies - Automatic GDPR Cookies Banner for Google Analytics & Facebook Pixel
 Simple and full automated cookies banner for any website. Complies with the new European regulations with only two lines of code. Activate and deactivate Google Analytics & Facebook Pixel (more coming soon) cookies whenever the user wishes, with just 1 click.
 
+[![Foo](https://cdn.glowmedia.es/upload/uploads/ed1952btn.svg)](http://googlhttps://manucaralmo.github.io/GlowCookies/e.com.au/)
+
 <br>
 The cookies banner
 <img src="https://cdn.glowmedia.es/upload/uploads/6c8121glowCookies.png" data-canonical-src="https://cdn.glowmedia.es/upload/uploads/6c8121glowCookies.png" width="375" />

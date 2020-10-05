@@ -1,29 +1,31 @@
-.banner {
-  position: fixed;
-  bottom: 0;
-  z-index: 2147483645;
-  box-sizing: border-box;
-  min-width: 275px;
-  max-width: 375px;
-  margin: 10px 10px;
-  background-color: #ffffff;
-  border: 1px;
-  border-style: solid;
-  border-width: 1px;
-  border-color: #e9e9e9;
-  padding: 2px 20px;
-  border-radius: 20px;
-  -webkit-box-shadow: 10px 10px 36px -13px rgba(0,0,0,0.15);
-  -moz-box-shadow: 10px 10px 36px -13px rgba(0,0,0,0.15);
-  box-shadow: 10px 10px 36px -13px rgba(0,0,0,0.15);
-}
+  .banner {
+    position: fixed;
+    bottom: 0;
+    z-index: 2147483645;
+    box-sizing: border-box;
+    min-width: 275px;
+    max-width: 375px;
+    margin: 10px 10px;
+    padding: 2px 20px;
+    border-radius: 20px;
+    -webkit-box-shadow: 10px 10px 36px -13px rgba(0,0,0,0.15);
+    -moz-box-shadow: 10px 10px 36px -13px rgba(0,0,0,0.15);
+    box-shadow: 10px 10px 36px -13px rgba(0,0,0,0.15);
+  }
 
   .banner-left {
-      left: 0;
+    left: 0;
   }
 
   .banner-right {
     right: 0;
+  }
+
+  .border{
+    border: 1px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #e9e9e9;
   }
   
   .cookie-consent-banner__inner {     
@@ -36,7 +38,6 @@
   
   .cookie-consent-banner__description {
     font-weight: normal;
-    color: #6e6e6e;
     font-size: 0.9em;
   }
   
@@ -55,7 +56,7 @@
 
   .cookie-consent-btn:hover {
     text-decoration: none;
-    opacity: 0.95;
+    opacity: 0.9;
   }
 
   .cookie-consent-btn-secondary{
@@ -66,8 +67,6 @@
     border: none;
     font-size: 0.8em;
     margin-left: 0.2em;
-    background-color: rgb(243, 243, 243);
-    color: #7c7c7c;
     text-decoration: none;
     text-align: center;
     font-weight: normal;
@@ -75,8 +74,8 @@
   }
 
   .cookie-consent-btn-secondary:hover{
-    background-color: rgb(219, 219, 219);
-    color: #727272;
+    text-decoration: none;
+    opacity: 0.9;
   }
 
   .prebanner {
@@ -86,12 +85,9 @@
     height: 50px;
     font-size: 0.9em;
     margin: 10px 10px;
-    border: 1px;
-    border-style: solid;
-    border-width: 1px;
-    border-color: #e9e9e9;
+    border: none;
     padding: 12px 18px;
-    border-radius: 15px;
+    border-radius: 20px;
     text-decoration: none;
     -webkit-box-shadow: 10px 10px 36px -13px rgba(0,0,0,0.15);
     -moz-box-shadow: 10px 10px 36px -13px rgba(0,0,0,0.15);
@@ -111,11 +107,9 @@
   }
 
   .link-btn{
-    color: #838F93;
     text-decoration: underline;
   }
 
   .link-btn:hover{
-    color: #535758;
     text-decoration: underline;
   }

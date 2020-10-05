@@ -20,10 +20,10 @@
   <body>
     
     <div class="container my-5">
-      <img src="https://img.shields.io/badge/GlowCookies-v.1.4-blue" alt="">
+      <img src="https://img.shields.io/badge/GlowCookies-v.1.6-blue" alt="">
       <br><br>
       <h1><b>GlowCookies</b></h1>
-      <h4>Automatic GDPR Cookies Banner for Google Analytics (more coming soon)</h4>
+      <h4>Automatic GDPR Cookies Banner for Google Analytics & Facebook Pixel</h4>
       <p>
         Simple and full automated cookies banner for any website. Complies with the new European regulations with only two lines of code. Activate and deactivate Google Analytics (more coming soon) cookies whenever the user wishes, with just 1 click.</p>
       <div class="my-4">
@@ -42,36 +42,58 @@
         <p>Add this code to your html <code>&lt;head&gt;</code> tag.</p>
 <pre class="bg-light rounded">
   <code>
-      &lt;script src="https://cdn.jsdelivr.net/gh/manucaralmo/GlowCookies@1.4/v1/cookiesGlow.js" async>&lt;/script&gt;
+      &lt;script src="https://cdn.jsdelivr.net/gh/manucaralmo/GlowCookies@1.6/v1/cookiesGlow.js" async>&lt;/script&gt;
       &lt;script&gt; 
         var AnalyticsCode = "UA-156900259-00";
+        var FacebookPixelCode = "9994844839330";
         var linkHref = "https://link-to-your-cookies.html";
-      &lt;/script&gt;
-  </code>
+      &lt;/script&gt;</code>
   </pre>
       </div>
 
-      <div class="mt-4">
+      <div class="mt-5">
         <h4><b>Important</b></h4>
         <ul>
-          <li>In <code>AnalyticsCode</code> you must add your tracking id that you can find in Google Analytics.</li>
-          <li>In <code>linkHref</code> you must add the link where users can read more about cookies.</li>
+          <li>In <code>AnalyticsCode</code> - (Optional) you must add your tracking id that you can find in Google Analytics.</li>
+          <li>In <code>FacebookPixelCode</code> - (Optional) you must add your Facebook Pixel ID.</li>
+          <li>In <code>linkHref</code> - you must add the link where users can read more about cookies.</li>
         </ul>
       </div>
 
-      <div class="mt-3">
-        <h4><b>Customize banner</b></h4>
+      <div class="mt-5">
+        <h4><b>Customize banner</b> <span class="ml-1 badge badge-primary">New</span></h4>
         <p>And that's it. Now there are certain parameters that you can change to customize your banner.</p>
+
+        <h5>Texts & content</h5>
         <ul>
-          <li><code>bannerPosition</code> (left or right) Left default</li>
-          <li><code>colorBtn1</code> You can choose the color of the main button.</li>
-          <li><code>colorTextoBtn1</code> You can choose the color of the main button text.</li>
-          <li><code>bannerDescription</code> You can choose the text that appears on the banner. The default text is: "Utilizamos cookies propias y de terceros para personalizar el contenido y para analizar el tráfico de la web."</li>
-          <li><code>btn2Text</code> Change the decline cookies text button.</li>
-          <li><code>colorPrebanner</code></li>
-          <li><code>colorPrebannerTexto</code></li>
-          <li><code>linkTexto</code></li>
+          <li><code>btn1Text</code> - Change the text of "Accept cookies" button text.</li>
+          <li><code>btn2Text</code> - Change the text of "Disable cookies" button.</li>
+          <li><code>bannerDescription</code> - Change the text that appears on the banner. The default text is: "Utilizamos cookies propias y de terceros para personalizar el contenido y para analizar el tráfico de la web."</li>
+          <li><code>linkTexto</code> - Change the text of the "Show more about cookies" link</li>
+          <li><code>linkHref</code> - Change the "Show more about cookies" link (Ej. https://link-to-your-cookies-policy.com)</li>
+          <li><code>manageText</code> - Change the text of "manage cookies" button</li>
         </ul>
+
+        <h5>Colors</h5>
+        <ul>
+          <li><code>btn1Background</code> - Change the background color of the "Accept cookies" button.</li>
+          <li><code>btn1Color</code> - Change the color of the text "Accept cookies" button.</li>
+          <li><code>btn2Background</code> - Change the background color of the "Disable cookies" button.</li>
+          <li><code>btn2Color</code> - Change the color of the text "Disable cookies" button.</li>
+          <li><code>bannerBackground</code> - Change the background color of the cookies banner.</li>
+          <li><code>descriptionColor</code> - Change the text color of the cookies description.</li>
+          <li><code>manageColor</code> - Change the text color of "manage cookies" button.</li>
+          <li><code>manageBackground</code> - Change the background color of "manage cookies" button.</li>
+        </ul>
+
+        <h5>Alignment & extras</h5>
+        <ul>
+          <li><code>bannerPosition</code> - ("left" or "right") Left default</li>
+          <li><code>border</code> - ("yes" or "none")</li>
+        </ul>
+
+
+
       </div>
 
     </div>

@@ -8,9 +8,6 @@ Simple and full automated cookies banner for any website. Complies with the new 
 The cookies banner
 <img src="https://cdn.glowmedia.es/upload/uploads/6c8121glowCookies.png" data-canonical-src="https://cdn.glowmedia.es/upload/uploads/6c8121glowCookies.png" width="375" />
 <br>
-Manage cookies: when cookies have been accepted or rejected
-<img src="https://cdn.glowmedia.es/upload/uploads/b3a46bbtnGlowcookies.png" data-canonical-src="https://cdn.glowmedia.es/upload/uploads/b3a46bbtnGlowcookies.png" height="75" />
-<br>
 
 ## How it works?
 You just have to install the code. When the user clicks on accept cookies, the google analytics tracking code & Facebook Pixel starts tracking. If the user rejects cookies, the tracking code will not start working.

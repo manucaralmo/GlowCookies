@@ -10,7 +10,7 @@
 var linkElement = document.createElement('link');
 linkElement.setAttribute('rel', 'stylesheet');
 // CHANGE THE LINK BELOW TO "v1/cookiesGlow.css" IF YOU DONT WANT TO USE A CDN
-linkElement.setAttribute('href', 'https://cdn.jsdelivr.net/gh/manucaralmo/GlowCookies@1.6/v1/cookiesGlow.min.css'); 
+linkElement.setAttribute('href', 'https://cdn.jsdelivr.net/gh/manucaralmo/GlowCookies@1.6.1/v1/cookiesGlow.min.css'); 
 document.body.appendChild(linkElement);
 
 
@@ -106,6 +106,7 @@ function activarSeguimiento(){
     document.head.appendChild(AnalyticsData);
     console.log(`Activado el seguimiento de Analytics para: ${AnalyticsCode}`);
   }
+  // Google Analytics Tracking
 
   // Facebook pixel tracking code
   if(typeof(FacebookPixelCode) != "undefined" && FacebookPixelCode !== null){
@@ -123,17 +124,33 @@ function activarSeguimiento(){
                                 fbq('track', 'PageView');
                             `;
     document.head.appendChild(FacebookPixelData);
-
     var FacebookPixel = document.createElement('noscript');
     FacebookPixel.setAttribute('height',`1`);
     FacebookPixel.setAttribute('width',`1`);
     FacebookPixel.setAttribute('style',`display:none`);
     FacebookPixel.setAttribute('src',`https://www.facebook.com/tr?id=${FacebookPixelCode}&ev=PageView&noscript=1`);
     document.head.appendChild(FacebookPixel);
-
     console.log(`Activado el seguimiento de Facebook Pixel para: ${FacebookPixelCode}`);
   }
+  // Facebook pixel tracking code
 
+  // Hotjar Tracking
+  if(typeof(HotjarTrackingCode) != "undefined" && HotjarTrackingCode !== null){
+    var hotjarTrackingData = document.createElement('script');
+    hotjarTrackingData.text = `
+                              (function(h,o,t,j,a,r){
+                                h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+                                h._hjSettings={hjid:${HotjarTrackingCode},hjsv:6};
+                                a=o.getElementsByTagName('head')[0];
+                                r=o.createElement('script');r.async=1;
+                                r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+                                a.appendChild(r);
+                              })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+                            `;
+    document.head.appendChild(hotjarTrackingData);
+    console.log(`Activado el seguimiento de Hotjar para: ${HotjarTrackingCode}`);
+  }
+  // Hotjar Tracking
 }
 
 // Disable Tracking - Future update

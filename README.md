@@ -1,6 +1,6 @@
 ![Badge-glow](https://img.shields.io/badge/GlowCookies-v.1.6-blue)
-# GlowCookies - Automatic GDPR Cookies Banner for Google Analytics & Facebook Pixel
-Simple and full automated cookies banner for any website. Complies with the new European regulations with only two lines of code. Activate and deactivate Google Analytics & Facebook Pixel (more coming soon) cookies whenever the user wishes, with just 1 click.
+# GlowCookies - Automatic GDPR Cookies Banner for Google Analytics, Facebook Pixel & more
+Simple and full automated cookies banner for any website. Complies with the new European regulations with only two lines of code. Activate and deactivate Google Analytics, Facebook Pixel, Hotjar (and coming soon) cookies whenever the user wishes, with just 1 click.
 
 [![Foo](https://cdn.glowmedia.es/upload/uploads/ed1952btn.svg)](https://manucaralmo.github.io/GlowCookies/)
 
@@ -10,15 +10,16 @@ The cookies banner
 <br>
 
 ## How it works?
-You just have to install the code. When the user clicks on accept cookies, the google analytics tracking code & Facebook Pixel starts tracking. If the user rejects cookies, the tracking code will not start working.
+You just have to install the code. When the user clicks on accept cookies, the google analytics tracking code, Facebook Pixel and/or Hotjar starts tracking. If the user rejects cookies, the tracking code will not start working.
 
 ## How to install it?
 Add this code to your html `<head>` tag.
 ```html
-<script src="https://cdn.jsdelivr.net/gh/manucaralmo/GlowCookies@1.6/v1/cookiesGlow.js" async></script>
+<script src="https://cdn.jsdelivr.net/gh/manucaralmo/GlowCookies@1.6.1/v1/cookiesGlow.js" async></script>
 <script>
-    var AnalyticsCode = "UA-156900259-00"; // Your Analytics tracking code
-    var FacebookPixelCode = "96272777700000"; // Your Facebook Pixel code
+    var AnalyticsCode = "UA-156900259-00"; // Your Analytics tracking code (Optional)
+    var FacebookPixelCode = "96272777700000"; // Your Facebook Pixel code (Optional)
+    var HotjarTrackingCode = "2027553"; // Your Hotjar id (Optional)
     var linkHref = "https://link-to-your-cookies.html"; // Your Cookies Policy link
 </script>
 ```
@@ -26,7 +27,8 @@ Add this code to your html `<head>` tag.
 ## Important
 1. In `AnalyticsCode` (optional) you must add your tracking id that you can find in Google Analytics.
 2. In `FacebookPixelCode` (optional) you must add your Facebook Pixel Code (Event: PageView).
-3. In `linkHref` you must add the link where users can read more about cookies.
+3. In `HotjarTrackingCode` (Optional) you must add your Hotjar ID.
+4. In `linkHref` you must add the link where users can read more about cookies.
 
 ## Customize banner
 And that's it. Now there are certain parameters that you can change to customize your banner.
@@ -55,10 +57,11 @@ And that's it. Now there are certain parameters that you can change to customize
 
 ## Example
 ```html
-<script src="https://cdn.jsdelivr.net/gh/manucaralmo/GlowCookies@1.6/v1/cookiesGlow.js" async></script>
+<script src="https://cdn.jsdelivr.net/gh/manucaralmo/GlowCookies@1.6.1/v1/cookiesGlow.js" async></script>
 <script>
     var AnalyticsCode = "UA-156900259-00";
     var FacebookPixelCode = "96272777700000";
+    var HotjarTrackingCode = "2027553";
     var linkHref = "https://link-to-your-cookies.html";
     // texts
     var btn1Text = "Aceptar cookies";

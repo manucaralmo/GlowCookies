@@ -1,5 +1,5 @@
 ![Badge-glow](https://img.shields.io/badge/GlowCookies-v.1.6.1-blue)
-# GlowCookies - Automatic GDPR Cookies Banner for Google Analytics, Facebook Pixel & more
+# GlowCookies - Cookie Consent Banner In JavaScript for Google Analytics, Facebook Pixel & more
 Simple and full automated cookies banner for any website. Complies with the new European regulations with only two lines of code. Activate and deactivate Google Analytics, Facebook Pixel, Hotjar (and coming soon) cookies whenever the user wishes, with just 1 click.
 
 [![Foo](https://cdn.glowmedia.es/upload/uploads/ed1952btn.svg)](https://manucaralmo.github.io/GlowCookies/)

@@ -9,7 +9,7 @@
 var linkElement = document.createElement('link');
 linkElement.setAttribute('rel', 'stylesheet');
 // CHANGE THE LINK BELOW TO "v1/cookiesGlow.css" IF YOU DONT WANT TO USE A CDN
-linkElement.setAttribute('href', 'https://cdn.jsdelivr.net/gh/manucaralmo/GlowCookies@1.7/v1/cookiesGlow.min.css'); 
+linkElement.setAttribute('href', 'v1/cookiesGlow.css'); 
 document.body.appendChild(linkElement);
 
 // ============================================
@@ -21,6 +21,7 @@ var linkHref = linkHref  || '#';
 var bannerPosition = bannerPosition  || 'left';
 var bannerBackground = bannerBackground  || '#fff';
 var descriptionColor = descriptionColor  || '#505050';
+var cookiesPolicy = cookiesPolicy || 'no';
 // Accept cookies btn
 var btn1Text = btn1Text  || 'Aceptar cookies';
 var btn1Background = btn1Background  || '#24273F';
@@ -58,14 +59,20 @@ preBanner.innerHTML = `<button type="button" id="prebanner" onClick="abrirSelect
 preBanner.style.display = "none";
 document.body.appendChild(preBanner);
 
+if ( cookiesPolicy === 'si' ){
+  var policyLink = `<button type="button" class="link-btn" style="color: ${descriptionColor};" id="myBtn">${linkTexto}</button>`;
+} else {
+  var policyLink = `<a href="${linkHref}" class="link-btn" style="color: ${descriptionColor};" target="_blank">${linkTexto}</a>`;
+}
+
 // COOKIES BANNER
 var cookies = document.createElement("div");
 cookies.innerHTML = `<div class="banner banner-${bannerPosition} ${border}" style="background-color: ${bannerBackground};">
                         <div class="cookie-consent-banner__inner">
                           <div class="cookie-consent-banner__copy">
                               <div class="cookie-consent-banner__description" style="color: ${descriptionColor};">
-                              ${bannerDescription} 
-                              <a href="${linkHref}" class="link-btn" style="color: ${descriptionColor};" target="_blank">${linkTexto}</a></div>
+                                ${bannerDescription} ${policyLink}
+                              </div>
                           </div>
                           <div class="buttons">
                             <button type="button" id="aceptarCookies" onClick="aceptarCookies()" class="cookie-consent-btn" style="background-color: ${btn1Background}; color: ${btn1Color};">
@@ -82,6 +89,27 @@ cookies.innerHTML = `<div class="banner banner-${bannerPosition} ${border}" styl
                     </div>`;
 cookies.style.display = "none";
 document.body.appendChild(cookies);
+
+// COOKIES POLICY - BETA
+var cookiesPolicy = document.createElement("div");
+cookiesPolicy.innerHTML = `<div id="myModal" class="modal">
+                              <div class="modal-content border">
+                                <span class="close">&times;</span>
+                                <h1>Política de cookies</h1><br>
+                                <h3 class="c-p">Sobre esta política de cookies</h3>
+                                <p>Esta Política de cookies explica qué son las cookies y cómo las usamos. Debe leer esta política para comprender qué son las cookies, cómo las usamos, los tipos de cookies que usamos, es decir, la información que recopilamos usando cookies y cómo se usa esa información y cómo controlar las preferencias de cookies. Para obtener más información sobre cómo usamos, almacenamos y mantenemos seguros sus datos personales, consulte nuestra Política de privacidad. En cualquier momento puede cambiar o retirar su consentimiento de la Declaración de cookies en nuestro sitio web. Obtenga más información sobre quiénes somos, cómo puede contactarnos y cómo procesamos los datos personales en nuestra Política de privacidad. Su consentimiento se aplica a los siguientes dominios: www.dresscodeshop.es</p>
+                                <h3 class="c-p">¿Qué son las cookies?</h3>
+                                <p>Las cookies son pequeños archivos de texto que se utilizan para almacenar pequeños fragmentos de información. Las cookies se almacenan en su dispositivo cuando el sitio web se carga en su navegador. Estas cookies nos ayudan a hacer que el sitio web funcione correctamente, hacer que el sitio web sea más seguro, brindar una mejor experiencia de usuario y comprender cómo funciona el sitio web y analizar qué funciona y dónde necesita mejorar.</p>
+                                <h3 class="c-p">¿Cómo utilizamos las cookies?</h3>
+                                <p>Como la mayoría de los servicios en línea, nuestro sitio web utiliza cookies propias y de terceros para varios propósitos. Las cookies de origen son principalmente necesarias para que el sitio web funcione de la manera correcta, y no recopilan ninguno de sus datos de identificación personal.Las cookies de terceros utilizadas en nuestros sitios web se utilizan principalmente para comprender cómo funciona el sitio web, cómo interactúa con nuestro sitio web, mantener nuestros servicios seguros, proporcionar anuncios que sean relevantes para usted y, en general, brindarle una mejor y mejor experiencia del usuario y ayudar a acelerar sus futuras interacciones con nuestro sitio web.</p>
+                                <h3 class="c-p">¿Qué tipos de cookies utilizamos?</h3>
+                                <p>Esencial: algunas cookies son esenciales para que pueda experimentar la funcionalidad completa de nuestro sitio. Nos permiten mantener sesiones de usuario y evitar amenazas de seguridad. No recopilan ni almacenan ninguna información personal. Por ejemplo, estas cookies le permiten iniciar sesión en su cuenta y agregar productos a su carrito y realizar el pago de forma segura.Estadísticas: estas cookies almacenan información como el número de visitantes del sitio web, el número de visitantes únicos, qué páginas del sitio web han sido visitadas, la fuente de la visita, etc. Estos datos nos ayudan a comprender y analizar qué tan bien funciona el sitio web y donde necesita mejorar.Marketing: nuestro sitio web muestra anuncios. Estas cookies se utilizan para personalizar los anuncios que le mostramos para que sean significativos para usted. Estas cookies también nos ayudan a realizar un seguimiento de la eficiencia de estas campañas publicitarias.Los proveedores de publicidad de terceros también pueden utilizar la información almacenada en estas cookies para mostrarle anuncios en otros sitios web en el navegador.Funcional: Son las cookies que ayudan a ciertas funcionalidades no esenciales en nuestro sitio web. Estas funcionalidades incluyen incrustar contenido como videos o compartir contenido en el sitio web en plataformas de redes sociales.Preferencias: estas cookies nos ayudan a almacenar su configuración y preferencias de navegación, como las preferencias de idioma, para que tenga una mejor y más eficiente experiencia en futuras visitas al sitio web.</p>
+                                <h3 class="c-p">¿Cómo puedo controlar mis preferencias?</h3>
+                                <p>Si decide cambiar sus preferencias más adelante a través de su sesión de navegación, puede hacer clic en la pestaña «Política de privacidad y cookies» en su pantalla. Esto mostrará nuevamente el aviso de consentimiento que le permitirá cambiar sus preferencias o retirar su consentimiento por completo.Además de esto, diferentes navegadores proporcionan diferentes métodos para bloquear y eliminar las cookies utilizadas por los sitios web. Puede cambiar la configuración de su navegador para bloquear / eliminar las cookies. Para obtener más información sobre cómo administrar y eliminar cookies, visite wikipedia.org, www.allaboutcookies.org.</p>
+                                  <br>
+                                </div>
+                            </div>`;
+document.body.appendChild(cookiesPolicy);
 
 
 // START TRACKING FUNCTION
@@ -205,3 +233,21 @@ function readCookie(name) {
       console.log('Cookies: Sin escoger');
       abrirSelector();
   }
+
+
+// MODAL
+var modal = document.getElementById("myModal");
+var btnModal = document.getElementById("myBtn");
+var spanModal = document.getElementsByClassName("close")[0];
+btnModal.onclick = function() {
+  modal.style.display = "block";
+  abrirManageCookies();
+}
+spanModal.onclick = function() {
+  modal.style.display = "none";
+}
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}

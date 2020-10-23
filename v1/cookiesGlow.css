@@ -110,6 +110,8 @@
     text-decoration: underline;
     border: none;
     background-color: inherit;
+    margin: 0;
+    padding: 0;
   }
 
   .link-btn:hover{

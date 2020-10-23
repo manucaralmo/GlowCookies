@@ -12,6 +12,13 @@ linkElement.setAttribute('rel', 'stylesheet');
 linkElement.setAttribute('href', 'v1/cookiesGlow.css'); 
 document.body.appendChild(linkElement);
 
+// COOKIE NAME -- We use de hostname for the cookies name
+var hostname = window.location.hostname;
+var cookieName = 'GlowCookies';
+  var d = new Date();
+  d.setTime(d.getTime() + (30*24*60*60*1000));
+var cookieExpTime = "expires="+ d.toUTCString();
+
 // ============================================
 // CHECK USER VARIABLES & SET DEFAULTS
 // ============================================
@@ -59,13 +66,12 @@ preBanner.innerHTML = `<button type="button" id="prebanner" onClick="abrirSelect
 preBanner.style.display = "none";
 document.body.appendChild(preBanner);
 
+// COOKIES BANNER
 if ( cookiesPolicy === 'si' ){
   var policyLink = `<button type="button" class="link-btn" style="color: ${descriptionColor};" id="myBtn">${linkTexto}</button>`;
 } else {
   var policyLink = `<a href="${linkHref}" class="link-btn" style="color: ${descriptionColor};" target="_blank">${linkTexto}</a>`;
 }
-
-// COOKIES BANNER
 var cookies = document.createElement("div");
 cookies.innerHTML = `<div class="banner banner-${bannerPosition} ${border}" style="background-color: ${bannerBackground};">
                         <div class="cookie-consent-banner__inner">
@@ -97,7 +103,7 @@ cookiesPolicy.innerHTML = `<div id="myModal" class="modal">
                                 <span class="close">&times;</span>
                                 <h1>Política de cookies</h1><br>
                                 <h3 class="c-p">Sobre esta política de cookies</h3>
-                                <p>Esta Política de cookies explica qué son las cookies y cómo las usamos. Debe leer esta política para comprender qué son las cookies, cómo las usamos, los tipos de cookies que usamos, es decir, la información que recopilamos usando cookies y cómo se usa esa información y cómo controlar las preferencias de cookies. Para obtener más información sobre cómo usamos, almacenamos y mantenemos seguros sus datos personales, consulte nuestra Política de privacidad. En cualquier momento puede cambiar o retirar su consentimiento de la Declaración de cookies en nuestro sitio web. Obtenga más información sobre quiénes somos, cómo puede contactarnos y cómo procesamos los datos personales en nuestra Política de privacidad. Su consentimiento se aplica a los siguientes dominios: www.dresscodeshop.es</p>
+                                <p>Esta Política de cookies explica qué son las cookies y cómo las usamos. Debe leer esta política para comprender qué son las cookies, cómo las usamos, los tipos de cookies que usamos, es decir, la información que recopilamos usando cookies y cómo se usa esa información y cómo controlar las preferencias de cookies. Para obtener más información sobre cómo usamos, almacenamos y mantenemos seguros sus datos personales, consulte nuestra Política de privacidad. En cualquier momento puede cambiar o retirar su consentimiento de la Declaración de cookies en nuestro sitio web. Obtenga más información sobre quiénes somos, cómo puede contactarnos y cómo procesamos los datos personales en nuestra Política de privacidad. Su consentimiento se aplica a los siguientes dominios: www.${hostname}</p>
                                 <h3 class="c-p">¿Qué son las cookies?</h3>
                                 <p>Las cookies son pequeños archivos de texto que se utilizan para almacenar pequeños fragmentos de información. Las cookies se almacenan en su dispositivo cuando el sitio web se carga en su navegador. Estas cookies nos ayudan a hacer que el sitio web funcione correctamente, hacer que el sitio web sea más seguro, brindar una mejor experiencia de usuario y comprender cómo funciona el sitio web y analizar qué funciona y dónde necesita mejorar.</p>
                                 <h3 class="c-p">¿Cómo utilizamos las cookies?</h3>
@@ -178,13 +184,6 @@ function activarSeguimiento(){
 function desactivarSeguimiento(){
   console.log("Seguimiento desactivado");
 }
-
-// COOKIE NAME -- We use de hostname for the cookies name
-var hostname = window.location.hostname;
-var cookieName = 'GlowCookies';
-  var d = new Date();
-  d.setTime(d.getTime() + (30*24*60*60*1000));
-var cookieExpTime = "expires="+ d.toUTCString();
 
 // FUNCTIONS -- ACCEPT AND DENY COOKIES
 // Accept Cookies

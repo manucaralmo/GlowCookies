@@ -2,21 +2,23 @@
   GLOW COOKIES
   CREATED BY GLOW MEDIA
   WWW.GLOWMEDIA.ES
-  2020 - v 1.7
+  2020 - v 1.7.1
 */
+
+const currentVersion = '1.7.1';
 
 // ADD THE CSS WITH CDN
 var linkElement = document.createElement('link');
 linkElement.setAttribute('rel', 'stylesheet');
 // CHANGE THE LINK BELOW TO "v1/cookiesGlow.css" IF YOU DONT WANT TO USE A CDN
-linkElement.setAttribute('href', 'v1/cookiesGlow.css'); 
+linkElement.setAttribute('href', `https://cdn.jsdelivr.net/gh/manucaralmo/GlowCookies@${currentVersion}/v1/cookiesGlow.min.css`); 
 document.body.appendChild(linkElement);
 
-// COOKIE NAME -- We use de hostname for the cookies name
+// COOKIE NAME -- & EXP. TIME
 var hostname = window.location.hostname;
 var cookieName = 'GlowCookies';
-  var d = new Date();
-  d.setTime(d.getTime() + (30*24*60*60*1000));
+var d = new Date();
+d.setTime(d.getTime() + (30*24*60*60*1000));
 var cookieExpTime = "expires="+ d.toUTCString();
 
 // ============================================

@@ -17,10 +17,10 @@ Add this code to your html `<head>` tag.
 ```html
 <script src="https://cdn.jsdelivr.net/gh/manucaralmo/GlowCookies@2.0.1/src/glowCookies.min.js" async></script>
 <script>
-    var AnalyticsCode = "UA-156900259-00"; // Your Analytics tracking code (Optional)
-    var FacebookPixelCode = "96272777700000"; // Your Facebook Pixel code (Optional)
-    var HotjarTrackingCode = "2027553"; // Your Hotjar id (Optional)
-    var linkHref = "https://link-to-your-cookies.html"; // Your Cookies Policy link
+    AnalyticsCode = "UA-156900259-00"; // Your Analytics tracking code (Optional)
+    FacebookPixelCode = "96272777700000"; // Your Facebook Pixel code (Optional)
+    HotjarTrackingCode = "2027553"; // Your Hotjar id (Optional)
+    linkHref = "https://link-to-your-cookies.html"; // Your Cookies Policy link
 </script>
 ```
 
@@ -59,28 +59,28 @@ And that's it. Now there are certain parameters that you can change to customize
 ```html
 <script src="https://cdn.jsdelivr.net/gh/manucaralmo/GlowCookies@2.0.1/src/glowCookies.min.js" async></script>
 <script>
-    var AnalyticsCode = "UA-156900259-00";
-    var FacebookPixelCode = "96272777700000";
-    var HotjarTrackingCode = "2027553";
-    var linkHref = "https://link-to-your-cookies.html";
+    AnalyticsCode = "UA-156900259-00";
+    FacebookPixelCode = "96272777700000";
+    HotjarTrackingCode = "2027553";
+    linkHref = "https://link-to-your-cookies.html";
     // texts
-    var btn1Text = "Aceptar cookies";
-    var btn2Text = "Rechazar";
-    var bannerDescription = "Utilizamos cookies propias y de terceros para personalizar el contenido y para analizar el tráfico de la web.";
-    var linkTexto = "Ver más sobre las cookies";
-    var manageText = "Cookies";
+    btn1Text = "Aceptar cookies";
+    btn2Text = "Rechazar";
+    bannerDescription = "Utilizamos cookies propias y de terceros para personalizar el contenido y para analizar el tráfico de la web.";
+    linkTexto = "Ver más sobre las cookies";
+    manageText = "Cookies";
     // colors
-    var btn1Background = "#E8E8E8"; 
-    var btn1Color = "#17663D";
-    var btn2Background = "#E8E8E8";
-    var btn2Color = "#17663D";
-    var bannerBackground = "#17663D";
-    var descriptionColor = "#fff";
-    var manageColor = "#E8E8E8";
-    var manageBackground = "#17663D";
+    btn1Background = "#E8E8E8"; 
+    btn1Color = "#17663D";
+    btn2Background = "#E8E8E8";
+    btn2Color = "#17663D";
+    bannerBackground = "#17663D";
+    descriptionColor = "#fff";
+    manageColor = "#E8E8E8";
+    manageBackground = "#17663D";
     // Extras
-    var border = "none"
-    var bannerPosition = "right"
+    border = "none"
+    bannerPosition = "right"
 </script>
 ```
 

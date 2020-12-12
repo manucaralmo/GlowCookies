@@ -1,4 +1,4 @@
-![Badge-glow](https://img.shields.io/badge/GlowCookies-v.2.0.1-blue) ![jsDelivr hits (GitHub)](https://img.shields.io/jsdelivr/gh/hm/manucaralmo/GlowCookies) ![GitHub repo size](https://img.shields.io/github/repo-size/manucaralmo/GlowCookies) ![GitHub Repo stars](https://img.shields.io/github/stars/manucaralmo/GlowCookies?style=social)
+![Badge-glow](https://img.shields.io/badge/GlowCookies-v.2.0.2-blue) ![jsDelivr hits (GitHub)](https://img.shields.io/jsdelivr/gh/hm/manucaralmo/GlowCookies) ![GitHub repo size](https://img.shields.io/github/repo-size/manucaralmo/GlowCookies) ![GitHub Repo stars](https://img.shields.io/github/stars/manucaralmo/GlowCookies?style=social)
 # GlowCookies - Cookie Consent Banner In JavaScript for Google Analytics, Facebook Pixel & more
 Simple and full automated cookies banner for any website. Complies with the new European regulations with only two lines of code. Activate and deactivate Google Analytics, Facebook Pixel, Hotjar (and coming soon) cookies whenever the user wishes, with just 1 click.
 
@@ -15,7 +15,7 @@ You just have to install the code. When the user clicks on accept cookies, the g
 ## How to install it?
 Add this code to your html `<head>` tag.
 ```html
-<script src="https://cdn.jsdelivr.net/gh/manucaralmo/GlowCookies@2.0.1/src/glowCookies.min.js" async></script>
+<script src="https://cdn.jsdelivr.net/gh/manucaralmo/GlowCookies@2.0.2/src/glowCookies.min.js" async></script>
 <script>
     AnalyticsCode = "UA-156900259-00"; // Your Analytics tracking code (Optional)
     FacebookPixelCode = "96272777700000"; // Your Facebook Pixel code (Optional)
@@ -54,10 +54,11 @@ And that's it. Now there are certain parameters that you can change to customize
 ### Alignment & extras
 1. `bannerPosition` - ("left" or "right") Left default.
 2. `border` - ("yes" or "none").
+3. `hideAfterClick` - ("true" or "false") - Let the button disappear after a user decided. False is default.
 
 ## Example
 ```html
-<script src="https://cdn.jsdelivr.net/gh/manucaralmo/GlowCookies@2.0.1/src/glowCookies.min.js" async></script>
+<script src="https://cdn.jsdelivr.net/gh/manucaralmo/GlowCookies@2.0.2/src/glowCookies.min.js" async></script>
 <script>
     AnalyticsCode = "UA-156900259-00";
     FacebookPixelCode = "96272777700000";
@@ -79,8 +80,9 @@ And that's it. Now there are certain parameters that you can change to customize
     manageColor = "#E8E8E8";
     manageBackground = "#17663D";
     // Extras
-    border = "none"
-    bannerPosition = "right"
+    border = "none";
+    bannerPosition = "right";
+    hideAfterClick = true;
 </script>
 ```
 

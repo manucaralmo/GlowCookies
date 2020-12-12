@@ -54,6 +54,7 @@ And that's it. Now there are certain parameters that you can change to customize
 ### Alignment & extras
 1. `bannerPosition` - ("left" or "right") Left default.
 2. `border` - ("yes" or "none").
+3. `hideAfterClick` - ("true" or "false") - Let the button disappear after a user decided.
 
 ## Example
 ```html
@@ -79,8 +80,9 @@ And that's it. Now there are certain parameters that you can change to customize
     manageColor = "#E8E8E8";
     manageBackground = "#17663D";
     // Extras
-    border = "none"
-    bannerPosition = "right"
+    border = "none";
+    bannerPosition = "right";
+    hideAfterClick = true;
 </script>
 ```
 

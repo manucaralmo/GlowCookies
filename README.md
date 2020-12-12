@@ -54,7 +54,7 @@ And that's it. Now there are certain parameters that you can change to customize
 ### Alignment & extras
 1. `bannerPosition` - ("left" or "right") Left default.
 2. `border` - ("yes" or "none").
-3. `hideAfterClick` - ("true" or "false") - Let the button disappear after a user decided.
+3. `hideAfterClick` - ("true" or "false") - Let the button disappear after a user decided. False is default.
 
 ## Example
 ```html

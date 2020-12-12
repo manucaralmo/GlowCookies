@@ -18,7 +18,7 @@ document.head.appendChild(linkElement);
 CHECK USER VARIABLES & SET DEFAULTS
 ====================================== */
 var bannerDescription, linkTexto, linkHref, bannerPosition, bannerBackground, descriptionColor, cookiesPolicy, btn1Text,
-btn1Background, btn1Color, btn2Text, btn2Background, btn2Color, manageColor, manageBackground, manageText, border, policyLink
+btn1Background, btn1Color, btn2Text, btn2Background, btn2Color, manageColor, manageBackground, manageText, border, policyLink, hideAfterClick
 
 bannerDescription = bannerDescription || 'We use our own and third-party cookies to personalize content and to analyze web traffic.';
 linkTexto = linkTexto  || 'Read more about cookies';
@@ -39,6 +39,7 @@ btn2Color = btn2Color  || '#636363';
 manageColor = manageColor  || '#24273F';
 manageBackground = manageBackground  || '#fff';
 manageText = manageText  || 'Manage cookies';
+hideAfterClick = hideAfterClick || false;
 // Extras
 border === "none" ? border = "none" : border = "border";
 
@@ -208,10 +209,13 @@ let abrirSelector = () => {
 }
 // OPEN MANAGE COOKIES BUTTON
 let abrirManageCookies = () => {
-    PreBanner.style.display = "block";
+    if (hideAfterClick) {
+        PreBanner.style.display = "none";
+    } else {
+        PreBanner.style.display = "block";
+    }
     Cookies.style.display = "none";
 }
-
 
 /* ======================================
 VERIFY -- ACCEPTED OR DISABLED

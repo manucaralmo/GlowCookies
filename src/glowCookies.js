@@ -98,7 +98,7 @@ const activateTracking = () => {
         AnalyticsData.text = `window.dataLayer = window.dataLayer || [];
                             function gtag(){dataLayer.push(arguments);}
                             gtag('js', new Date());
-                            gtag('config', '${AnalyticsCode}');`;
+                            gtag('config', '${AnalyticsCode}', {'anonymize_ip': true});`;
         document.head.appendChild(AnalyticsData);
     }
 

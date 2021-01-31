@@ -2,7 +2,7 @@
     GLOW COOKIES
     CREATED BY MANUEL CARRILLO
     WWW.GLOWMEDIA.ES
-    2020 - v 3.0
+    2020 - v 3.0.1
 */
 
 class GlowCookies {
@@ -26,7 +26,7 @@ class GlowCookies {
     addCss() {
         const stylesheet = document.createElement('link');
         stylesheet.setAttribute('rel', 'stylesheet');
-        stylesheet.setAttribute('href', `https://cdn.jsdelivr.net/gh/manucaralmo/GlowCookies@3.0.0/src/glowCookies.min.css`);
+        stylesheet.setAttribute('href', `https://cdn.jsdelivr.net/gh/manucaralmo/GlowCookies@3.0.1/src/glowCookies.min.css`);
         document.head.appendChild(stylesheet);
     }
 

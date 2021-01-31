@@ -20,7 +20,7 @@ Add this code to your html `<head>` or `<body>` tag.
 ```html
 <script src="https://cdn.jsdelivr.net/gh/manucaralmo/GlowCookies@3.0.1/src/glowCookies.min.js"></script>
 <script>
-    glowCookies.start('es', { 
+    glowCookies.start('en', { 
         analytics: 'G-FH87DE17XF', 
         facebookPixel: '990955817632355',
         policyLink: 'https://google.es'

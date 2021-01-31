@@ -1,92 +1,110 @@
-![Badge-glow](https://img.shields.io/badge/GlowCookies-v.2.0.4-blue) ![jsDelivr hits (GitHub)](https://img.shields.io/jsdelivr/gh/hm/manucaralmo/GlowCookies) ![GitHub repo size](https://img.shields.io/github/repo-size/manucaralmo/GlowCookies) ![GitHub Repo stars](https://img.shields.io/github/stars/manucaralmo/GlowCookies?style=social)
+<img src="https://cdn.glowmedia.es/upload/uploads/d53f37cookies-preview.png" data-canonical-src="https://cdn.glowmedia.es/upload/uploads/d53f37cookies-preview.png" width="100%" />
+
+
+![Badge-glow](https://img.shields.io/badge/GlowCookies-v.3.0.0-blue) ![jsDelivr hits (GitHub)](https://img.shields.io/jsdelivr/gh/hm/manucaralmo/GlowCookies) ![GitHub repo size](https://img.shields.io/github/repo-size/manucaralmo/GlowCookies) ![GitHub Repo stars](https://img.shields.io/github/stars/manucaralmo/GlowCookies?style=social)
+
 # GlowCookies - Cookie Consent Banner In JavaScript for Google Analytics, Facebook Pixel & more
-Simple and full automated cookies banner for any website. Complies with the new European regulations with only two lines of code. Activate and deactivate Google Analytics, Facebook Pixel, Hotjar (and coming soon) cookies whenever the user wishes, with just 1 click.
+Simple and full automated cookies banner for any website. Complies with the new European regulations with GlowCookies. Activate and deactivate Google Analytics, Facebook Pixel, Hotjar (and coming soon) cookies whenever the user wishes, with just 1 click.
 
 [![Foo](https://cdn.glowmedia.es/upload/uploads/ed1952btn.svg)](https://manucaralmo.github.io/GlowCookies/)
 
-<br>
-The cookies banner
-<img src="https://cdn.glowmedia.es/upload/uploads/6c8121glowCookies.png" data-canonical-src="https://cdn.glowmedia.es/upload/uploads/6c8121glowCookies.png" width="375" />
-<br>
 
-## How it works?
+## The cookies banner
+<img src="https://cdn.glowmedia.es/upload/uploads/90c82dbanner.png" data-canonical-src="https://cdn.glowmedia.es/upload/uploads/90c82dbanner.png" width="375" />
+
+## How it works
 You just have to install the code. When the user clicks on accept cookies, the google analytics tracking code, Facebook Pixel and/or Hotjar starts tracking. If the user rejects cookies, the tracking code will not start working.
 
-## How to install it?
-Add this code to your html `<head>` tag.
+## How to use
+Add this code to your html `<head>` or `<body>` tag.
 ```html
-<script src="https://cdn.jsdelivr.net/gh/manucaralmo/GlowCookies@2.0.4/src/glowCookies.min.js" async></script>
+<script src="https://cdn.jsdelivr.net/gh/manucaralmo/GlowCookies@3.0.0/src/glowCookies.min.js"></script>
 <script>
-    AnalyticsCode = "UA-156900259-00"; // Your Analytics tracking code (Optional)
-    FacebookPixelCode = "96272777700000"; // Your Facebook Pixel code (Optional)
-    HotjarTrackingCode = "2027553"; // Your Hotjar id (Optional)
-    linkHref = "https://link-to-your-cookies.html"; // Your Cookies Policy link
+    glowCookies.start('es', { 
+        analytics: 'G-FH87DE17XF', 
+        facebookPixel: '990955817632355',
+        policyLink: 'https://google.es'
+    });
 </script>
 ```
 
-## Important
-1. In `AnalyticsCode` (optional) you must add your tracking id that you can find in Google Analytics.
-2. In `FacebookPixelCode` (optional) you must add your Facebook Pixel Code (Event: PageView).
-3. In `HotjarTrackingCode` (Optional) you must add your Hotjar ID.
-4. In `linkHref` you must add the link where users can read more about cookies.
-
-## Customize banner
+## Tracking options
 And that's it. Now there are certain parameters that you can change to customize your banner.
 
-### Texts & content
-1. `btn1Text` - Change the text of "Accept cookies" button text.
-2. `btn2Text` - Change the text of "Disable cookies" button.
-3. `bannerDescription` - Change the text that appears on the banner. The default text is: "Utilizamos cookies propias y de terceros para personalizar el contenido y para analizar el tráfico de la web."
-4. `linkTexto` - Change the text of the "Show more about cookies" link.
-5. `linkHref` - Change the "Show more about cookies" link (Ej. https://link-to-your-cookies-policy.com).
-6. `manageText` - Change the text of "manage cookies" button.
+| Parameter | Type | Values |
+| ------------- | ------------- | ------------- |
+| `analytics` | String  | Example: `"G-FH87DE17XF"` (Analytics tracking code) |
+| `facebookPixel` | String  | Example: `"990955817632355"` (Facebook Pixel code) |
+| `HotjarTrackingCode` | String  | Example: `"990955817632355"` (Hotjar tracking code) |
+| `customScript` (Inline) | Object  | Example: `[{ type: 'custom', position: 'body', content: 'console.log('me cargo');' }]` |
+| `customScript` (src) | Object  | Example: `[{ type: 'src', position: 'head', content: 'https://www.googletagmanager.com/gtag/js?id=G-FH87DE17XF' }]` |
 
-### Colors
-1. `btn1Background` - Change the background color of the "Accept cookies" button.
-2. `btn1Color` - Change the color of the text "Accept cookies" button.
-3. `btn2Background` - Change the background color of the "Disable cookies" button.
-4. `btn2Color` - Change the color of the text "Disable cookies" button.
-5. `bannerBackground` - Change the background color of the cookies banner.
-6. `descriptionColor` - Change the text color of the cookies description.
-7. `manageColor` - Change the text color of "manage cookies" button.
-8. `manageBackground` - Change the background color of "manage cookies" button.
+## Config Banner
+And that's it. Now there are certain parameters that you can change to customize your banner.
 
-### Alignment & extras
-1. `bannerPosition` - ("left" or "right") Left default.
-2. `border` - ("yes" or "none").
-3. `hideAfterClick` - ("true" or "false") - Let the button disappear after a user decided. False is default.
+| Parameter | Type | Values |
+| ------------- | ------------- | ------------- |
+| `policyLink` | String  | Example: `"https://yourlink.com"` (Your cookies policy link) |
+| `hideAfterClick` | Boolean  | (`true` or `false`) Default: `true` (Hide banner after Accept or Reject cookies) |
 
-## Example
+
+## Customize Banner
+And that's it. Now there are certain parameters that you can change to customize your banner.
+
+| Parameter | Type | Values |
+| ------------- | ------------- | ------------- |
+| `border` | String | (`"border"` or `"none"`) Default: `"border"` |
+| `position` | String | (`"left"` or `"right"`) Default: `"left"` |
+| `bannerDescription` | String  | Example: `"We use our own and third-party cookies to personalize content and to analyze web traffic."` |
+| `bannerLinkText` | String  | Example: `"Read more about cookies"` |
+| `bannerBackground` | String  | Example: `"#FAFAFA"` Example: `"lightblue"` |
+| `bannerColor` | String  | Example: `"#000"` Example: `"blue"` |
+| `bannerHeading` | String  | Example: `"Use of cookies"` Default: None |
+| `acceptBtnText` | String  | Example: `"Accept cookies"` |
+| `acceptBtnColor` | String  | Example: `"#000"` Example: `"blue"` |
+| `acceptBtnBackground` | String  | Example: `"#fff"` Example: `"white"` |
+| `rejectBtnText` | String  | Example: `"Reject"` |
+| `rejectBtnBackground` | String  | Example: `"#000"` Example: `"blue"` |
+| `rejectBtnColor` | String  | Example: `"#fff"` Example: `"white"` |
+| `manageColor` | String  | Example: `"#fff"` Example: `"white"` |
+| `manageBackground` | String  | Example: `"#f2f2f2"` Example: `"blue"` |
+| `manageText` | String  | Example: `"Manage cookies"` |
+
+
+## Fully customized banner
 ```html
-<script src="https://cdn.jsdelivr.net/gh/manucaralmo/GlowCookies@2.0.4/src/glowCookies.min.js" async></script>
+<script src="https://cdn.jsdelivr.net/gh/manucaralmo/GlowCookies@3.0.0/src/glowCookies.min.js"></script>
 <script>
-    AnalyticsCode = "UA-156900259-00";
-    FacebookPixelCode = "96272777700000";
-    HotjarTrackingCode = "2027553";
-    linkHref = "https://link-to-your-cookies.html";
-    // texts
-    btn1Text = "Aceptar cookies";
-    btn2Text = "Rechazar";
-    bannerDescription = "Utilizamos cookies propias y de terceros para personalizar el contenido y para analizar el tráfico de la web.";
-    linkTexto = "Ver más sobre las cookies";
-    manageText = "Cookies";
-    // colors
-    btn1Background = "#E8E8E8"; 
-    btn1Color = "#17663D";
-    btn2Background = "#E8E8E8";
-    btn2Color = "#17663D";
-    bannerBackground = "#17663D";
-    descriptionColor = "#fff";
-    manageColor = "#E8E8E8";
-    manageBackground = "#17663D";
-    // Extras
-    border = "none";
-    bannerPosition = "right";
-    hideAfterClick = true;
+    glowCookies.start('en', { 
+        analytics: 'G-FH87DE17XF', 
+        facebookPixel: '990955817632355',
+        hideAfterClick: true,
+        border: 'none',
+        position: 'right',
+        policyLink: 'https://google.es',
+        customScript: [{ type: 'custom', position: 'body', content: `console.log('my custom js');` }],
+        bannerDescription: 'banner desc',
+        bannerLinkText: 'banner link text',
+        bannerBackground: '#000',
+        bannerColor: '#fafafa',
+        bannerHeading: '<h2>Cookies</h2>',
+        acceptBtnText: 'accept btn text',
+        acceptBtnColor: 'green',
+        acceptBtnBackground: 'red',
+        rejectBtnText: 'reject btn text',
+        rejectBtnBackground: 'lightblue',
+        rejectBtnColor: 'blue',
+        manageColor: 'white',
+        manageBackground: 'blue',
+        manageText: 'cookies text'
+    });
 </script>
 ```
 
+## Next steps
+- [ ] Advanced cookies management
+- [ ] Banner templates
+- [ ] Custom cookies icon
 
-## how to contribute?
-Coming soon<br>
-Email - manuel@glowmedia.es
+### Request features
+info@glowmedia.es

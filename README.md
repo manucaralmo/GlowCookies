@@ -28,8 +28,12 @@ Add this code to your html `<head>` or `<body>` tag.
 </script>
 ```
 
+## Languages `New`
+Now you can choose between two available languages: English and Spanish.
+In the first parameter of the start() method add `'es'` for Spanish or `'en'` for English.
+
 ## Tracking options
-And that's it. Now there are certain parameters that you can change to customize your banner.
+These are the parameters that you can modify to add your tracking codes or custom scripts.
 
 | Parameter | Type | Values |
 | ------------- | ------------- | ------------- |
@@ -40,7 +44,7 @@ And that's it. Now there are certain parameters that you can change to customize
 | `customScript` (src) | Object  | Example: `[{ type: 'src', position: 'head', content: 'https://www.googletagmanager.com/gtag/js?id=G-FH87DE17XF' }]` |
 
 ## Config Banner
-And that's it. Now there are certain parameters that you can change to customize your banner.
+These are the parameters that you can modify to change certain banner options
 
 | Parameter | Type | Values |
 | ------------- | ------------- | ------------- |
@@ -49,7 +53,7 @@ And that's it. Now there are certain parameters that you can change to customize
 
 
 ## Customize Banner
-And that's it. Now there are certain parameters that you can change to customize your banner.
+Now there are certain parameters that you can change to customize your banner.
 
 | Parameter | Type | Values |
 | ------------- | ------------- | ------------- |

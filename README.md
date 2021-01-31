@@ -36,7 +36,7 @@ And that's it. Now there are certain parameters that you can change to customize
 | `analytics` | String  | Example: `"G-FH87DE17XF"` (Analytics tracking code) |
 | `facebookPixel` | String  | Example: `"990955817632355"` (Facebook Pixel code) |
 | `HotjarTrackingCode` | String  | Example: `"990955817632355"` (Hotjar tracking code) |
-| `customScript` (Inline) | Object  | Example: `[{ type: 'custom', position: 'body', content: 'console.log('me cargo');' }]` |
+| `customScript` (Inline) | Object  | Example: `[{ type: 'custom', position: 'body', content: 'console.log('custom script');' }]` |
 | `customScript` (src) | Object  | Example: `[{ type: 'src', position: 'head', content: 'https://www.googletagmanager.com/gtag/js?id=G-FH87DE17XF' }]` |
 
 ## Config Banner

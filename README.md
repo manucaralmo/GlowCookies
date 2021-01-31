@@ -6,7 +6,7 @@
 # GlowCookies - Cookie Consent Banner In JavaScript for Google Analytics, Facebook Pixel & more
 Simple and full automated cookies banner for any website. Complies with the new European regulations with GlowCookies. Activate and deactivate Google Analytics, Facebook Pixel, Hotjar (and coming soon) cookies whenever the user wishes, with just 1 click.
 
-[![Foo](https://cdn.glowmedia.es/upload/uploads/ed1952btn.svg)](https://manucaralmo.github.io/GlowCookies/)
+[![Foo](https://cdn.glowmedia.es/upload/uploads/ed1952btn.svg)](https://manucaralmo.github.io/glow-cookies-web/)
 
 
 ## The cookies banner

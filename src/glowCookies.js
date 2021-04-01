@@ -296,6 +296,31 @@ class GlowCookies {
                     text: obj.manageText || 'Cookies',
                 }
             }
+        } else if (languaje === 'de') {
+            // Banner
+            this.banner = {
+                description: obj.bannerDescription || 'Wir nutzen Eigene und Cookies Dritter um Inhalte zu personalisieren und Surfverhalten zu analysieren.',
+                linkText: obj.bannerLinkText || 'Mehr über Cookies',
+                link: obj.policyLink || '#link',
+                background: obj.bannerBackground ||'#fff',
+                color: obj.bannerColor || '#505050',
+                heading: obj.bannerHeading || '',
+                acceptBtn: {
+                    text: obj.acceptBtnText ||  'Cookies akzeptieren',
+                    background: obj.acceptBtnBackground || '#24273F',
+                    color: obj.acceptBtnColor || '#fff'
+                },
+                rejectBtn: {
+                    text: obj.rejectBtnText || 'Ablehnen',
+                    background: obj.rejectBtnBackground || '#E8E8E8',
+                    color: obj.rejectBtnColor || '#636363'
+                },
+                manageCookies: {
+                    color: obj.manageColor || '#red',
+                    background: obj.manageBackground || '#fff',
+                    text: obj.manageText || 'Cookies verwalten',
+                }
+            }
         }
         
         // Draw banner

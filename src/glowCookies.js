@@ -296,7 +296,31 @@ class GlowCookies {
                     text: obj.manageText || 'Cookies',
                 }
             }
-        }
+        } else if (languaje === 'th') {
+            // Banner
+            this.banner = {
+                description: obj.bannerDescription || 'พวกเราใช้คุกกี้บุคคลที่สาม เพื่อปรับแต่งเนื้อหาและวิเคราะห์การเข้าชมเว็บ',
+                linkText: obj.bannerLinkText || 'อ่านเพิ่มเติมเกี่ยวกับคุกกี้',
+                link: obj.policyLink || '#link',
+                background: obj.bannerBackground ||'#fff',
+                color: obj.bannerColor || '#505050',
+                heading: obj.bannerHeading || '',
+                acceptBtn: {
+                    text: obj.acceptBtnText || 'ยอมรับคุกกี้',
+                    background: obj.acceptBtnBackground || '#24273F',
+                    color: obj.acceptBtnColor || '#fff'
+                },
+                rejectBtn: {
+                    text: obj.rejectBtnText || 'ปฏิเสธคุกกี้',
+                    background: obj.rejectBtnBackground || '#E8E8E8',
+                    color: obj.rejectBtnColor || '#636363'
+                },
+                manageCookies: {
+                    color: obj.manageColor || '#red',
+                    background: obj.manageBackground || '#fff',
+                    text: obj.manageText || 'Cookies',
+                }
+            }
         
         // Draw banner
         window.addEventListener('load', () => { this.render() })

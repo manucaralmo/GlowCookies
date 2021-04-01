@@ -29,7 +29,12 @@ Add this code to your html `<head>` or `<body>` tag.
 ```
 
 ## Languages `New`
-Now you can choose between two available languages: English and Spanish.
+Now you can choose between these available languages: 
+- English (`en`)
+- Spanish (`es`)
+- German (`de`)
+- Thai (`th`)
+
 In the first parameter of the start() method add `'es'` for Spanish or `'en'` for English.
 
 ## Tracking options
@@ -104,6 +109,21 @@ Now there are certain parameters that you can change to customize your banner.
     });
 </script>
 ```
+
+## Contribute
+If you know any other language, please help translate.
+Update the `arrLang` of the `LanguageGC` class in glowCookie.js
+Add an entry in this fashion and create a pull request.
+```
+en: {
+                'bannerDescription' : 'We use our own and third-party cookies to personalize content and to analyze web traffic.',
+                'bannerLinkText' : 'Read more about cookies',
+                'acceptBtnText' : 'Accept cookies',
+                'rejectBtnText' : 'Reject',
+                'manageText' : 'Manage cookies'
+            }
+```
+Thanks for your help! 🎉
 
 ## Next steps
 - [ ] Advanced cookies management

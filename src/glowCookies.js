@@ -246,84 +246,83 @@ class GlowCookies {
             customScript: obj.customScript || undefined
         }
 
-        if (languaje === 'en') {
-            // Banner
-            this.banner = {
-                description: obj.bannerDescription || 'We use our own and third-party cookies to personalize content and to analyze web traffic.',
-                linkText: obj.bannerLinkText || 'Read more about cookies',
-                link: obj.policyLink || '#link',
-                background: obj.bannerBackground ||'#fff',
-                color: obj.bannerColor || '#505050',
-                heading: obj.bannerHeading || '',
-                acceptBtn: {
-                    text: obj.acceptBtnText || 'Accept cookies',
-                    background: obj.acceptBtnBackground || '#24273F',
-                    color: obj.acceptBtnColor || '#fff'
-                },
-                rejectBtn: {
-                    text: obj.rejectBtnText || 'Reject',
-                    background: obj.rejectBtnBackground || '#E8E8E8',
-                    color: obj.rejectBtnColor || '#636363'
-                },
-                manageCookies: {
-                    color: obj.manageColor || '#red',
-                    background: obj.manageBackground || '#fff',
-                    text: obj.manageText || 'Manage cookies',
-                }
+        // Banner
+        const lang = new LanguagesGC(languaje);
+        this.banner = {
+            description: obj.bannerDescription || lang.bannerDescription,
+            linkText: obj.bannerLinkText || lang.bannerLinkText,
+            link: obj.policyLink || '#link',
+            background: obj.bannerBackground ||'#fff',
+            color: obj.bannerColor || '#505050',
+            heading: obj.bannerHeading || '',
+            acceptBtn: {
+                text: obj.acceptBtnText || lang.acceptBtnText,
+                background: obj.acceptBtnBackground || '#24273F',
+                color: obj.acceptBtnColor || '#fff'
+            },
+            rejectBtn: {
+                text: obj.rejectBtnText || lang.rejectBtnText,
+                background: obj.rejectBtnBackground || '#E8E8E8',
+                color: obj.rejectBtnColor || '#636363'
+            },
+            manageCookies: {
+                color: obj.manageColor || '#red',
+                background: obj.manageBackground || '#fff',
+                text: obj.manageText || lang.manageText,
             }
-        } else if (languaje === 'es') {
-            // Banner
-            this.banner = {
-                description: obj.bannerDescription || 'Utilizamos cookies propias y de terceros para personalizar el contenido y para analizar el tráfico de la web.',
-                linkText: obj.bannerLinkText || 'Ver más sobre las cookies',
-                link: obj.policyLink || '#link',
-                background: obj.bannerBackground ||'#fff',
-                color: obj.bannerColor || '#505050',
-                heading: obj.bannerHeading || '',
-                acceptBtn: {
-                    text: obj.acceptBtnText || 'Aceptar cookies',
-                    background: obj.acceptBtnBackground || '#24273F',
-                    color: obj.acceptBtnColor || '#fff'
-                },
-                rejectBtn: {
-                    text: obj.rejectBtnText || 'Rechazar',
-                    background: obj.rejectBtnBackground || '#E8E8E8',
-                    color: obj.rejectBtnColor || '#636363'
-                },
-                manageCookies: {
-                    color: obj.manageColor || '#red',
-                    background: obj.manageBackground || '#fff',
-                    text: obj.manageText || 'Cookies',
-                }
-            }
-        } else if (languaje === 'th') {
-            // Banner
-            this.banner = {
-                description: obj.bannerDescription || 'พวกเราใช้คุกกี้บุคคลที่สาม เพื่อปรับแต่งเนื้อหาและวิเคราะห์การเข้าชมเว็บ',
-                linkText: obj.bannerLinkText || 'อ่านเพิ่มเติมเกี่ยวกับคุกกี้',
-                link: obj.policyLink || '#link',
-                background: obj.bannerBackground ||'#fff',
-                color: obj.bannerColor || '#505050',
-                heading: obj.bannerHeading || '',
-                acceptBtn: {
-                    text: obj.acceptBtnText || 'ยอมรับคุกกี้',
-                    background: obj.acceptBtnBackground || '#24273F',
-                    color: obj.acceptBtnColor || '#fff'
-                },
-                rejectBtn: {
-                    text: obj.rejectBtnText || 'ปฏิเสธคุกกี้',
-                    background: obj.rejectBtnBackground || '#E8E8E8',
-                    color: obj.rejectBtnColor || '#636363'
-                },
-                manageCookies: {
-                    color: obj.manageColor || '#red',
-                    background: obj.manageBackground || '#fff',
-                    text: obj.manageText || 'Cookies',
-                }
-            }
-        
+        }
+      
         // Draw banner
         window.addEventListener('load', () => { this.render() })
     }
 }
 const glowCookies = new GlowCookies();
+
+class LanguagesGC {
+    constructor(code) {
+        this.init();
+        let lang = this.arrLang[code] || this.arrLang['en'];
+        this.bannerDescription = lang['bannerDescription'];
+        this.bannerLinkText = lang['bannerLinkText'];
+        this.acceptBtnText = lang['acceptBtnText'];
+        this.rejectBtnText = lang['rejectBtnText'];
+        this.manageText = lang['manageText'];
+    }
+
+    init() {
+        this.arrLang = {
+            en: {
+                'bannerDescription' : 'We use our own and third-party cookies to personalize content and to analyze web traffic.',
+                'bannerLinkText' : 'Read more about cookies',
+                'acceptBtnText' : 'Accept cookies',
+                'rejectBtnText' : 'Reject',
+                'manageText' : 'Manage cookies'
+            },
+    
+            es: {
+                'bannerDescription' : 'Utilizamos cookies propias y de terceros para personalizar el contenido y para analizar el tráfico de la web.',
+                'bannerLinkText' : 'Ver más sobre las cookies',
+                'acceptBtnText' : 'Aceptar cookies',
+                'rejectBtnText' : 'Rechazar',
+                'manageText' : 'Cookies'
+            },
+    
+            de: {
+                'bannerDescription' : 'Wir nutzen Eigene und Cookies Dritter um Inhalte zu personalisieren und Surfverhalten zu analysieren.',
+                'bannerLinkText' : 'Mehr über Cookies',
+                'acceptBtnText' : 'Cookies akzeptieren',
+                'rejectBtnText' : 'Ablehnen',
+                'manageText' : 'Cookies verwalten'
+            },
+    
+            th: {
+                'bannerDescription' : 'พวกเราใช้คุกกี้บุคคลที่สาม เพื่อปรับแต่งเนื้อหาและวิเคราะห์การเข้าชมเว็บ',
+                'bannerLinkText' : 'อ่านเพิ่มเติมเกี่ยวกับคุกกี้',
+                'acceptBtnText' : 'ยอมรับคุกกี้',
+                'rejectBtnText' : 'ปฏิเสธคุกกี้',
+                'manageText' : 'Cookies'
+            }
+        };
+    }
+
+}

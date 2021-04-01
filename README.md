@@ -18,19 +18,31 @@ You just have to install the code. When the user clicks on accept cookies, the g
 ## How to use
 Add this code to your html `<head>` or `<body>` tag.
 ```html
-<script src="https://cdn.jsdelivr.net/gh/manucaralmo/GlowCookies@3.0.1/src/glowCookies.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/manucaralmo/GlowCookies@3.1/src/glowCookies.min.js"></script>
 <script>
     glowCookies.start('en', { 
+        style: 1,
         analytics: 'G-FH87DE17XF', 
         facebookPixel: '990955817632355',
-        policyLink: 'https://google.es'
+        policyLink: 'https://link-to-your-policy.com'
     });
 </script>
 ```
 
+## Banner styles `New`
+Now you can choose between these available banner styles:
+- Style `1`, `2` or `3` 
+
+Set style in config object glowCookies.start('en', { style: 3 })
+
 ## Languages `New`
-Now you can choose between two available languages: English and Spanish.
-In the first parameter of the start() method add `'es'` for Spanish or `'en'` for English.
+Now you can choose between these available languages: 
+- English (`en`)
+- Spanish (`es`)
+- German (`de`)
+- Thai (`th`)
+
+Set language in the first parameter of the glowCookies.start('en', { }) method.
 
 ## Tracking options
 These are the parameters that you can modify to add your tracking codes or custom scripts.
@@ -77,9 +89,10 @@ Now there are certain parameters that you can change to customize your banner.
 
 ## Fully customized banner
 ```html
-<script src="https://cdn.jsdelivr.net/gh/manucaralmo/GlowCookies@3.0.1/src/glowCookies.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/manucaralmo/GlowCookies@3.1/src/glowCookies.min.js"></script>
 <script>
     glowCookies.start('en', { 
+        style: 2,
         analytics: 'G-FH87DE17XF', 
         facebookPixel: '990955817632355',
         hideAfterClick: true,
@@ -105,10 +118,24 @@ Now there are certain parameters that you can change to customize your banner.
 </script>
 ```
 
+## Contribute
+If you know any other language, please help translate.
+Update the `arrLang` of the `LanguageGC` class in glowCookies.js
+Add an entry in this fashion and create a pull request.
+```
+en: {
+    'bannerDescription' : 'We use our own and third-party cookies to personalize content and to analyze web traffic.',
+    'bannerLinkText' : 'Read more about cookies',
+    'acceptBtnText' : 'Accept cookies',
+    'rejectBtnText' : 'Reject',
+    'manageText' : 'Manage cookies'
+}
+```
+Thanks for your help! 🎉
+
 ## Next steps
 - [ ] Advanced cookies management
 - [ ] Banner templates
-- [ ] Custom cookies icon
 
 ### Request features
 info@glowmedia.es

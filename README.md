@@ -42,7 +42,7 @@ Now you can choose between these available languages:
 - German (`de`)
 - Thai (`th`)
 
-Set language in the first parameter of `glowCookies.start('en', { }) method.
+Set language in the first parameter of `glowCookies.start('en', { })` method.
 
 ## Tracking options
 These are the parameters that you can modify to add your tracking codes or custom scripts.

@@ -33,7 +33,7 @@ Add this code to your html `<head>` or `<body>` tag.
 Now you can choose between these available banner styles:
 - Style `1`, `2` or `3` 
 
-Set style in config object glowCookies.start('en', { style: 3 })
+Set style in config object `glowCookies.start('en', { style: 3 })`
 
 ## Languages `New`
 Now you can choose between these available languages: 
@@ -42,7 +42,7 @@ Now you can choose between these available languages:
 - German (`de`)
 - Thai (`th`)
 
-Set language in the first parameter of the glowCookies.start('en', { }) method.
+Set language in the first parameter of `glowCookies.start('en', { }) method.
 
 ## Tracking options
 These are the parameters that you can modify to add your tracking codes or custom scripts.

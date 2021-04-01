@@ -124,6 +124,7 @@ Update the `arrLang` of the `LanguageGC` class in glowCookies.js
 Add an entry in this fashion and create a pull request.
 ```
 en: {
+    'bannerHeading': 'We use cookies',
     'bannerDescription' : 'We use our own and third-party cookies to personalize content and to analyze web traffic.',
     'bannerLinkText' : 'Read more about cookies',
     'acceptBtnText' : 'Accept cookies',
@@ -135,7 +136,7 @@ Thanks for your help! 🎉
 
 ## Next steps
 - [ ] Advanced cookies management
-- [ ] Banner templates
+- [ ] Cookie settings
 
 ### Request features
 info@glowmedia.es

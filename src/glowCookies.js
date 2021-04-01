@@ -271,7 +271,7 @@ class GlowCookies {
                 text: obj.manageText || lang.manageText,
             }
         }
-    
+      
         // Draw banner
         window.addEventListener('load', () => { this.render() })
     }

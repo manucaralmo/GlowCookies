@@ -42,6 +42,7 @@ Now you can choose between these available languages:
 - German (`de`)
 - French (`fr`)
 - Thai (`th`)
+- Slovak (`sk`)
 
 Set language in the first parameter of `glowCookies.start('en', { })` method.
 

@@ -325,6 +325,14 @@ class LanguagesGC {
                 'acceptBtnText': 'ยอมรับคุกกี้',
                 'rejectBtnText': 'ปฏิเสธคุกกี้',
                 'manageText': 'Cookies'
+            },
+            sk: {
+                'bannerHeading': 'Používame cookies',
+                'bannerDescription' : 'Na prispôsobenie obsahu a analýzu webovej stránky používame vlastné cookies a cookies tretích strán.',
+                'bannerLinkText' : 'Čo sú cookies?',
+                'acceptBtnText' : 'Povoliť cookies',
+                'rejectBtnText' : 'Nepovoliť',
+                'manageText' : 'Spravovať cookies'
             }
         }
     }

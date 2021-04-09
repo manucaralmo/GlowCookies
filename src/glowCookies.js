@@ -2,7 +2,7 @@
     GLOW COOKIES
     CREATED BY MANUEL CARRILLO
     https://github.com/manucaralmo/GlowCookies
-    2021 - v 3.1
+    2021 - v 3.1.1
 */
 
 class GlowCookies {

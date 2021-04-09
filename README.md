@@ -18,7 +18,7 @@ You just have to install the code. When the user clicks on accept cookies, the g
 ## How to use
 Add this code to your html `<head>` or `<body>` tag.
 ```html
-<script src="https://cdn.jsdelivr.net/gh/manucaralmo/GlowCookies@3.1/src/glowCookies.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/manucaralmo/GlowCookies@3.1.1/src/glowCookies.min.js"></script>
 <script>
     glowCookies.start('en', { 
         style: 1,
@@ -91,7 +91,7 @@ Now there are certain parameters that you can change to customize your banner.
 
 ## Fully customized banner
 ```html
-<script src="https://cdn.jsdelivr.net/gh/manucaralmo/GlowCookies@3.1/src/glowCookies.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/manucaralmo/GlowCookies@3.1.1/src/glowCookies.min.js"></script>
 <script>
     glowCookies.start('en', { 
         style: 2,

@@ -318,6 +318,14 @@ class LanguagesGC {
                 'rejectBtnText': 'Ablehnen',
                 'manageText': 'Cookies verwalten'
             },
+            fr: {
+                'bannerHeading': 'Nous utilisons des cookies',
+                'bannerDescription': 'Nous utilisons nos propres cookies et ceux de tiers pour adapter le contenu et analyser le trafic web.',
+                'bannerLinkText': 'En savoir plus sur les cookies',
+                'acceptBtnText': 'Accepter les cookies',
+                'rejectBtnText': 'Refuser',
+                'manageText': 'Paramétrez les cookies'
+            },
             th: {
                 'bannerHeading': 'Cookies',
                 'bannerDescription': 'พวกเราใช้คุกกี้บุคคลที่สาม เพื่อปรับแต่งเนื้อหาและวิเคราะห์การเข้าชมเว็บ',

@@ -341,6 +341,14 @@ class LanguagesGC {
                 'acceptBtnText' : 'Povoliť cookies',
                 'rejectBtnText' : 'Nepovoliť',
                 'manageText' : 'Spravovať cookies'
+            },
+            pt_BR: {
+                'bannerHeading': 'Uso de cookies',
+                'bannerDescription': 'Usamos cookies próprios e de terceiros para personalizar o conteúdo e analisar o tráfego da web.',
+                'bannerLinkText': 'Leia mais sobre os cookies',
+                'acceptBtnText': 'Aceitar cookies',
+                'rejectBtnText': 'Rejeitar',
+                'manageText': 'Gerenciar cookies'
             }
         }
     }

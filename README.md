@@ -18,7 +18,7 @@ You just have to install the code. When the user clicks on accept cookies, the g
 ## How to use
 Add this code to your html `<head>` or `<body>` tag.
 ```html
-<script src="https://cdn.jsdelivr.net/gh/manucaralmo/GlowCookies@3.1.1/src/glowCookies.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/manucaralmo/GlowCookies@3.1.2/src/glowCookies.min.js"></script>
 <script>
     glowCookies.start('en', { 
         style: 1,
@@ -43,55 +43,56 @@ Now you can choose between these available languages:
 - French (`fr`)
 - Thai (`th`)
 - Slovak (`sk`)
+- Brazilian portugese (`pt_BR`)
 
 Set language in the first parameter of `glowCookies.start('en', { })` method.
 
 ## Tracking options
 These are the parameters that you can modify to add your tracking codes or custom scripts.
 
-| Parameter | Type | Values |
-| ------------- | ------------- | ------------- |
-| `analytics` | String  | Example: `"G-FH87DE17XF"` (Analytics tracking code) |
-| `facebookPixel` | String  | Example: `"990955817632355"` (Facebook Pixel code) |
-| `HotjarTrackingCode` | String  | Example: `"990955817632355"` (Hotjar tracking code) |
-| `customScript` (Inline) | Object  | Example: `[{ type: 'custom', position: 'body', content: 'console.log('custom script');' }]` |
-| `customScript` (src) | Object  | Example: `[{ type: 'src', position: 'head', content: 'https://www.googletagmanager.com/gtag/js?id=G-FH87DE17XF' }]` |
+| Parameter               | Type   | Values                                                                                                              |
+| ----------------------- | ------ | ------------------------------------------------------------------------------------------------------------------- |
+| `analytics`             | String | Example: `"G-FH87DE17XF"` (Analytics tracking code)                                                                 |
+| `facebookPixel`         | String | Example: `"990955817632355"` (Facebook Pixel code)                                                                  |
+| `HotjarTrackingCode`    | String | Example: `"990955817632355"` (Hotjar tracking code)                                                                 |
+| `customScript` (Inline) | Object | Example: `[{ type: 'custom', position: 'body', content: 'console.log('custom script');' }]`                         |
+| `customScript` (src)    | Object | Example: `[{ type: 'src', position: 'head', content: 'https://www.googletagmanager.com/gtag/js?id=G-FH87DE17XF' }]` |
 
 ## Config Banner
 These are the parameters that you can modify to change certain banner options
 
-| Parameter | Type | Values |
-| ------------- | ------------- | ------------- |
-| `policyLink` | String  | Example: `"https://yourlink.com"` (Your cookies policy link) |
-| `hideAfterClick` | Boolean  | (`true` or `false`) Default: `true` (Hide banner after Accept or Reject cookies) |
+| Parameter        | Type    | Values                                                                           |
+| ---------------- | ------- | -------------------------------------------------------------------------------- |
+| `policyLink`     | String  | Example: `"https://yourlink.com"` (Your cookies policy link)                     |
+| `hideAfterClick` | Boolean | (`true` or `false`) Default: `true` (Hide banner after Accept or Reject cookies) |
 
 
 ## Customize Banner
 Now there are certain parameters that you can change to customize your banner.
 
-| Parameter | Type | Values |
-| ------------- | ------------- | ------------- |
-| `border` | String | (`"border"` or `"none"`) Default: `"border"` |
-| `position` | String | (`"left"` or `"right"`) Default: `"left"` |
-| `bannerDescription` | String  | Example: `"We use our own and third-party cookies to personalize content and to analyze web traffic."` |
-| `bannerLinkText` | String  | Example: `"Read more about cookies"` |
-| `bannerBackground` | String  | Example: `"#FAFAFA"` Example: `"lightblue"` |
-| `bannerColor` | String  | Example: `"#000"` Example: `"blue"` |
-| `bannerHeading` | String  | Example: `"Use of cookies"` Default: None |
-| `acceptBtnText` | String  | Example: `"Accept cookies"` |
-| `acceptBtnColor` | String  | Example: `"#000"` Example: `"blue"` |
-| `acceptBtnBackground` | String  | Example: `"#fff"` Example: `"white"` |
-| `rejectBtnText` | String  | Example: `"Reject"` |
-| `rejectBtnBackground` | String  | Example: `"#000"` Example: `"blue"` |
-| `rejectBtnColor` | String  | Example: `"#fff"` Example: `"white"` |
-| `manageColor` | String  | Example: `"#fff"` Example: `"white"` |
-| `manageBackground` | String  | Example: `"#f2f2f2"` Example: `"blue"` |
-| `manageText` | String  | Example: `"Manage cookies"` |
+| Parameter             | Type   | Values                                                                                                 |
+| --------------------- | ------ | ------------------------------------------------------------------------------------------------------ |
+| `border`              | String | (`"border"` or `"none"`) Default: `"border"`                                                           |
+| `position`            | String | (`"left"` or `"right"`) Default: `"left"`                                                              |
+| `bannerDescription`   | String | Example: `"We use our own and third-party cookies to personalize content and to analyze web traffic."` |
+| `bannerLinkText`      | String | Example: `"Read more about cookies"`                                                                   |
+| `bannerBackground`    | String | Example: `"#FAFAFA"` Example: `"lightblue"`                                                            |
+| `bannerColor`         | String | Example: `"#000"` Example: `"blue"`                                                                    |
+| `bannerHeading`       | String | Example: `"Use of cookies"` Default: None                                                              |
+| `acceptBtnText`       | String | Example: `"Accept cookies"`                                                                            |
+| `acceptBtnColor`      | String | Example: `"#000"` Example: `"blue"`                                                                    |
+| `acceptBtnBackground` | String | Example: `"#fff"` Example: `"white"`                                                                   |
+| `rejectBtnText`       | String | Example: `"Reject"`                                                                                    |
+| `rejectBtnBackground` | String | Example: `"#000"` Example: `"blue"`                                                                    |
+| `rejectBtnColor`      | String | Example: `"#fff"` Example: `"white"`                                                                   |
+| `manageColor`         | String | Example: `"#fff"` Example: `"white"`                                                                   |
+| `manageBackground`    | String | Example: `"#f2f2f2"` Example: `"blue"`                                                                 |
+| `manageText`          | String | Example: `"Manage cookies"`                                                                            |
 
 
 ## Fully customized banner
 ```html
-<script src="https://cdn.jsdelivr.net/gh/manucaralmo/GlowCookies@3.1.1/src/glowCookies.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/manucaralmo/GlowCookies@3.1.2/src/glowCookies.min.js"></script>
 <script>
     glowCookies.start('en', { 
         style: 2,

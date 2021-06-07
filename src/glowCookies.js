@@ -294,6 +294,22 @@ class LanguagesGC {
 
   init() {
     this.arrLang = {
+      bg: {
+        'bannerHeading': 'Ние използваме бисквитки',
+        'bannerDescription': 'Използваме наши и бисквитки на трети страни, за да запазим Вашите предпочитания и да събираме аналитични данни.',
+        'bannerLinkText': 'Прочетете повече за бисквитките',
+        'acceptBtnText': 'Приеми бисквитките',
+        'rejectBtnText': 'Откажи',
+        'manageText': 'Настрой бисквитките'
+      },
+      de: {
+        'bannerHeading': 'Verwendung von Cookies',
+        'bannerDescription': 'Wir nutzen Eigene und Cookies Dritter um Inhalte zu personalisieren und Surfverhalten zu analysieren.',
+        'bannerLinkText': 'Mehr über Cookies',
+        'acceptBtnText': 'Cookies akzeptieren',
+        'rejectBtnText': 'Ablehnen',
+        'manageText': 'Cookies verwalten'
+      },
       en: {
         'bannerHeading': 'We use cookies',
         'bannerDescription': 'We use our own and third-party cookies to personalize content and to analyze web traffic.',
@@ -310,14 +326,6 @@ class LanguagesGC {
         'rejectBtnText': 'Rechazar',
         'manageText': 'Cookies'
       },
-      de: {
-        'bannerHeading': 'Verwendung von Cookies',
-        'bannerDescription': 'Wir nutzen Eigene und Cookies Dritter um Inhalte zu personalisieren und Surfverhalten zu analysieren.',
-        'bannerLinkText': 'Mehr über Cookies',
-        'acceptBtnText': 'Cookies akzeptieren',
-        'rejectBtnText': 'Ablehnen',
-        'manageText': 'Cookies verwalten'
-      },
       fr: {
         'bannerHeading': 'Nous utilisons des cookies',
         'bannerDescription': 'Nous utilisons nos propres cookies et ceux de tiers pour adapter le contenu et analyser le trafic web.',
@@ -326,13 +334,21 @@ class LanguagesGC {
         'rejectBtnText': 'Refuser',
         'manageText': 'Paramétrez les cookies'
       },
-      th: {
-        'bannerHeading': 'Cookies',
-        'bannerDescription': 'พวกเราใช้คุกกี้บุคคลที่สาม เพื่อปรับแต่งเนื้อหาและวิเคราะห์การเข้าชมเว็บ',
-        'bannerLinkText': 'อ่านเพิ่มเติมเกี่ยวกับคุกกี้',
-        'acceptBtnText': 'ยอมรับคุกกี้',
-        'rejectBtnText': 'ปฏิเสธคุกกี้',
-        'manageText': 'Cookies'
+      nl: {
+        'bannerHeading': 'We gebruiken cookies',
+        'bannerDescription': 'We gebruiken onze en third-party cookies om content te personaliseren en web traffic te analyseren.',
+        'bannerLinkText': 'Lees meer over cookies',
+        'acceptBtnText': 'Accepteren cookies',
+        'rejectBtnText': 'Wijgeren',
+        'manageText': 'Cookies beheren'
+      },
+      pt_BR: {
+        'bannerHeading': 'Uso de cookies',
+        'bannerDescription': 'Usamos cookies próprios e de terceiros para personalizar o conteúdo e analisar o tráfego da web.',
+        'bannerLinkText': 'Leia mais sobre os cookies',
+        'acceptBtnText': 'Aceitar cookies',
+        'rejectBtnText': 'Rejeitar',
+        'manageText': 'Gerenciar cookies'
       },
       sk: {
         'bannerHeading': 'Používame cookies',
@@ -342,13 +358,13 @@ class LanguagesGC {
         'rejectBtnText': 'Nepovoliť',
         'manageText': 'Spravovať cookies'
       },
-      pt_BR: {
-        'bannerHeading': 'Uso de cookies',
-        'bannerDescription': 'Usamos cookies próprios e de terceiros para personalizar o conteúdo e analisar o tráfego da web.',
-        'bannerLinkText': 'Leia mais sobre os cookies',
-        'acceptBtnText': 'Aceitar cookies',
-        'rejectBtnText': 'Rejeitar',
-        'manageText': 'Gerenciar cookies'
+      th: {
+        'bannerHeading': 'Cookies',
+        'bannerDescription': 'พวกเราใช้คุกกี้บุคคลที่สาม เพื่อปรับแต่งเนื้อหาและวิเคราะห์การเข้าชมเว็บ',
+        'bannerLinkText': 'อ่านเพิ่มเติมเกี่ยวกับคุกกี้',
+        'acceptBtnText': 'ยอมรับคุกกี้',
+        'rejectBtnText': 'ปฏิเสธคุกกี้',
+        'manageText': 'Cookies'
       }
     }
   }

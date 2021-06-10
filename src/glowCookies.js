@@ -365,6 +365,14 @@ class LanguagesGC {
         'acceptBtnText': 'ยอมรับคุกกี้',
         'rejectBtnText': 'ปฏิเสธคุกกี้',
         'manageText': 'Cookies'
+      },
+      tr: {
+        'bannerHeading': 'Çerez kullanımı',
+        'bannerDescription': 'İçeriği kişiselleştirmek ve web trafiğini analiz etmek için kendi ve üçüncü taraf çerezlerimizi kullanıyoruz.',
+        'bannerLinkText': 'Çerezler hakkında daha fazlasını okuyun',
+        'acceptBtnText': 'Çerezleri kabul et',
+        'rejectBtnText': 'Reddet',
+        'manageText': 'Çerezleri yönet'
       }
     }
   }

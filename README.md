@@ -1,4 +1,4 @@
-<img src="https://cdn.glowmedia.es/upload/uploads/d53f37cookies-preview.png" data-canonical-src="https://cdn.glowmedia.es/upload/uploads/d53f37cookies-preview.png" width="100%" />
+<img src="https://cabas.b-cdn.net/glowcookies/glowcookies.png" data-canonical-src="https://cabas.b-cdn.net/glowcookies/glowcookies.png" width="100%" />
 
 
 ![Badge-glow](https://img.shields.io/badge/GlowCookies-v.3.1.1-blue?style=flat-square) ![jsDelivr hits (GitHub)](https://img.shields.io/jsdelivr/gh/hm/manucaralmo/GlowCookies?style=flat-square) ![GitHub repo size](https://img.shields.io/github/repo-size/manucaralmo/GlowCookies?style=flat-square) ![GitHub Repo stars](https://img.shields.io/github/stars/manucaralmo/GlowCookies?style=social)

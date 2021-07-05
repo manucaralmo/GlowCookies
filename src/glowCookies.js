@@ -373,6 +373,14 @@ class LanguagesGC {
         'acceptBtnText': 'Çerezleri kabul et',
         'rejectBtnText': 'Reddet',
         'manageText': 'Çerezleri yönet'
+      },
+      ja: {
+        'bannerHeading': 'Cookies を使用しています',
+        'bannerDescription': '私たちは、コンテンツのパーソナライズやトラフィックの分析のために、独自およびサードパーティー製 Cookies を使用しています。',
+        'bannerLinkText': 'Cookiesについて詳しく見る',
+        'acceptBtnText': 'Cookiesを受け入れる',
+        'rejectBtnText': '拒否',
+        'manageText': 'cookies管理'
       }
     }
   }

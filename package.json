@@ -1,0 +1,28 @@
+{
+  "name": "glowcookies",
+  "description": "<img src=\"https://cdn.glowmedia.es/upload/uploads/d53f37cookies-preview.png\" data-canonical-src=\"https://cdn.glowmedia.es/upload/uploads/d53f37cookies-preview.png\" width=\"100%\" />",
+  "version": "4.0.0",
+  "main": "dist/index_bundle.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack --mode production",
+    "dev": "webpack --watch --mode development",
+    "scss": "node-sass --watch src/scss -o dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/manucaralmo/GlowCookies.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/manucaralmo/GlowCookies/issues"
+  },
+  "homepage": "https://github.com/manucaralmo/GlowCookies#readme",
+  "devDependencies": {
+    "node-sass": "^6.0.1",
+    "webpack": "^5.42.0",
+    "webpack-cli": "^4.7.2",
+    "wrapper-webpack-plugin": "^2.1.0"
+  }
+}

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body style="background-color: black; color: blanchedalmond;">
+  <h1>Hola bro</h1>
+
+  // cosas nuevas
+    - Custom events
+    - Languaje en object
+
+  <script src="../dist/glowCookies.min.js"></script>
+  <script>
+    glowCookies.start({ 
+      languaje: 'es',
+      style: 2,
+      analytics: 'G-FH87DE17XF', 
+      facebookPixel: '990955817632355',
+      hideAfterClick: false,
+    });
+
+    window.addEventListener('glow_cookies_selected', e => console.log(e));
+  </script>
+</body>
+</html>

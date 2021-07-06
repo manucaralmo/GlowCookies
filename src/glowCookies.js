@@ -2,7 +2,7 @@
     GLOW COOKIES
     CREATED BY MANUEL CARRILLO
     https://github.com/manucaralmo/GlowCookies
-    2021 - v 3.1.2
+    2021 - v 3.1.3
 */
 
 class GlowCookies {
@@ -27,7 +27,7 @@ class GlowCookies {
   addCss() {
     const stylesheet = document.createElement('link');
     stylesheet.setAttribute('rel', 'stylesheet');
-    stylesheet.setAttribute('href', `https://cdn.jsdelivr.net/gh/manucaralmo/GlowCookies@3.1.1/src/glowCookies.min.css`);
+    stylesheet.setAttribute('href', `https://cdn.jsdelivr.net/gh/manucaralmo/GlowCookies@3.1.3/src/glowCookies.min.css`);
     document.head.appendChild(stylesheet);
   }
 

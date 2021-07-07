@@ -17,6 +17,77 @@
   transform: scale(1) !important;
 }
 
+/* MANAGER STYLES */
+/* ========================= */
+.glowCookies__manager {
+  opacity: 0;
+  visibility: hidden;
+  transform: scale(0.9);
+  font-family: sans-serif;
+  position: fixed;
+  width: auto;
+  max-width: 475px;
+  max-height: 70%;
+  z-index: 999;
+  -webkit-box-shadow: 0 .625em 1.875em rgba(2,2,3,.2);
+  -moz-box-shadow: 0 .625em 1.875em rgba(2,2,3,.2);
+  box-shadow: 0 .625em 1.875em rgba(2,2,3,.2);
+  box-sizing: content-box;
+  transition: transform .2s ease, opacity .2s ease !important;
+  bottom: 15px;
+  border-radius: 5px;
+  padding: 25px 35px;
+  overflow-y: scroll;
+
+  h3 {
+    font-size: 24px;
+    margin: 0px;
+    padding: 8px 0;
+  }
+
+  &__content {
+    font-size: 15px;
+    margin: 0px;
+    padding: 0px;
+    line-height: 1.3;
+  }
+
+  .btn__section {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    margin-top: 20px;
+
+    .accept__btn__styles {
+      border: none;
+      padding: 13px 15px;
+      font-size: 15px;
+      font-family: inherit;
+      width: 100%;
+      cursor: pointer;
+      font-weight: bolder;
+      transition: filter 0.15s;
+      user-select: none;
+    }
+
+    button {
+      border-radius: 5px;
+
+      &:focus {
+        outline: none;
+        transform: scale(0.95);
+        -webkit-filter: contrast(75%);
+        filter: contrast(75%);
+      }
+      &:hover {
+        -webkit-filter: contrast(85%);
+        filter: contrast(85%);
+      }
+    }
+  }
+}
+
 /* COMMON STYLES */
 /* ========================= */
 .glowCookies__banner {
@@ -31,6 +102,7 @@
   -webkit-box-shadow: 0 .625em 1.875em rgba(2,2,3,.2);
   -moz-box-shadow: 0 .625em 1.875em rgba(2,2,3,.2);
   box-shadow: 0 .625em 1.875em rgba(2,2,3,.2);
+  box-sizing: content-box;
   transition: transform .2s ease, opacity .2s ease !important;
 }
 
@@ -269,7 +341,7 @@
   min-height: 50px;
   min-width: 125px;
   cursor: pointer;
-  font-family: inherit;
+  font-family: sans-serif;
   font-size: 15px;
   font-weight: bolder;
   line-height: normal;

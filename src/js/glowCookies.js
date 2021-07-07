@@ -1,4 +1,5 @@
 import { renderCookiesBanner } from './components/banner'
+import { renderCookiesManager } from './components/cookiesManagement'
 import { renderfloatButton } from './components/floatButton'
 import { addCssToDocument, clearCookies } from './functions'
 import LanguagesGC from './languajes'
@@ -16,6 +17,7 @@ export default class GlowCookies {
     // DOM Elements
     this.DOMFloatButton = undefined
     this.DOMBanner = undefined
+    this.DOMCookiesManager = undefined
 
     // User selection
     this.userSelectionFromStore = getFromStore()
@@ -37,12 +39,14 @@ export default class GlowCookies {
   createDOMElements() {
     this.DOMFloatButton = renderfloatButton(this.config, this.banner)
     this.DOMBanner = renderCookiesBanner(this.config, this.banner)
+    this.DOMCookiesManager = renderCookiesManager(this.config, this.banner)
   }
 
   setEventListeners() {
     document.getElementById('glowCookies-floatButton').addEventListener('click', () => this.openCookiesBanner())
     document.getElementById('acceptAllCookies').addEventListener('click', () => this.acceptAllCookies())
     document.getElementById('rejectAllCookies').addEventListener('click', () => this.rejectAllCookies())
+    document.getElementById('openManager').addEventListener('click', () => this.openCookiesManager())
   }
 
   checkStatus() {
@@ -55,9 +59,10 @@ export default class GlowCookies {
   }
 
   openFloatButton() {
+    this.closeCookiesBanner()
+    this.closeCookiesManager()
     this.config.hideAfterClick 
       && this.DOMFloatButton.classList.add('glowCookies__show')
-    this.closeCookiesBanner()
   }
 
   closeFloatButton() {
@@ -66,11 +71,22 @@ export default class GlowCookies {
 
   openCookiesBanner() {
     this.closeFloatButton()
+    this.closeCookiesManager()
     this.DOMBanner.classList.add('glowCookies__show')
   }
 
   closeCookiesBanner() {
     this.DOMBanner.classList.remove('glowCookies__show')
+  }
+
+  openCookiesManager() {
+    this.closeFloatButton()
+    this.closeCookiesBanner()
+    this.DOMCookiesManager.classList.add('glowCookies__show')
+  }
+
+  closeCookiesManager() {
+    this.DOMCookiesManager.classList.remove('glowCookies__show')
   }
 
   acceptCookies() {
@@ -89,6 +105,7 @@ export default class GlowCookies {
   rejectAllCookies() {
     Object.keys(this.userSelection).forEach(k => this.userSelection[k] = false)
     setToStore(this.userSelection)
+    this.disableTracking()
     this.openFloatButton()
   }
 
@@ -96,31 +113,34 @@ export default class GlowCookies {
     this.userSelectionFromStore = getFromStore()
 
     if(this.userSelectionFromStore){
-      this.userSelectionFromStore.necessary && console.log('activamos necesarias')
-      this.userSelectionFromStore.marketing && console.log('activamos marketing')
-      this.userSelectionFromStore.preferences && console.log('activamos preferences')
-      this.userSelectionFromStore.analytics && console.log('activamos analytics')
+      if(this.config.typeOfCookies.necessary && this.userSelectionFromStore.necessary){
+        console.log('activamos necesarias') // DELETE =============
+      }
+      if(this.config.typeOfCookies.marketing && this.userSelectionFromStore.marketing){
+        console.log('activamos marketing') // DELETE =============
+      }
+      if(this.config.typeOfCookies.preferences && this.userSelectionFromStore.preferences){
+        console.log('activamos preferences') // DELETE =============
+      }
+      if(this.config.typeOfCookies.analytics && this.userSelectionFromStore.analytics){
+        console.log('activamos analytics') // DELETE =============
+        this.tracking.AnalyticsCode && addAnalyticsTrackingScript(this.tracking.AnalyticsCode)
+        this.tracking.FacebookPixelCode && addFacebookTrackingScript(this.tracking.FacebookPixelCode)
+        this.tracking.HotjarTrackingCode && addHotjarTrackingScript(this.tracking.HotjarTrackingCode)
+      }
     }
-
-    //this.tracking.AnalyticsCode && addAnalyticsTrackingScript(this.tracking.AnalyticsCode)
-    //this.tracking.FacebookPixelCode && addFacebookTrackingScript(this.tracking.FacebookPixelCode)
-    //this.tracking.HotjarTrackingCode && addHotjarTrackingScript(this.tracking.HotjarTrackingCode)
 
     // Dispatch custom event
     this.createCustomEvent('glow_cookies_selected', this.userSelectionFromStore)
   }
 
   disableTracking() {
-    // Remove all cookies within the current domain and all trailing subdomains 
     clearCookies()
-
-    // Dispatch custom event
-    window.dispatchEvent(this.disableTrackingEvent)
+    this.createCustomEvent('glow_cookies_rejected')
   }
 
-  createCustomEvent(name, content) {
-    const trackingEvent = new CustomEvent(name, { detail: content })
-    window.dispatchEvent(trackingEvent)
+  createCustomEvent(name, content = {}) {
+    window.dispatchEvent(new CustomEvent(name, { detail: content }))
   }
 
   getConfig(obj) {
@@ -128,7 +148,13 @@ export default class GlowCookies {
       border: obj.border || 'border',
       position: obj.position || 'left',
       hideAfterClick: obj.hideAfterClick || true,
-      bannerStyle: obj.style || 2
+      bannerStyle: obj.style || 2,
+      typeOfCookies: {
+        necessary: obj.necessaryCookies || true,
+        marketing: obj.marketingCookies || false,
+        preferences: obj.preferencesCookies || false,
+        analytics: obj.analyticsCookies || true
+      }
     }
   }
 

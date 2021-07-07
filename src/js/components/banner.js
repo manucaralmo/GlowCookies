@@ -17,6 +17,7 @@ export const renderCookiesBanner = (config, banner) => {
             >
                 ${banner.linkText}
             </a>
+            <button id="openManager">manager</button>
         </p>
         <div class="btn__section">
             <button type="button" id="acceptAllCookies" class="btn__accept accept__btn__styles" style="color: ${banner.acceptBtn.color}; background-color: ${banner.acceptBtn.background};">

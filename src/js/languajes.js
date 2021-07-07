@@ -41,7 +41,9 @@ export default class LanguagesGC {
         'bannerDescription': 'Utilizamos cookies propias y de terceros para personalizar el contenido y para analizar el tráfico de la web.',
         'bannerLinkText': 'Ver más sobre las cookies',
         'acceptBtnText': 'Aceptar cookies',
+        'acceptAllBtnText': 'Aceptar todas',
         'rejectBtnText': 'Rechazar',
+        'rejectAllBtnText': 'Rechazar todas',
         'manageText': 'Cookies'
       },
       fr: {

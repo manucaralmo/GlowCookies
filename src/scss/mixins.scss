@@ -1,0 +1,11 @@
+@mixin hidden-element {
+  opacity: 0;
+  visibility: hidden;
+  transform: scale(0.9);
+}
+
+@mixin custom-shadow {
+  -webkit-box-shadow: 0 .625em 1.875em rgba(2,2,3,.2);
+  -moz-box-shadow: 0 .625em 1.875em rgba(2,2,3,.2);
+  box-shadow: 0 .625em 1.875em rgba(2,2,3,.2);
+}

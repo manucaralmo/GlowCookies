@@ -3,7 +3,7 @@ export const renderCookiesBanner = (config, banner) => {
   cookiesBanner.innerHTML = `
     <div 
       id="glowCookies-banner" 
-      class="glowCookies__banner glowCookies__banner__${config.bannerStyle} glowCookies__${config.border} glowCookies__${config.position}"
+      class="glowCookies__banner__${config.bannerStyle} glowCookies__${config.border} glowCookies__${config.position}"
       style="background-color: ${banner.background};"
     >
         <h3 style="color: ${banner.color};">${banner.heading}</h3>
@@ -20,10 +20,10 @@ export const renderCookiesBanner = (config, banner) => {
             <button id="openManager">manager</button>
         </p>
         <div class="btn__section">
-            <button type="button" id="acceptAllCookies" class="btn__accept accept__btn__styles" style="color: ${banner.acceptBtn.color}; background-color: ${banner.acceptBtn.background};">
+            <button type="button" id="acceptAllCookies" class="accept__btn__styles" style="color: ${banner.acceptBtn.color}; background-color: ${banner.acceptBtn.background};">
                 ${banner.acceptBtn.text}
             </button>
-            <button type="button" id="rejectAllCookies" class="btn__settings settings__btn__styles" style="color: ${banner.rejectBtn.color}; background-color: ${banner.rejectBtn.background};">
+            <button type="button" id="rejectAllCookies" class="settings__btn__styles" style="color: ${banner.rejectBtn.color}; background-color: ${banner.rejectBtn.background};">
                 ${banner.rejectBtn.text}
             </button>
         </div>

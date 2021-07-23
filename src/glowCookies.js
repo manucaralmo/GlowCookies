@@ -342,6 +342,14 @@ class LanguagesGC {
         'rejectBtnText': 'Wijgeren',
         'manageText': 'Cookies beheren'
       },
+      oc: {
+        'bannerHeading': 'Utilizam de cookies',
+        'bannerDescription': 'Utilizam nòstres pròpris cookies e de cookies tèrces per adaptar lo contengut e analisar lo trafic web.',
+        'bannerLinkText': 'Ne saber mai suls cookies',
+        'acceptBtnText': 'Acceptar los cookies',
+        'rejectBtnText': 'Refusar',
+        'manageText': 'Configurar los cookies'
+      },        
       pt_BR: {
         'bannerHeading': 'Uso de cookies',
         'bannerDescription': 'Usamos cookies próprios e de terceiros para personalizar o conteúdo e analisar o tráfego da web.',

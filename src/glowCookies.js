@@ -334,6 +334,14 @@ class LanguagesGC {
         'rejectBtnText': 'Refuser',
         'manageText': 'Paramétrez les cookies'
       },
+      it: {
+        'bannerHeading': 'Utilizziamo i cookie',
+        'bannerDescription': 'Utilizziamo cookie nostri e di terze parti per personalizzare il contenuto e analizzare il traffico web.',
+        'bannerLinkText': 'Per saperne di più riguardo i cookie',
+        'acceptBtnText': 'Accetta i cookie',
+        'rejectBtnText': 'Rifiuta',
+        'manageText': 'Gestisci i cookie'
+      },
       nl: {
         'bannerHeading': 'We gebruiken cookies',
         'bannerDescription': 'We gebruiken onze en third-party cookies om content te personaliseren en web traffic te analyseren.',

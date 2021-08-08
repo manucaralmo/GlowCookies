@@ -3,19 +3,23 @@
 ![Badge-glow](https://img.shields.io/badge/GlowCookies-v.3.1.3-blue?style=flat-square) ![jsDelivr hits (GitHub)](https://img.shields.io/jsdelivr/gh/hm/manucaralmo/GlowCookies?style=flat-square) [![GitHub contributors](https://img.shields.io/github/contributors/manucaralmo/GlowCookies?style=flat-square)](https://github.com/AmauriC/tarteaucitron.js/graphs/contributors) ![GitHub Repo stars](https://img.shields.io/github/stars/manucaralmo/GlowCookies?style=social)
 
 # GlowCookies 🍪 - Powerful Cookie Consent Banner In JavaScript
+
 Simple and full automated cookies banner for any website. Complies with the new European regulations with GlowCookies. Activate and deactivate Google Analytics, Facebook Pixel, Hotjar (and coming soon) cookies whenever the user wishes, with just 1 click.
 
 [![Foo](https://cdn.glowmedia.es/upload/uploads/ed1952btn.svg)](https://manucaralmo.github.io/glow-cookies-web/)
 
-
 ## The cookies banner
+
 <img src="https://cdn.glowmedia.es/upload/uploads/90c82dbanner.png" data-canonical-src="https://cdn.glowmedia.es/upload/uploads/90c82dbanner.png" width="375" />
 
 ## How it works
+
 You just have to install the code. When the user clicks on accept cookies, the google analytics tracking code, Facebook Pixel and/or Hotjar starts tracking. If the user rejects cookies, the tracking code will not start working.
 
 ## How to use
+
 Add this code to your html `<head>` or `<body>` tag.
+
 ```html
 <script src="https://cdn.jsdelivr.net/gh/manucaralmo/GlowCookies@3.1.3/src/glowCookies.min.js"></script>
 <script>
@@ -29,25 +33,37 @@ Add this code to your html `<head>` or `<body>` tag.
 ```
 
 ## Banner styles
+
 Now you can choose between these available banner styles:
+
 - Style `1`, `2` or `3` 
 
 Set style in config object `glowCookies.start('en', { style: 3 })`
 
 ## Languages
+
 Now you can choose between these available languages: 
+
+- Auto Detection based on user settings (`auto`)
+- Auto Detection based on html `lang` propriety of the page (`detectFromHTML`)
 - English (`en`)
 - Spanish (`es`)
 - German (`de`)
 - French (`fr`)
 - Thai (`th`)
 - Slovak (`sk`)
-- Brazilian portugese (`pt_BR`)
+- Brazilian Portugese (`pt_BR`)
 - Japanese (`ja`)
+- Bulgarian (`bg`)
+- Italian (`it`)
+- Dutch (`nl`)
+- Occitan (`oc`)
+- Turkish (`tr`)
 
 Set language in the first parameter of `glowCookies.start('en', { })` method.
 
 ## Tracking options
+
 These are the parameters that you can modify to add your tracking codes or custom scripts.
 
 | Parameter               | Type   | Values                                                                                                              |
@@ -59,15 +75,17 @@ These are the parameters that you can modify to add your tracking codes or custo
 | `customScript` (src)    | Object | Example: `[{ type: 'src', position: 'head', content: 'https://www.googletagmanager.com/gtag/js?id=G-FH87DE17XF' }]` |
 
 ## Config Banner
+
 These are the parameters that you can modify to change certain banner options
 
-| Parameter        | Type    | Values                                                                           |
-| ---------------- | ------- | -------------------------------------------------------------------------------- |
-| `policyLink`     | String  | Example: `"https://yourlink.com"` (Your cookies policy link)                     |
-| `hideAfterClick` | Boolean | (`true` or `false`) Default: `true` (Hide banner after Accept or Reject cookies) |
-
+| Parameter           | Type    | Values                                                                                                     |
+| ------------------- | ------- | ---------------------------------------------------------------------------------------------------------- |
+| `policyLink`        | String  | Example: `"https://yourlink.com"` (Your cookies policy link)                                               |
+| `hideAfterClick`    | Boolean | (`true` or `false`) Default: `true` (Hide banner after Accept or Reject cookies)                           |
+| `respectDoNotTrack` | Boolean | (`true` or `false`) Default: `true` (Doesn't load the banner or scripts in case of HTTP "DoNotTrack" flag) |
 
 ## Customize Banner
+
 Now there are certain parameters that you can change to customize your banner.
 
 | Parameter             | Type   | Values                                                                                                 |
@@ -88,13 +106,14 @@ Now there are certain parameters that you can change to customize your banner.
 | `manageColor`         | String | Example: `"#fff"` Example: `"white"`                                                                   |
 | `manageBackground`    | String | Example: `"#f2f2f2"` Example: `"blue"`                                                                 |
 | `manageText`          | String | Example: `"Manage cookies"`                                                                            |
-
+| `defaultLang`         | String | Example: `ja`. Default fallback language in `auto` mode.                                               |
 
 ## Fully customized banner
+
 ```html
 <script src="https://cdn.jsdelivr.net/gh/manucaralmo/GlowCookies@3.1.3/src/glowCookies.min.js"></script>
 <script>
-    glowCookies.start('en', { 
+    glowCookies.start('auto', { 
         style: 2,
         analytics: 'G-FH87DE17XF', 
         facebookPixel: '990955817632355',
@@ -116,15 +135,19 @@ Now there are certain parameters that you can change to customize your banner.
         rejectBtnColor: 'blue',
         manageColor: 'white',
         manageBackground: 'blue',
-        manageText: 'cookies text'
+        manageText: 'cookies text',
+        respectDoNotTrack: true,
+        defaultLang: 'ja'
     });
 </script>
 ```
 
 ## Contribute
+
 If you know any other language, please help translate.
 Update the `arrLang` of the `LanguageGC` class in glowCookies.js
 Add an entry in this fashion and create a pull request.
+
 ```
 en: {
     'bannerHeading': 'We use cookies',
@@ -135,11 +158,14 @@ en: {
     'manageText' : 'Manage cookies'
 }
 ```
+
 Thanks for your help! 🎉
 
 ## Next steps
+
 - [ ] Advanced cookies management
 - [ ] Cookie settings
 
 ### Request features
+
 info@glowmedia.es

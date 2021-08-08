@@ -235,55 +235,76 @@ class GlowCookies {
 
   start(languaje, obj) {
     if (!obj) obj = {}
-    const lang = new LanguagesGC(languaje)
+    let DoNotTrack = window.doNotTrack == "1" || navigator.doNotTrack == "yes" || navigator.doNotTrack == "1" || navigator.msDoNotTrack == "1";
+    let respectDNT = (typeof obj.respectDoNotTrack === 'boolean') ? obj.respectDoNotTrack : true;
+    if (!(DoNotTrack && respectDNT)) {
+      const lang = new LanguagesGC(languaje, obj.defaultLang || undefined)
 
-    this.config = {
-      border: obj.border || 'border',
-      position: obj.position || 'left',
-      hideAfterClick: obj.hideAfterClick || false,
-      bannerStyle: obj.style || 2
-    }
-
-    this.tracking = {
-      AnalyticsCode: obj.analytics || undefined,
-      FacebookPixelCode: obj.facebookPixel || undefined,
-      HotjarTrackingCode: obj.hotjar || undefined,
-      customScript: obj.customScript || undefined
-    }
-
-    this.banner = {
-      description: obj.bannerDescription || lang.bannerDescription,
-      linkText: obj.bannerLinkText || lang.bannerLinkText,
-      link: obj.policyLink || '#link',
-      background: obj.bannerBackground || '#fff',
-      color: obj.bannerColor || '#1d2e38',
-      heading: obj.bannerHeading !== 'none' ? obj.bannerHeading || lang.bannerHeading : '',
-      acceptBtn: {
-        text: obj.acceptBtnText || lang.acceptBtnText,
-        background: obj.acceptBtnBackground || '#253b48',
-        color: obj.acceptBtnColor || '#fff'
-      },
-      rejectBtn: {
-        text: obj.rejectBtnText || lang.rejectBtnText,
-        background: obj.rejectBtnBackground || '#E8E8E8',
-        color: obj.rejectBtnColor || '#636363'
-      },
-      manageCookies: {
-        color: obj.manageColor || '#1d2e38',
-        background: obj.manageBackground || '#fff',
-        text: obj.manageText || lang.manageText,
+      this.config = {
+        border: obj.border || 'border',
+        position: obj.position || 'left',
+        hideAfterClick: obj.hideAfterClick || false,
+        bannerStyle: obj.style || 2
       }
-    }
 
-    // Draw banner
-    window.addEventListener('load', () => { this.render() })
+      this.tracking = {
+        AnalyticsCode: obj.analytics || undefined,
+        FacebookPixelCode: obj.facebookPixel || undefined,
+        HotjarTrackingCode: obj.hotjar || undefined,
+        customScript: obj.customScript || undefined
+      }
+
+      this.banner = {
+        description: obj.bannerDescription || lang.bannerDescription,
+        linkText: obj.bannerLinkText || lang.bannerLinkText,
+        link: obj.policyLink || '#link',
+        background: obj.bannerBackground || '#fff',
+        color: obj.bannerColor || '#1d2e38',
+        heading: obj.bannerHeading !== 'none' ? obj.bannerHeading || lang.bannerHeading : '',
+        acceptBtn: {
+          text: obj.acceptBtnText || lang.acceptBtnText,
+          background: obj.acceptBtnBackground || '#253b48',
+          color: obj.acceptBtnColor || '#fff'
+        },
+        rejectBtn: {
+          text: obj.rejectBtnText || lang.rejectBtnText,
+          background: obj.rejectBtnBackground || '#E8E8E8',
+          color: obj.rejectBtnColor || '#636363'
+        },
+        manageCookies: {
+          color: obj.manageColor || '#1d2e38',
+          background: obj.manageBackground || '#fff',
+          text: obj.manageText || lang.manageText,
+        }
+      }
+
+      // Draw banner
+      window.addEventListener('load', () => { this.render() })
+    }
   }
 }
 
 class LanguagesGC {
-  constructor(code) {
+  constructor(code, defaultLang) {
     this.init()
-    let lang = this.arrLang[code] || this.arrLang['en']
+    var lang = null;
+    if (code == "auto") {
+      var languages = [].concat(window.navigator.languages || [window.navigator.language || window.navigator.userLanguage]);
+      if (typeof defaultLang == "string")
+        languages.push(defaultLang);
+      languages.push('en');
+      for (let i = 0; i < languages.length; i++) {
+        // To-do: BCP47 to ISO-639 conversion
+        if (typeof this.arrLang[languages[i]] == "object") {
+          lang = this.arrLang[languages[i]];
+          break;
+        }
+      }
+    } else if (code == "detectFromHTML") {
+      lang = this.arrLang[document.documentElement.lang] || this.arrLang['en']
+    } else {
+      lang = this.arrLang[code] || this.arrLang['en']
+    }
     this.bannerHeading = lang['bannerHeading']
     this.bannerDescription = lang['bannerDescription']
     this.bannerLinkText = lang['bannerLinkText']

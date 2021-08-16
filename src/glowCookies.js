@@ -294,6 +294,14 @@ class LanguagesGC {
 
   init() {
     this.arrLang = {
+      af: {
+        'bannerHeading': 'Ons gebruik koekies',
+        'bannerDescription': 'Ons gebruik ons eie koekies en die van derdepartye, om inhoud te verpersoonlik en om webverkeer te ontleed.',
+        'bannerLinkText': 'Lees meer oor koekies',
+        'acceptBtnText': 'Aanvaar koekies',
+        'rejectBtnText': 'Weier',
+        'manageText': 'Koekie-instellings'
+      },
       bg: {
         'bannerHeading': 'Ние използваме бисквитки',
         'bannerDescription': 'Използваме наши и бисквитки на трети страни, за да запазим Вашите предпочитания и да събираме аналитични данни.',

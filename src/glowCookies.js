@@ -287,7 +287,7 @@ class GlowCookies {
 class LanguagesGC {
   constructor(code, defaultLang) {
     this.init()
-    var lang = null;
+    let lang = null;
     if (code == "auto") {
       var languages = [].concat(window.navigator.languages || [window.navigator.language || window.navigator.userLanguage]);
       if (typeof defaultLang == "string")

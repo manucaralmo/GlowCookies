@@ -350,6 +350,14 @@ class LanguagesGC {
         'rejectBtnText': 'Rifiuta',
         'manageText': 'Gestisci i cookie'
       },
+      mg: {
+        'bannerHeading': 'Izahay dia mampiasa cookies',
+        'bannerDescription': "Mampiasa ny cookies anay manokana sy ireo an'ny antoko fahatelo izahay hampifanarahana ny atiny sy hamakafaka ny fivezivezena amin'ny tranonkala.",
+        'bannerLinkText': 'Maniry halala bebe kokoa momba ny cookies',
+        'acceptBtnText': 'Manaiky ireo cookies',
+        'rejectBtnText': 'Tsy mety',
+        'manageText': 'Hamboarina ny cookies'
+      },
       nl: {
         'bannerHeading': 'We gebruiken cookies',
         'bannerDescription': 'We gebruiken onze en third-party cookies om content te personaliseren en web traffic te analyseren.',

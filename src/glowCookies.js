@@ -289,7 +289,7 @@ class LanguagesGC {
     this.init()
     let lang = null;
     if (code == "auto") {
-      var languages = [].concat(window.navigator.languages || [window.navigator.language || window.navigator.userLanguage]);
+      let languages = [].concat(window.navigator.languages || [window.navigator.language || window.navigator.userLanguage]);
       if (typeof defaultLang == "string")
         languages.push(defaultLang);
       languages.push('en');

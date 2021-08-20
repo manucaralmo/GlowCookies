@@ -50,6 +50,7 @@ Now you can choose between these available languages:
 - Occitan (`oc`)
 - Dutch (`nl`)
 - Afrikaans (`af`)
+- Malagasy (`mg`)
 
 Set language in the first parameter of `glowCookies.start('en', { })` method.
 

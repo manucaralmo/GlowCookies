@@ -54,11 +54,13 @@ Now you can choose between these available languages:
 - Slovak (`sk`)
 - Brazilian Portugese (`pt_BR`)
 - Japanese (`ja`)
-- Bulgarian (`bg`)
 - Italian (`it`)
-- Dutch (`nl`)
-- Occitan (`oc`)
+- Bulgarian (`bg`)
 - Turkish (`tr`)
+- Occitan (`oc`)
+- Dutch (`nl`)
+- Afrikaans (`af`)
+- Malagasy (`mg`)
 
 Set language in the first parameter of `glowCookies.start('en', { })` method.
 

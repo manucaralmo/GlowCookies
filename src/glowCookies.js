@@ -315,6 +315,14 @@ class LanguagesGC {
 
   init() {
     this.arrLang = {
+      af: {
+        'bannerHeading': 'Ons gebruik koekies',
+        'bannerDescription': 'Ons gebruik ons eie koekies en die van derdepartye, om inhoud te verpersoonlik en om webverkeer te ontleed.',
+        'bannerLinkText': 'Lees meer oor koekies',
+        'acceptBtnText': 'Aanvaar koekies',
+        'rejectBtnText': 'Weier',
+        'manageText': 'Koekie-instellings'
+      },
       bg: {
         'bannerHeading': 'Ние използваме бисквитки',
         'bannerDescription': 'Използваме наши и бисквитки на трети страни, за да запазим Вашите предпочитания и да събираме аналитични данни.',
@@ -362,6 +370,14 @@ class LanguagesGC {
         'acceptBtnText': 'Accetta i cookie',
         'rejectBtnText': 'Rifiuta',
         'manageText': 'Gestisci i cookie'
+      },
+      mg: {
+        'bannerHeading': 'Izahay dia mampiasa cookies',
+        'bannerDescription': "Mampiasa ny cookies anay manokana sy ireo an'ny antoko fahatelo izahay hampifanarahana ny atiny sy hamakafaka ny fivezivezena amin'ny tranonkala.",
+        'bannerLinkText': 'Maniry halala bebe kokoa momba ny cookies',
+        'acceptBtnText': 'Manaiky ireo cookies',
+        'rejectBtnText': 'Tsy mety',
+        'manageText': 'Hamboarina ny cookies'
       },
       nl: {
         'bannerHeading': 'We gebruiken cookies',

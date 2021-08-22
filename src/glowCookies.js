@@ -382,6 +382,14 @@ class LanguagesGC {
         'rejectBtnText': 'Rejeitar',
         'manageText': 'Gerenciar cookies'
       },
+      ru: {
+        'bannerHeading': 'Мы используем cookie',
+        'bannerDescription': 'Мы используем собственные и сторонние куки для персонализации контента и анализа веб-трафика.',
+        'bannerLinkText': 'Узнать больше про куки.',
+        'acceptBtnText': 'Ок, используйте',
+        'rejectBtnText': 'Не разрешаю',
+        'manageText': 'Разрешите использовать куки?'
+      },
       sk: {
         'bannerHeading': 'Používame cookies',
         'bannerDescription': 'Na prispôsobenie obsahu a analýzu webovej stránky používame vlastné cookies a cookies tretích strán.',

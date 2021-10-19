@@ -310,6 +310,14 @@ class LanguagesGC {
         'rejectBtnText': 'Откажи',
         'manageText': 'Настрой бисквитките'
       },
+      cs: {
+        'bannerHeading': 'Používáme cookies',
+        'bannerDescription': 'Na přizpůsobení obsahu a analýzu webové prezentace používáme vlastní cookies a cookies třetích stran.',
+        'bannerLinkText': 'Co jsou cookies?',
+        'acceptBtnText': 'Povolit cookies',
+        'rejectBtnText': 'Nepovolit',
+        'manageText': 'Spravovat cookies'
+      },        
       de: {
         'bannerHeading': 'Verwendung von Cookies',
         'bannerDescription': 'Wir nutzen Eigene und Cookies Dritter um Inhalte zu personalisieren und Surfverhalten zu analysieren.',

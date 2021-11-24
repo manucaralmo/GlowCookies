@@ -326,6 +326,30 @@ class LanguagesGC {
         'rejectBtnText': 'Reject',
         'manageText': 'Manage cookies'
       },
+      sv: {
+        'bannerHeading': 'Vi använder cookies',
+        'bannerDescription' : 'Vi använder våra egna och tredjepartscookies för att personalisera innehåll och till statistik.',
+        'bannerLinkText' : 'Läs mer om cookies',
+        'acceptBtnText' : 'Acceptera cookies',
+        'rejectBtnText' : 'Avslå',
+        'manageText' : 'Hantera cookies'
+      },
+      no: {
+        'bannerHeading': 'Vi benytter cookies',
+        'bannerDescription' : 'Vi benytter våre egne og tredjepartscookies for å personalisere innehold og til statistikk.',
+        'bannerLinkText' : 'Les mer om cookies',
+        'acceptBtnText' : 'Aksepter cookies',
+        'rejectBtnText' : 'Avslå',
+        'manageText' : 'Håndter cookies'
+      },
+      da: {
+        'bannerHeading': 'Vi bruger cookies',
+        'bannerDescription' : 'Vi bruger vores egne og tredjepartscookies til at tilpasse indhold og måle statistik.',
+        'bannerLinkText' : 'Læs mere om cookies',
+        'acceptBtnText' : 'Accepter cookies',
+        'rejectBtnText' : 'Afvis',
+        'manageText' : 'Administrer cookies'
+      },
       es: {
         'bannerHeading': 'Uso de cookies',
         'bannerDescription': 'Utilizamos cookies propias y de terceros para personalizar el contenido y para analizar el tráfico de la web.',

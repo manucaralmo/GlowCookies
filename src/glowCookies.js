@@ -383,7 +383,7 @@ class LanguagesGC {
         'manageText': 'Gerenciar cookies'
       },
       ru: {
-        'bannerHeading': 'Мы используем cookie',
+        'bannerHeading': 'Позвольте использовать куки?',
         'bannerDescription': 'Мы используем собственные и сторонние куки для персонализации контента и анализа веб-трафика.',
         'bannerLinkText': 'Узнать больше про куки.',
         'acceptBtnText': 'Ок, используйте',

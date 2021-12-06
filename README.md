@@ -51,6 +51,7 @@ Now you can choose between these available languages:
 - Dutch (`nl`)
 - Afrikaans (`af`)
 - Malagasy (`mg`)
+- Russian (`ru`)
 
 Set language in the first parameter of `glowCookies.start('en', { })` method.
 

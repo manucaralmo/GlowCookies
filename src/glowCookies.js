@@ -445,6 +445,14 @@ class LanguagesGC {
         'acceptBtnText': 'Cookiesを受け入れる',
         'rejectBtnText': '拒否',
         'manageText': 'cookies管理'
+      },
+      zh_TW: {
+        'bannerHeading': '我們使用 Cookies',
+        'bannerDescription' : '我們使用了自己和第三方的 cookies 來個人化您的內容和分析網頁的流量。',
+        'bannerLinkText' : '閱讀更多關於 cookies',
+        'acceptBtnText' : '同意 cookies',
+        'rejectBtnText' : '拒絕',
+        'manageText' : '管理 cookies'
       }
     }
   }

@@ -55,6 +55,7 @@ Now you can choose between these available languages:
 - Afrikaans (`af`)
 - Malagasy (`mg`)
 - Russian (`ru`)
+- Chinese Traditional (`zh_TW`)
 
 Set language in the first parameter of `glowCookies.start('en', { })` method.
 

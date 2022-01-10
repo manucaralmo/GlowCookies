@@ -312,7 +312,7 @@ class LanguagesGC {
       },
       de: {
         'bannerHeading': 'Verwendung von Cookies',
-        'bannerDescription': 'Wir nutzen Eigene und Cookies Dritter um Inhalte zu personalisieren und Surfverhalten zu analysieren.',
+        'bannerDescription': 'Wir nutzen Cookies (auch von Drittanbietern), um Inhalte zu personalisieren und Surfverhalten zu analysieren.',
         'bannerLinkText': 'Mehr über Cookies',
         'acceptBtnText': 'Cookies akzeptieren',
         'rejectBtnText': 'Ablehnen',

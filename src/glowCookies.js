@@ -333,7 +333,7 @@ class LanguagesGC {
       },
       de: {
         'bannerHeading': 'Verwendung von Cookies',
-        'bannerDescription': 'Wir nutzen Eigene und Cookies Dritter um Inhalte zu personalisieren und Surfverhalten zu analysieren.',
+        'bannerDescription': 'Wir nutzen Cookies (auch von Drittanbietern), um Inhalte zu personalisieren und Surfverhalten zu analysieren.',
         'bannerLinkText': 'Mehr über Cookies',
         'acceptBtnText': 'Cookies akzeptieren',
         'rejectBtnText': 'Ablehnen',
@@ -346,6 +346,30 @@ class LanguagesGC {
         'acceptBtnText': 'Accept cookies',
         'rejectBtnText': 'Reject',
         'manageText': 'Manage cookies'
+      },
+      sv: {
+        'bannerHeading': 'Vi använder cookies',
+        'bannerDescription' : 'Vi använder våra egna och tredjepartscookies för att personalisera innehåll och till statistik.',
+        'bannerLinkText' : 'Läs mer om cookies',
+        'acceptBtnText' : 'Acceptera cookies',
+        'rejectBtnText' : 'Avslå',
+        'manageText' : 'Hantera cookies'
+      },
+      no: {
+        'bannerHeading': 'Vi benytter cookies',
+        'bannerDescription' : 'Vi benytter våre egne og tredjepartscookies for å personalisere innehold og til statistikk.',
+        'bannerLinkText' : 'Les mer om cookies',
+        'acceptBtnText' : 'Aksepter cookies',
+        'rejectBtnText' : 'Avslå',
+        'manageText' : 'Håndter cookies'
+      },
+      da: {
+        'bannerHeading': 'Vi bruger cookies',
+        'bannerDescription' : 'Vi bruger vores egne og tredjepartscookies til at tilpasse indhold og måle statistik.',
+        'bannerLinkText' : 'Læs mere om cookies',
+        'acceptBtnText' : 'Accepter cookies',
+        'rejectBtnText' : 'Afvis',
+        'manageText' : 'Administrer cookies'
       },
       es: {
         'bannerHeading': 'Uso de cookies',
@@ -403,6 +427,14 @@ class LanguagesGC {
         'rejectBtnText': 'Rejeitar',
         'manageText': 'Gerenciar cookies'
       },
+      ru: {
+        'bannerHeading': 'Позвольте использовать куки?',
+        'bannerDescription': 'Мы используем собственные и сторонние куки для персонализации контента и анализа веб-трафика.',
+        'bannerLinkText': 'Узнать больше про куки.',
+        'acceptBtnText': 'Ок, используйте',
+        'rejectBtnText': 'Не разрешаю',
+        'manageText': 'Разрешите использовать куки?'
+      },
       sk: {
         'bannerHeading': 'Používame cookies',
         'bannerDescription': 'Na prispôsobenie obsahu a analýzu webovej stránky používame vlastné cookies a cookies tretích strán.',
@@ -442,6 +474,14 @@ class LanguagesGC {
         'acceptBtnText': 'Zaakceptuj ciasteczka',
         'rejectBtnText': 'Odrzuć',
         'manageText': 'Zarządzaj ciasteczkami'
+      },
+      zh_TW: {
+        'bannerHeading': '我們使用 Cookies',
+        'bannerDescription' : '我們使用了自己和第三方的 cookies 來個人化您的內容和分析網頁的流量。',
+        'bannerLinkText' : '閱讀更多關於 cookies',
+        'acceptBtnText' : '同意 cookies',
+        'rejectBtnText' : '拒絕',
+        'manageText' : '管理 cookies'
       }
     }
   }

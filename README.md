@@ -1,6 +1,6 @@
 <img src="https://cabas.b-cdn.net/glowcookies/glowcookies.png" data-canonical-src="https://cabas.b-cdn.net/glowcookies/glowcookies.png" width="100%" />
 
-![Badge-glow](https://img.shields.io/badge/GlowCookies-v.3.1.3-blue?style=flat-square) ![jsDelivr hits (GitHub)](https://img.shields.io/jsdelivr/gh/hm/manucaralmo/GlowCookies?style=flat-square) [![GitHub contributors](https://img.shields.io/github/contributors/manucaralmo/GlowCookies?style=flat-square)](https://github.com/AmauriC/tarteaucitron.js/graphs/contributors) ![GitHub Repo stars](https://img.shields.io/github/stars/manucaralmo/GlowCookies?style=social)
+![Badge-glow](https://img.shields.io/badge/GlowCookies-v.3.1.6-blue?style=flat-square) ![jsDelivr hits (GitHub)](https://img.shields.io/jsdelivr/gh/hm/manucaralmo/GlowCookies?style=flat-square) [![GitHub contributors](https://img.shields.io/github/contributors/manucaralmo/GlowCookies?style=flat-square)](https://github.com/AmauriC/tarteaucitron.js/graphs/contributors) ![GitHub Repo stars](https://img.shields.io/github/stars/manucaralmo/GlowCookies?style=social)
 
 # GlowCookies 🍪 - Powerful Cookie Consent Banner In JavaScript
 
@@ -21,7 +21,7 @@ You just have to install the code. When the user clicks on accept cookies, the g
 Add this code to your html `<head>` or `<body>` tag.
 
 ```html
-<script src="https://cdn.jsdelivr.net/gh/manucaralmo/GlowCookies@3.1.3/src/glowCookies.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/manucaralmo/GlowCookies@3.1.6/src/glowCookies.min.js"></script>
 <script>
     glowCookies.start('en', { 
         style: 1,
@@ -50,6 +50,9 @@ Now you can choose between these available languages:
 - Spanish (`es`)
 - German (`de`)
 - French (`fr`)
+- Norwegian (`no`)
+- Swedish (`sv`)
+- Danish (`da`)
 - Thai (`th`)
 - Slovak (`sk`)
 - Brazilian Portugese (`pt_BR`)
@@ -61,6 +64,8 @@ Now you can choose between these available languages:
 - Dutch (`nl`)
 - Afrikaans (`af`)
 - Malagasy (`mg`)
+- Russian (`ru`)
+- Chinese Traditional (`zh_TW`)
 
 Set language in the first parameter of `glowCookies.start('en', { })` method.
 
@@ -113,7 +118,7 @@ Now there are certain parameters that you can change to customize your banner.
 ## Fully customized banner
 
 ```html
-<script src="https://cdn.jsdelivr.net/gh/manucaralmo/GlowCookies@3.1.3/src/glowCookies.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/manucaralmo/GlowCookies@3.1.6/src/glowCookies.min.js"></script>
 <script>
     glowCookies.start('auto', { 
         style: 2,
@@ -147,9 +152,9 @@ Now there are certain parameters that you can change to customize your banner.
 ## Contribute
 
 If you know any other language, please help translate.
-Update the `arrLang` of the `LanguageGC` class in glowCookies.js
-Add an entry in this fashion and create a pull request.
-
+- Update the `arrLang` of the `LanguageGC` class in glowCookies.js (Add an entry in this fashion.)
+- Update language documentation in README.md
+- Create a pull request
 ```
 en: {
     'bannerHeading': 'We use cookies',

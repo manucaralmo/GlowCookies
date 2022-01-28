@@ -434,10 +434,17 @@ class LanguagesGC {
         'acceptBtnText': 'Cookiesを受け入れる',
         'rejectBtnText': '拒否',
         'manageText': 'cookies管理'
+      },
+      pl: {
+        'bannerHeading': 'Korzystanie z plików cookie',
+        'bannerDescription': 'Używamy własnych i zewnętrznych plików cookie do personalizacji treści i analizy ruchu w sieci.',
+        'bannerLinkText': 'Przeczytaj więcej o plikach cookie',
+        'acceptBtnText': 'Zaakceptuj ciasteczka',
+        'rejectBtnText': 'Odrzuć',
+        'manageText': 'Zarządzaj ciasteczkami'
       }
     }
   }
 
-}
 
 const glowCookies = new GlowCookies()

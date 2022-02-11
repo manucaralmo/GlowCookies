@@ -387,7 +387,7 @@ class LanguagesGC {
         'bannerDescription': 'We gebruiken onze en third-party cookies om content te personaliseren en web traffic te analyseren.',
         'bannerLinkText': 'Lees meer over cookies',
         'acceptBtnText': 'Cookies accepteren',
-        'rejectBtnText': 'Wijgeren',
+        'rejectBtnText': 'Weigeren',
         'manageText': 'Cookies beheren'
       },
       oc: {

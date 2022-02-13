@@ -398,6 +398,14 @@ class LanguagesGC {
         'rejectBtnText': 'Refusar',
         'manageText': 'Configurar los cookies'
       },        
+      pl: {
+        'bannerHeading': 'Używamy plików cookie',
+        'bannerDescription': 'Ta strona używa plików cookie - zarówno własnych, jak i od zewnętrznych dostawców, w celu personalizacji treści i analizy ruchu.',
+        'bannerLinkText': 'Więcej o plikach cookie',
+        'acceptBtnText': 'Zaakceptuj pliki cookie',
+        'rejectBtnText': 'Odrzuć',
+        'manageText': 'Ustawienia plików cookie'
+      },
       pt_BR: {
         'bannerHeading': 'Uso de cookies',
         'bannerDescription': 'Usamos cookies próprios e de terceiros para personalizar o conteúdo e analisar o tráfego da web.',

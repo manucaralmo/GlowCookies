@@ -45,6 +45,7 @@ Now you can choose between these available languages:
 - Danish (`da`)
 - Thai (`th`)
 - Slovak (`sk`)
+- Polish (`pl`)
 - Brazilian portugese (`pt_BR`)
 - Japanese (`ja`)
 - Italian (`it`)

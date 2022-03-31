@@ -446,6 +446,14 @@ class LanguagesGC {
         'rejectBtnText': 'Reddet',
         'manageText': 'Çerezleri yönet'
       },
+      en: {
+        'bannerHeading': 'Ми використовуємо кукі',
+        'bannerDescription': 'Ми використовуємо власні та сторонні cookie для персоналізації досвіду користування та аналізу веб-трафіку.',
+        'bannerLinkText': 'Дізнайтеся більше про cookie',
+        'acceptBtnText': 'Прийняти',
+        'rejectBtnText': 'Відхилити',
+        'manageText': 'Налаштування cookie'
+      },
       ja: {
         'bannerHeading': 'Cookies を使用しています',
         'bannerDescription': '私たちは、コンテンツのパーソナライズやトラフィックの分析のために、独自およびサードパーティー製 Cookies を使用しています。',

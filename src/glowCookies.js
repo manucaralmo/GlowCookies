@@ -469,6 +469,14 @@ class LanguagesGC {
         'acceptBtnText' : '同意 cookies',
         'rejectBtnText' : '拒絕',
         'manageText' : '管理 cookies'
+      },
+      zh: {
+        'bannerHeading': '我们使用 Cookies',
+        'bannerDescription': '我们使用了自己和第三方的 cookies 来个性化您的内容和分析网页的流量。',
+        'bannerLinkText': '阅读更多关于 cookies',
+        'acceptBtnText': '同意 cookies',
+        'rejectBtnText': '拒绝',
+        'manageText': '管理 cookies'
       }
     }
   }

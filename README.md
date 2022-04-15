@@ -70,6 +70,7 @@ These are the parameters that you can modify to add your tracking codes or custo
 | `analytics`             | String | Example: `"G-FH87DE17XF"` (Analytics tracking code)                                                                 |
 | `facebookPixel`         | String | Example: `"990955817632355"` (Facebook Pixel code)                                                                  |
 | `HotjarTrackingCode`    | String | Example: `"990955817632355"` (Hotjar tracking code)                                                                 |
+| `swetrixPID`            | String | Example: `"JAVy3Cp1NLAW"` (Swetrix Project ID (tracking code))                                                      |
 | `customScript` (Inline) | Object | Example: `[{ type: 'custom', position: 'body', content: 'console.log('custom script');' }]`                         |
 | `customScript` (src)    | Object | Example: `[{ type: 'src', position: 'head', content: 'https://www.googletagmanager.com/gtag/js?id=G-FH87DE17XF' }]` |
 

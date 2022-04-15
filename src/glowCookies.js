@@ -16,6 +16,11 @@ class GlowCookies {
     this.PreBanner = undefined
     this.Cookies = undefined
     this.DOMbanner = undefined
+
+    this.openManageCookies = this.openManageCookies.bind(this)
+    this.acceptCookies = this.acceptCookies.bind(this)
+    this.rejectCookies = this.rejectCookies.bind(this)
+    this.openSelector = this.openSelector.bind(this)
   }
 
   render() {
@@ -33,16 +38,16 @@ class GlowCookies {
 
   createDOMElements() {
     // COOKIES BUTTON
-    this.PreBanner = document.createElement("div");
+    this.PreBanner = document.createElement('div');
     this.PreBanner.innerHTML = `<button type="button" id="prebannerBtn" class="prebanner prebanner__border__${this.config.bannerStyle} glowCookies__${this.config.position} glowCookies__${this.config.border} animation" style="color: ${this.banner.manageCookies.color}; background-color: ${this.banner.manageCookies.background};">
                                     <svg fill="currentColor" style="margin-right: 7px; margin-top: 2px; vertical-align: text-top;" height="15px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
                                         <path d="M510.52 255.82c-69.97-.85-126.47-57.69-126.47-127.86-70.17 0-127-56.49-127.86-126.45-27.26-4.14-55.13.3-79.72 12.82l-69.13 35.22a132.221 132.221 0 0 0-57.79 57.81l-35.1 68.88a132.645 132.645 0 0 0-12.82 80.95l12.08 76.27a132.521 132.521 0 0 0 37.16 72.96l54.77 54.76a132.036 132.036 0 0 0 72.71 37.06l76.71 12.15c27.51 4.36 55.7-.11 80.53-12.76l69.13-35.21a132.273 132.273 0 0 0 57.79-57.81l35.1-68.88c12.56-24.64 17.01-52.58 12.91-79.91zM176 368c-17.67 0-32-14.33-32-32s14.33-32 32-32 32 14.33 32 32-14.33 32-32 32zm32-160c-17.67 0-32-14.33-32-32s14.33-32 32-32 32 14.33 32 32-14.33 32-32 32zm160 128c-17.67 0-32-14.33-32-32s14.33-32 32-32 32 14.33 32 32-14.33 32-32 32z"/>
                                     </svg>${this.banner.manageCookies.text}</button>`;
-    this.PreBanner.style.display = "none";
+    this.PreBanner.style.display = 'none';
     document.body.appendChild(this.PreBanner);
 
     // COOKIES BANNER
-    this.Cookies = document.createElement("div");
+    this.Cookies = document.createElement('div');
     this.Cookies.innerHTML = `<div 
                                     id="glowCookies-banner" 
                                     class="glowCookies__banner glowCookies__banner__${this.config.bannerStyle} glowCookies__${this.config.border} glowCookies__${this.config.position}"
@@ -53,7 +58,8 @@ class GlowCookies {
                                         ${this.banner.description} 
                                         <a 
                                             href="${this.banner.link}"
-                                            target="_blank" 
+                                            target="_blank"
+                                            rel="noopener noreferrer"
                                             class="read__more"
                                             style="color: ${this.banner.color};"
                                         >
@@ -73,21 +79,20 @@ class GlowCookies {
     document.body.appendChild(this.Cookies);
     this.DOMbanner = document.getElementById('glowCookies-banner')
 
-
     // SET EVENT LISTENERS
-    document.getElementById('prebannerBtn').addEventListener('click', () => this.openSelector())
-    document.getElementById('acceptCookies').addEventListener('click', () => this.acceptCookies())
-    document.getElementById('rejectCookies').addEventListener('click', () => this.rejectCookies())
+    document.getElementById('prebannerBtn').addEventListener('click', this.openSelector)
+    document.getElementById('acceptCookies').addEventListener('click', this.acceptCookies)
+    document.getElementById('rejectCookies').addEventListener('click', this.rejectCookies)
   }
 
   checkStatus() {
-    switch (localStorage.getItem("GlowCookies")) {
-      case "1":
+    switch (localStorage.getItem('GlowCookies')) {
+      case '1':
         this.openManageCookies();
         this.activateTracking();
         this.addCustomScript();
         break;
-      case "0":
+      case '0':
         this.openManageCookies();
         break;
       default:
@@ -96,24 +101,24 @@ class GlowCookies {
   }
 
   openManageCookies() {
-    this.PreBanner.style.display = this.config.hideAfterClick ? "none" : "block"
+    this.PreBanner.style.display = this.config.hideAfterClick ? 'none' : 'block'
     this.DOMbanner.classList.remove('glowCookies__show')
   }
 
   openSelector() {
-    this.PreBanner.style.display = "none";
+    this.PreBanner.style.display = 'none';
     this.DOMbanner.classList.add('glowCookies__show')
   }
 
   acceptCookies() {
-    localStorage.setItem("GlowCookies", "1")
+    localStorage.setItem('GlowCookies', '1')
     this.openManageCookies()
     this.activateTracking()
     this.addCustomScript()
   }
 
   rejectCookies() {
-    localStorage.setItem("GlowCookies", "0");
+    localStorage.setItem('GlowCookies', '0');
     this.openManageCookies();
     this.disableTracking();
   }
@@ -121,20 +126,20 @@ class GlowCookies {
   activateTracking() {
     // Google Analytics Tracking
     if (this.tracking.AnalyticsCode) {
-      let Analytics = document.createElement('script');
+      const Analytics = document.createElement('script');
       Analytics.setAttribute('src', `https://www.googletagmanager.com/gtag/js?id=${this.tracking.AnalyticsCode}`);
       document.head.appendChild(Analytics);
-      let AnalyticsData = document.createElement('script');
+      const AnalyticsData = document.createElement('script');
       AnalyticsData.text = `window.dataLayer = window.dataLayer || [];
-                                function gtag(){dataLayer.push(arguments);}
-                                gtag('js', new Date());
-                                gtag('config', '${this.tracking.AnalyticsCode}');`;
+                            function gtag(){dataLayer.push(arguments);}
+                            gtag('js', new Date());
+                            gtag('config', '${this.tracking.AnalyticsCode}');`;
       document.head.appendChild(AnalyticsData);
     }
 
     // Facebook pixel tracking code
     if (this.tracking.FacebookPixelCode) {
-      let FacebookPixelData = document.createElement('script');
+      const FacebookPixelData = document.createElement('script');
       FacebookPixelData.text = `
                                     !function(f,b,e,v,n,t,s)
                                     {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -148,7 +153,7 @@ class GlowCookies {
                                     fbq('track', 'PageView');
                                 `;
       document.head.appendChild(FacebookPixelData);
-      let FacebookPixel = document.createElement('noscript');
+      const FacebookPixel = document.createElement('noscript');
       FacebookPixel.setAttribute('height', `1`);
       FacebookPixel.setAttribute('width', `1`);
       FacebookPixel.setAttribute('style', `display:none`);
@@ -158,7 +163,7 @@ class GlowCookies {
 
     // Hotjar Tracking
     if (this.tracking.HotjarTrackingCode) {
-      let hotjarTrackingData = document.createElement('script');
+      const hotjarTrackingData = document.createElement('script');
       hotjarTrackingData.text = `
                                 (function(h,o,t,j,a,r){
                                     h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
@@ -171,15 +176,33 @@ class GlowCookies {
                                 `;
       document.head.appendChild(hotjarTrackingData);
     }
+
+    // Swetrix Analytics Tracking
+    if (this.tracking.SwetrixCode) {
+      const Swetrix = document.createElement('script');
+      Swetrix.setAttribute('src', 'https://swetrix.org/swetrix.js');
+      document.head.appendChild(Swetrix);
+
+      const SwetrixData = document.createElement('script');
+      SwetrixData.text = `(async () => {
+                            const timer = (ms) => new Promise(res => setTimeout(res, ms))
+                            while (!window.swetrix) {
+                              await timer(1500)
+                            }
+                            window.swetrix.init('${this.tracking.SwetrixCode}');
+                            window.swetrix.trackViews();
+                          })();`;
+      document.head.appendChild(SwetrixData);
+    }
   }
 
   disableTracking() {
     // Google Analytics Tracking ('client_storage': 'none')
     if (this.tracking.AnalyticsCode) {
-      let Analytics = document.createElement('script');
+      const Analytics = document.createElement('script');
       Analytics.setAttribute('src', `https://www.googletagmanager.com/gtag/js?id=${this.tracking.AnalyticsCode}`);
       document.head.appendChild(Analytics);
-      let AnalyticsData = document.createElement('script');
+      const AnalyticsData = document.createElement('script');
       AnalyticsData.text = `window.dataLayer = window.dataLayer || [];
                         function gtag(){dataLayer.push(arguments);}
                         gtag('js', new Date());
@@ -195,12 +218,12 @@ class GlowCookies {
   }
 
   clearCookies() {
-    let cookies = document.cookie.split("; ");
+    const cookies = document.cookie.split('; ');
     for (let c = 0; c < cookies.length; c++) {
-      let d = window.location.hostname.split(".");
+      const d = window.location.hostname.split('.');
       while (d.length > 0) {
-        let cookieBase = encodeURIComponent(cookies[c].split(";")[0].split("=")[0]) + '=; expires=Thu, 01-Jan-1970 00:00:01 GMT; domain=' + d.join('.') + ' ;path=';
-        let p = location.pathname.split('/');
+        const cookieBase = encodeURIComponent(cookies[c].split(';')[0].split('=')[0]) + '=; expires=Thu, 01-Jan-1970 00:00:01 GMT; domain=' + d.join('.') + ' ;path=';
+        const p = location.pathname.split('/');
         document.cookie = cookieBase + '/';
         while (p.length > 0) {
           document.cookie = cookieBase + p.join('/');
@@ -233,9 +256,9 @@ class GlowCookies {
     }
   }
 
-  start(languaje, obj) {
+  start(language, obj) {
     if (!obj) obj = {}
-    const lang = new LanguagesGC(languaje)
+    const lang = new LanguagesGC(language)
 
     this.config = {
       border: obj.border || 'border',
@@ -247,6 +270,7 @@ class GlowCookies {
     this.tracking = {
       AnalyticsCode: obj.analytics || undefined,
       FacebookPixelCode: obj.facebookPixel || undefined,
+      SwetrixCode: obj.swetrixPID || undefined,
       HotjarTrackingCode: obj.hotjar || undefined,
       customScript: obj.customScript || undefined
     }
@@ -283,7 +307,7 @@ class GlowCookies {
 class LanguagesGC {
   constructor(code) {
     this.init()
-    let lang = this.arrLang[code] || this.arrLang['en']
+    const lang = this.arrLang[code] || this.arrLang['en']
     this.bannerHeading = lang['bannerHeading']
     this.bannerDescription = lang['bannerDescription']
     this.bannerLinkText = lang['bannerLinkText']
@@ -328,27 +352,27 @@ class LanguagesGC {
       },
       sv: {
         'bannerHeading': 'Vi använder cookies',
-        'bannerDescription' : 'Vi använder våra egna och tredjepartscookies för att personalisera innehåll och till statistik.',
-        'bannerLinkText' : 'Läs mer om cookies',
-        'acceptBtnText' : 'Acceptera cookies',
-        'rejectBtnText' : 'Avslå',
-        'manageText' : 'Hantera cookies'
+        'bannerDescription': 'Vi använder våra egna och tredjepartscookies för att personalisera innehåll och till statistik.',
+        'bannerLinkText': 'Läs mer om cookies',
+        'acceptBtnText': 'Acceptera cookies',
+        'rejectBtnText': 'Avslå',
+        'manageText': 'Hantera cookies'
       },
       no: {
         'bannerHeading': 'Vi benytter cookies',
-        'bannerDescription' : 'Vi benytter våre egne og tredjepartscookies for å personalisere innehold og til statistikk.',
-        'bannerLinkText' : 'Les mer om cookies',
-        'acceptBtnText' : 'Aksepter cookies',
-        'rejectBtnText' : 'Avslå',
-        'manageText' : 'Håndter cookies'
+        'bannerDescription': 'Vi benytter våre egne og tredjepartscookies for å personalisere innehold og til statistikk.',
+        'bannerLinkText': 'Les mer om cookies',
+        'acceptBtnText': 'Aksepter cookies',
+        'rejectBtnText': 'Avslå',
+        'manageText': 'Håndter cookies'
       },
       da: {
         'bannerHeading': 'Vi bruger cookies',
-        'bannerDescription' : 'Vi bruger vores egne og tredjepartscookies til at tilpasse indhold og måle statistik.',
-        'bannerLinkText' : 'Læs mere om cookies',
-        'acceptBtnText' : 'Accepter cookies',
-        'rejectBtnText' : 'Afvis',
-        'manageText' : 'Administrer cookies'
+        'bannerDescription': 'Vi bruger vores egne og tredjepartscookies til at tilpasse indhold og måle statistik.',
+        'bannerLinkText': 'Læs mere om cookies',
+        'acceptBtnText': 'Accepter cookies',
+        'rejectBtnText': 'Afvis',
+        'manageText': 'Administrer cookies'
       },
       es: {
         'bannerHeading': 'Uso de cookies',
@@ -397,7 +421,7 @@ class LanguagesGC {
         'acceptBtnText': 'Acceptar los cookies',
         'rejectBtnText': 'Refusar',
         'manageText': 'Configurar los cookies'
-      },        
+      },
       pl: {
         'bannerHeading': 'Używamy plików cookie',
         'bannerDescription': 'Ta strona używa plików cookie - zarówno własnych, jak i od zewnętrznych dostawców, w celu personalizacji treści i analizy ruchu.',
@@ -464,11 +488,11 @@ class LanguagesGC {
       },
       zh_TW: {
         'bannerHeading': '我們使用 Cookies',
-        'bannerDescription' : '我們使用了自己和第三方的 cookies 來個人化您的內容和分析網頁的流量。',
-        'bannerLinkText' : '閱讀更多關於 cookies',
-        'acceptBtnText' : '同意 cookies',
-        'rejectBtnText' : '拒絕',
-        'manageText' : '管理 cookies'
+        'bannerDescription': '我們使用了自己和第三方的 cookies 來個人化您的內容和分析網頁的流量。',
+        'bannerLinkText': '閱讀更多關於 cookies',
+        'acceptBtnText': '同意 cookies',
+        'rejectBtnText': '拒絕',
+        'manageText': '管理 cookies'
       },
       zh: {
         'bannerHeading': '我们使用 Cookies',

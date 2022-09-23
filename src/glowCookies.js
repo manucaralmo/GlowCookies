@@ -366,6 +366,14 @@ class LanguagesGC {
         'rejectBtnText': 'Refuser',
         'manageText': 'Paramétrez les cookies'
       },
+      hu: {
+        'bannerHeading': 'Sütiket használunk',
+        'bannerDescription': 'Saját és harmadik fél általi sütiket használunk a tartalmak személyre szabása és webforgalom elemzése érdekében.',
+        'bannerLinkText': 'További részletek a sütikkel kapcsolatban',
+        'acceptBtnText': 'Sütik elfogadása',
+        'rejectBtnText': 'Elutasít',
+        'manageText': 'Sütik kezelése'
+      },
       it: {
         'bannerHeading': 'Utilizziamo i cookie',
         'bannerDescription': 'Utilizziamo cookie nostri e di terze parti per personalizzare il contenuto e analizzare il traffico web.',

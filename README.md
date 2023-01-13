@@ -88,7 +88,8 @@ Now there are certain parameters that you can change to customize your banner.
 | Parameter             | Type   | Values                                                                                                 |
 | --------------------- | ------ | ------------------------------------------------------------------------------------------------------ |
 | `border`              | String | (`"border"` or `"none"`) Default: `"border"`                                                           |
-| `position`            | String | (`"left"` or `"right"`) Default: `"left"`                                                              |
+| `position`            | String | (`"left"`, `"center"` or `"right"`) Default: `"left"`                                                  |
+| `managePosition`      | String | (`"left"` or `"right"`) Default: `"left"`                                                              |
 | `bannerDescription`   | String | Example: `"We use our own and third-party cookies to personalize content and to analyze web traffic."` |
 | `bannerLinkText`      | String | Example: `"Read more about cookies"`                                                                   |
 | `bannerBackground`    | String | Example: `"#FAFAFA"` Example: `"lightblue"`                                                            |

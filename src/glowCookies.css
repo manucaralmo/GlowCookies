@@ -1,37 +1,59 @@
 /* CUSTOM CLASSES */
+.glowCookies__container {
+  display: flex;
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  z-index: 999;
+  padding: 15px;
+}
+
+.glowCookies__container.glowCookies__center {
+  align-items: center;
+  justify-content: center;
+}
+
+.glowCookies__container.glowCookies__left {
+  align-items: flex-end;
+  justify-content: flex-start;
+}
+
+.glowCookies__container.glowCookies__right {
+  align-items: flex-end;
+  justify-content: flex-end;
+}
+
+.glowCookies__container.glowCookies__show {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: all;
+  transition: opacity 0.2s ease;
+}
+
 .glowCookies__border {
   border: 1px solid #e6e6e6 !important;
-}
-
-.glowCookies__left {
-  left: 15px;
-}
-
-.glowCookies__right {
-  right: 15px;
-}
-
-.glowCookies__show {
-  opacity: 1 !important;
-  visibility: visible !important;
-  transform: scale(1) !important;
 }
 
 /* COMMON STYLES */
 /* ========================= */
 .glowCookies__banner {
-  opacity: 0;
-  visibility: hidden;
   transform: scale(0.9);
   font-family: inherit;
-  position: fixed;
   width: auto;
   max-width: 375px;
-  z-index: 999;
-  -webkit-box-shadow: 0 .625em 1.875em rgba(2,2,3,.2);
-  -moz-box-shadow: 0 .625em 1.875em rgba(2,2,3,.2);
-  box-shadow: 0 .625em 1.875em rgba(2,2,3,.2);
-  transition: transform .2s ease, opacity .2s ease !important;
+  -webkit-box-shadow: 0 0.625em 1.875em rgba(2, 2, 3, 0.2);
+  -moz-box-shadow: 0 0.625em 1.875em rgba(2, 2, 3, 0.2);
+  box-shadow: 0 0.625em 1.875em rgba(2, 2, 3, 0.2);
+  transition: transform 0.2s ease, opacity 0.2s ease !important;
+}
+
+.glowCookies__show .glowCookies__banner {
+  transform: scale(1);
 }
 
 .glowCookies__banner .accept__btn__styles {
@@ -77,7 +99,7 @@
   }
 
   .btn__section .btn__settings {
-      width: 100%;
+    width: 100%;
   }
 }
 
@@ -124,20 +146,19 @@
 
 @media (max-width: 455px) {
   .glowCookies__banner__1 {
-      bottom: 0px;
-      left: 0px;
-      right: 0px;
-      margin: 7px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    margin: 7px;
   }
 
   .glowCookies__banner__1 .btn__section {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-top: 20px;
   }
 }
-
 
 /* BANNER STYLE 2 */
 /* ========================= */
@@ -182,19 +203,19 @@
 
 @media (max-width: 455px) {
   .glowCookies__banner__2 {
-      bottom: 0px;
-      left: 0px;
-      right: 0px;
-      border-radius: 0px;
-      border: 0px;
-      max-width: 550px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    border-radius: 0px;
+    border: 0px;
+    max-width: 550px;
   }
 
   .glowCookies__banner__2 .btn__section {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-top: 20px;
   }
 }
 
@@ -241,19 +262,19 @@
 
 @media (max-width: 455px) {
   .glowCookies__banner__3 {
-      bottom: 0px;
-      left: 0px;
-      right: 0px;
-      border-radius: 0px;
-      border: 0px;
-      max-width: 550px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    border-radius: 0px;
+    border: 0px;
+    max-width: 550px;
   }
 
   .glowCookies__banner__3 .btn__section {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-top: 20px;
   }
 }
 
@@ -263,6 +284,9 @@
   position: fixed;
   bottom: 15px;
   z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   min-height: 50px;
   min-width: 125px;
   cursor: pointer;
@@ -274,9 +298,17 @@
   padding: 12px 18px;
   text-decoration: none;
   user-select: none;
-  -webkit-box-shadow: 0 .625em 1.875em rgba(2,2,3,.1);
-  -moz-box-shadow: 0 .625em 1.875em rgba(2,2,3,.1);
-  box-shadow: 0 .625em 1.875em rgba(2,2,3,.1);
+  -webkit-box-shadow: 0 0.625em 1.875em rgba(2, 2, 3, 0.1);
+  -moz-box-shadow: 0 0.625em 1.875em rgba(2, 2, 3, 0.1);
+  box-shadow: 0 0.625em 1.875em rgba(2, 2, 3, 0.1);
+}
+
+.prebanner.glowCookies__left {
+	left: 15px;
+}
+
+.prebanner.glowCookies__right {
+	right: 15px;
 }
 
 .prebanner__border__1 {
@@ -292,14 +324,13 @@
 }
 
 .animation {
-  transition: .2s;
+  transition: 0.2s;
 }
 
 .animation:hover {
-  transform: scale(.97);
+  transform: scale(0.97);
 }
 
 .prebanner:hover {
   text-decoration: none;
 }
-

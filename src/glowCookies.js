@@ -480,7 +480,7 @@ class LanguagesGC {
       },
       ca: {
         'bannerHeading': 'Ús de Cookies',
-        'bannerDescription': 'Utilitzem cookies pròpies i de tercers per a personalitzar el contingut i per a analitzar el trànsit del lloc web',
+        'bannerDescription': 'Utilitzem cookies pròpies i de tercers per a personalitzar el contingut i per a analitzar el trànsit del lloc web.',
         'bannerLinkText': 'Vegeu més informació sobre les Cookies',
         'acceptBtnText': 'Acceptar les Cookies',
         'rejectBtnText': 'Declinar',

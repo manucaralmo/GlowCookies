@@ -43,17 +43,17 @@ class GlowCookies {
 
     // COOKIES BANNER
     this.Cookies = document.createElement("div");
-    this.Cookies.innerHTML = `<div 
-                                    id="glowCookies-banner" 
+    this.Cookies.innerHTML = `<div
+                                    id="glowCookies-banner"
                                     class="glowCookies__banner glowCookies__banner__${this.config.bannerStyle} glowCookies__${this.config.border} glowCookies__${this.config.position}"
                                     style="background-color: ${this.banner.background};"
                                 >
                                     <h3 style="color: ${this.banner.color};">${this.banner.heading}</h3>
                                     <p style="color: ${this.banner.color};">
-                                        ${this.banner.description} 
-                                        <a 
+                                        ${this.banner.description}
+                                        <a
                                             href="${this.banner.link}"
-                                            target="_blank" 
+                                            target="_blank"
                                             class="read__more"
                                             style="color: ${this.banner.color};"
                                         >
@@ -397,7 +397,7 @@ class LanguagesGC {
         'acceptBtnText': 'Acceptar los cookies',
         'rejectBtnText': 'Refusar',
         'manageText': 'Configurar los cookies'
-      },        
+      },
       pl: {
         'bannerHeading': 'Używamy plików cookie',
         'bannerDescription': 'Ta strona używa plików cookie - zarówno własnych, jak i od zewnętrznych dostawców, w celu personalizacji treści i analizy ruchu.',
@@ -477,6 +477,14 @@ class LanguagesGC {
         'acceptBtnText': '同意 cookies',
         'rejectBtnText': '拒绝',
         'manageText': '管理 cookies'
+      },
+      ca: {
+        'bannerHeading': 'Ús de Cookies',
+        'bannerDescription': 'Utilitzem cookies pròpies i de tercers per a personalitzar el contingut i per a analitzar el trànsit del lloc web.',
+        'bannerLinkText': 'Vegeu més informació sobre les Cookies',
+        'acceptBtnText': 'Acceptar les Cookies',
+        'rejectBtnText': 'Declinar',
+        'manageText': 'Cookies'
       }
     }
   }

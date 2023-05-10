@@ -19,9 +19,9 @@ Add this code to your html `<head>` or `<body>` tag.
 ```html
 <script src="https://cdn.jsdelivr.net/gh/manucaralmo/GlowCookies@3.1.7/src/glowCookies.min.js"></script>
 <script>
-    glowCookies.start('en', { 
+    glowCookies.start('en', {
         style: 1,
-        analytics: 'G-FH87DE17XF', 
+        analytics: 'G-FH87DE17XF',
         facebookPixel: '990955817632355',
         policyLink: 'https://link-to-your-policy.com'
     });
@@ -30,35 +30,36 @@ Add this code to your html `<head>` or `<body>` tag.
 
 ## Banner styles
 Now you can choose between these available banner styles:
-- Style `1`, `2` or `3` 
+- Style `1`, `2` or `3`
 
 Set style in config object `glowCookies.start('en', { style: 3 })`
 
 ## Languages
-Now you can choose between these available languages: 
-- English (`en`)
-- Spanish (`es`)
-- German (`de`)
-- French (`fr`)
-- Norwegian (`no`)
-- Swedish (`sv`)
-- Danish (`da`)
-- Thai (`th`)
-- Slovak (`sk`)
-- Polish (`pl`)
-- Brazilian portugese (`pt_BR`)
-- Japanese (`ja`)
-- Italian (`it`)
-- Bulgarian (`bg`)
-- Turkish (`tr`)
-- Occitan (`oc`)
-- Dutch (`nl`)
+Now you can choose between these available languages:
 - Afrikaans (`af`)
-- Malagasy (`mg`)
-- Russian (`ru`)
-- Ukrainian (`uk`)
-- Chinese Traditional (`zh_TW`)
+- Brazilian portugese (`pt_BR`)
+- Bulgarian (`bg`)
+- Catalan (`ca`)
 - Chinese Simple (`zh`)
+- Chinese Traditional (`zh_TW`)
+- Danish (`da`)
+- Dutch (`nl`)
+- English (`en`)
+- French (`fr`)
+- German (`de`)
+- Italian (`it`)
+- Japanese (`ja`)
+- Malagasy (`mg`)
+- Norwegian (`no`)
+- Occitan (`oc`)
+- Polish (`pl`)
+- Russian (`ru`)
+- Slovak (`sk`)
+- Spanish (`es`)
+- Swedish (`sv`)
+- Thai (`th`)
+- Turkish (`tr`)
+- Ukrainian (`uk`)
 
 Set language in the first parameter of `glowCookies.start('en', { })` method.
 
@@ -109,9 +110,9 @@ Now there are certain parameters that you can change to customize your banner.
 ```html
 <script src="https://cdn.jsdelivr.net/gh/manucaralmo/GlowCookies@3.1.7/src/glowCookies.min.js"></script>
 <script>
-    glowCookies.start('en', { 
+    glowCookies.start('en', {
         style: 2,
-        analytics: 'G-FH87DE17XF', 
+        analytics: 'G-FH87DE17XF',
         facebookPixel: '990955817632355',
         hideAfterClick: true,
         border: 'none',

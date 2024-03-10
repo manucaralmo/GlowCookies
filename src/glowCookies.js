@@ -48,6 +48,7 @@ class GlowCookies {
                                     class="glowCookies__banner glowCookies__banner__${this.config.bannerStyle} glowCookies__${this.config.border} glowCookies__${this.config.position}"
                                     style="background-color: ${this.banner.background};"
                                 >
+                                    <span class="close_btn_styles" ${this.banner.closeBtnHiddenText} style="color: ${this.banner.closeColor}; cursor: pointer" onclick="this.parentNode.parentNode.remove(); return false;">&#10006;</span>
                                     <h3 style="color: ${this.banner.color};">${this.banner.heading}</h3>
                                     <p style="color: ${this.banner.color};">
                                         ${this.banner.description}
@@ -257,6 +258,8 @@ class GlowCookies {
       link: obj.policyLink || '#link',
       background: obj.bannerBackground || '#fff',
       color: obj.bannerColor || '#1d2e38',
+      closeColor: obj.closeColor || '#000',
+      closeBtnHiddenText: obj.closeBtnHidden ? 'hidden' : '',
       heading: obj.bannerHeading !== 'none' ? obj.bannerHeading || lang.bannerHeading : '',
       acceptBtn: {
         text: obj.acceptBtnText || lang.acceptBtnText,

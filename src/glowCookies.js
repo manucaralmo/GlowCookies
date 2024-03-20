@@ -14,6 +14,7 @@ class GlowCookies {
     this.tracking = undefined
     // DOM ELEMENTS
     this.PreBanner = undefined
+    this.CustomizeSwitches = [undefined, undefined, undefined] // At most 3 valid switches
     this.Cookies = undefined
     this.DOMbanner = undefined
   }
@@ -27,7 +28,7 @@ class GlowCookies {
   addCss() {
     const stylesheet = document.createElement('link');
     stylesheet.setAttribute('rel', 'stylesheet');
-    stylesheet.setAttribute('href', `https://cdn.jsdelivr.net/gh/manucaralmo/GlowCookies@3.1.3/src/glowCookies.min.css`);
+    stylesheet.setAttribute('href', `./glowCookies.css`);
     document.head.appendChild(stylesheet);
   }
 
@@ -46,7 +47,10 @@ class GlowCookies {
     this.Cookies.innerHTML = `<div
                                     id="glowCookies-banner"
                                     class="glowCookies__banner glowCookies__banner__${this.config.bannerStyle} glowCookies__${this.config.border} glowCookies__${this.config.position}"
-                                    style="background-color: ${this.banner.background};"
+                                    style="background-color: ${this.banner.background};
+                                    -webkit-box-shadow: 0 .625em 1.875em rgba(2,2,3,.2);
+                                    -moz-box-shadow: 0 .625em 1.875em rgba(2,2,3,.2);
+                                    box-shadow: 0 .625em ${this.banner.shadowSpread} ${this.banner.shadowColor};"
                                 >
                                     <span class="close_btn_styles" ${this.banner.closeBtnHiddenText} style="color: ${this.banner.closeColor}; cursor: pointer" onclick="this.parentNode.parentNode.remove(); return false;">&#10006;</span>
                                     <h3 style="color: ${this.banner.color};">${this.banner.heading}</h3>
@@ -65,6 +69,9 @@ class GlowCookies {
                                         <button type="button" id="acceptCookies" class="btn__accept accept__btn__styles" style="color: ${this.banner.acceptBtn.color}; background-color: ${this.banner.acceptBtn.background};">
                                             ${this.banner.acceptBtn.text}
                                         </button>
+                                        <button type="button" id="customizeButton" class="btn__settings settings__btn__styles" style="color: ${this.banner.customizeButton.color}; display: ${this.banner.customizeButton.display}; background-color: ${this.banner.customizeButton.background};">
+                                        ${this.banner.customizeButton.text}
+                                        </button>
                                         <button type="button" id="rejectCookies" class="btn__settings settings__btn__styles" style="color: ${this.banner.rejectBtn.color}; background-color: ${this.banner.rejectBtn.background};">
                                             ${this.banner.rejectBtn.text}
                                         </button>
@@ -74,11 +81,72 @@ class GlowCookies {
     document.body.appendChild(this.Cookies);
     this.DOMbanner = document.getElementById('glowCookies-banner')
 
+    // COOKIES BANNER
+    this.switch_on = ["glowCookies__customize_switch_button_off", "glowCookies__customize_switch_button_off", "glowCookies__customize_switch_button_off"];
+    this.Customizer = document.createElement("div");
+    this.Customizer.innerHTML = `<div
+                                    id="glowCookies-customize"
+                                    class="glowCookies__customize glowCookies__${this.config.position}"
+                                    style="">
+                                    <h1>Customize Cookies</h1>
+                                    <div class ="glowCookies__customize_item_container"> 
+                                      <div class ="glowCookies__customize_text"> 
+                                        User Preferences
+                                      </div>
+                                      <div>
+                                        <button id="glowCookies-customize-switch-1"  class="glowCookies__customize_switch_button">
+                                        <div class=glowCookies__customize_switch_circle>
+
+                                        </div>
+                                        </button>
+                                      </div>
+                                    </div>
+                                    <div class ="glowCookies__customize_item_container"> 
+                                      <div class ="glowCookies__customize_text"> 
+                                        Analytics
+                                      </div>
+                                      <div>
+                                        <button id="glowCookies-customize-switch-2"  class="glowCookies__customize_switch_button">
+                                        <div class=glowCookies__customize_switch_circle>
+
+                                        </div>
+                                        </button>
+                                      </div>
+                                    </div>
+                                    <div class ="glowCookies__customize_item_container"> 
+                                    <div class ="glowCookies__customize_text"> 
+                                      Third Party Cookies
+                                    </div>
+                                    <div>
+                                      <button id="glowCookies-customize-switch-3"  class="glowCookies__customize_switch_button">
+                                      <div class=glowCookies__customize_switch_circle>
+
+                                      </div>
+                                      </button>
+                                    </div>
+                                  </div>
+                                  <button id="glowCookies-customize-save">
+                                  Save cookie preferences
+                                  </button>
+                                </div>
+                                </div>
+                            `;
+    document.body.appendChild(this.Customizer);
+    for(let i = 1; i < 4; i++){
+      this.CustomizeSwitches[i - 1] = document.getElementById('glowCookies-customize-switch-' + i)
+    }
+
 
     // SET EVENT LISTENERS
     document.getElementById('prebannerBtn').addEventListener('click', () => this.openSelector())
     document.getElementById('acceptCookies').addEventListener('click', () => this.acceptCookies())
     document.getElementById('rejectCookies').addEventListener('click', () => this.rejectCookies())
+    document.getElementById('customizeButton').addEventListener('click', () => this.openCustomizer())
+    document.getElementById('glowCookies-customize-switch-1').addEventListener('click', () => this.switchCustomizer(1))
+    document.getElementById('glowCookies-customize-switch-2').addEventListener('click', () => this.switchCustomizer(2))
+    document.getElementById('glowCookies-customize-switch-3').addEventListener('click', () => this.switchCustomizer(3))
+    document.getElementById('glowCookies-customize-save').addEventListener('click', () => this.savePreferences())
+    // Add a new click listener for the 'closeManager'
   }
 
   checkStatus() {
@@ -99,6 +167,7 @@ class GlowCookies {
   openManageCookies() {
     this.PreBanner.style.display = this.config.hideAfterClick ? "none" : "block"
     this.DOMbanner.classList.remove('glowCookies__show')
+    this.Customizer.style.display = "none"
   }
 
   openSelector() {
@@ -117,6 +186,37 @@ class GlowCookies {
     localStorage.setItem("GlowCookies", "0");
     this.openManageCookies();
     this.disableTracking();
+  }
+
+  openCustomizer() {
+    // Close out the banner, and we need to open the new banner
+    this.DOMbanner.classList.remove('glowCookies__show');
+    this.Customizer.style.display = "block";
+    for(let i = 1; i < 4; i++){
+      this.CustomizeSwitches[i - 1].classList.add("glowCookies__customize_switch_button_off");
+    }
+  }
+
+  switchCustomizer(switch_num) {
+    switch_num = switch_num - 1
+    this.CustomizeSwitches[switch_num].classList.remove(this.switch_on[switch_num]);
+    if(this.switch_on[switch_num] == "glowCookies__customize_switch_button_off"){
+      // Off to on
+      this.switch_on[switch_num] = "glowCookies__customize_switch_button_on";
+
+    }else{
+      // On to off
+      this.switch_on[switch_num] = "glowCookies__customize_switch_button_off"
+    }
+    this.CustomizeSwitches[switch_num].classList.add(this.switch_on[switch_num]);
+  }
+
+  savePreferences(){
+    this.DOMbanner.classList.add('glowCookies__show');
+    this.Customizer.style.display = "none";
+    for(let i = 1; i < 4; i++){
+      this.CustomizeSwitches[i - 1].classList.remove("glowCookies__customize_switch_button_off");
+    }
   }
 
   activateTracking() {
@@ -251,12 +351,17 @@ class GlowCookies {
       HotjarTrackingCode: obj.hotjar || undefined,
       customScript: obj.customScript || undefined
     }
-
+    let customizeBtnDisplayVal = 'block'; 
+    if (!obj.customizeBtnDisplay){
+        customizeBtnDisplayVal = 'none';
+    }
     this.banner = {
       description: obj.bannerDescription || lang.bannerDescription,
       linkText: obj.bannerLinkText || lang.bannerLinkText,
       link: obj.policyLink || '#link',
       background: obj.bannerBackground || '#fff',
+      shadowSpread: obj.shadowSpread || 0,
+      shadowColor: obj.shadowColor || 'rgb(0,0,0,0)',
       color: obj.bannerColor || '#1d2e38',
       closeColor: obj.closeColor || '#000',
       closeBtnHiddenText: obj.closeBtnHidden ? 'hidden' : '',
@@ -265,6 +370,12 @@ class GlowCookies {
         text: obj.acceptBtnText || lang.acceptBtnText,
         background: obj.acceptBtnBackground || '#253b48',
         color: obj.acceptBtnColor || '#fff'
+      },
+      customizeButton: {
+        display: customizeBtnDisplayVal,
+        text: obj.customizeBtnText || lang.customizeBtnText,
+        background: obj.customizeBtnBackground || '#E8E8E8',
+        color: obj.customizeBtnColor || '#636363'
       },
       rejectBtn: {
         text: obj.rejectBtnText || lang.rejectBtnText,
@@ -292,6 +403,7 @@ class LanguagesGC {
     this.bannerLinkText = lang['bannerLinkText']
     this.acceptBtnText = lang['acceptBtnText']
     this.rejectBtnText = lang['rejectBtnText']
+    this.customizeBtnText = lang['customizeBtnText']
     this.manageText = lang['manageText']
   }
 
@@ -327,6 +439,7 @@ class LanguagesGC {
         'bannerLinkText': 'Read more about cookies',
         'acceptBtnText': 'Accept cookies',
         'rejectBtnText': 'Reject',
+        'customizeBtnText': 'More options',
         'manageText': 'Manage cookies'
       },
       sv: {

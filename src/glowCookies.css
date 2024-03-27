@@ -61,16 +61,15 @@
   display: flex;
   align-items: center;
   border-radius: 20px;
+  cursor: pointer;
 }
 
 .glowCookies__customize_switch_button_on{
-  background-color: blue;
   border: 2px solid gray;
   justify-content: flex-end;
 }
 
 .glowCookies__customize_switch_button_off{
-  background-color: gray;
   border: 2px solid gray;
   justify-content: flex-start;
 }
@@ -81,6 +80,21 @@
   width: 1.4em;
   border-radius: 100%;
   
+}
+
+.glowCookies-customize-save {
+  border: none;
+  padding: 10px 13px;
+  font-size: 15px;
+  width: 50%;
+  align-self: center;
+  border-radius: 5%;
+  cursor: pointer;
+}
+
+.glowCookies-customize-save:hover {
+  -webkit-filter: contrast(85%);
+  filter: contrast(85%);
 }
 
 /* COMMON STYLES */

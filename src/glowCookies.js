@@ -9,12 +9,15 @@ class GlowCookies {
   constructor() {
     // Cookies banner
     this.banner = undefined
+    // Selection banner
+    this.selector = undefined
     // Config
     this.config = undefined
     this.tracking = undefined
     // DOM ELEMENTS
     this.PreBanner = undefined
     this.CustomizeSwitches = [undefined, undefined, undefined] // At most 3 valid switches
+    this.cookiesAllowed = [undefined, undefined, undefined] // Upon saving a selection or selecting accept/ reject these will be updated accordingly
     this.Cookies = undefined
     this.DOMbanner = undefined
   }
@@ -83,13 +86,14 @@ class GlowCookies {
 
     // COOKIES BANNER
     this.switch_on = ["glowCookies__customize_switch_button_off", "glowCookies__customize_switch_button_off", "glowCookies__customize_switch_button_off"];
+    this.switch_colors = ["switch_color_off", "switch_color_off", "switch_color_off"]
     this.Customizer = document.createElement("div");
     this.Customizer.innerHTML = `<div
                                     id="glowCookies-customize"
                                     class="glowCookies__customize glowCookies__${this.config.position}"
                                     style="">
-                                    <h1>Customize Cookies</h1>
-                                    <div class ="glowCookies__customize_item_container"> 
+                                    <h1 style="align-self: ${"center"}; color: ${this.selector.titleColor};">${this.selector.titleText}</h1>
+                                    <div style="display: ${this.selector.customizeUserPreferences.display};" class ="glowCookies__customize_item_container"> 
                                       <div class ="glowCookies__customize_text"> 
                                         User Preferences
                                       </div>
@@ -101,7 +105,7 @@ class GlowCookies {
                                         </button>
                                       </div>
                                     </div>
-                                    <div class ="glowCookies__customize_item_container"> 
+                                    <div style="display: ${this.selector.customizeAnalytics.display};" class ="glowCookies__customize_item_container"> 
                                       <div class ="glowCookies__customize_text"> 
                                         Analytics
                                       </div>
@@ -113,7 +117,7 @@ class GlowCookies {
                                         </button>
                                       </div>
                                     </div>
-                                    <div class ="glowCookies__customize_item_container"> 
+                                    <div style="display: ${this.selector.customizeThirdParty.display};"class ="glowCookies__customize_item_container"> 
                                     <div class ="glowCookies__customize_text"> 
                                       Third Party Cookies
                                     </div>
@@ -125,8 +129,9 @@ class GlowCookies {
                                       </button>
                                     </div>
                                   </div>
-                                  <button id="glowCookies-customize-save">
-                                  Save cookie preferences
+                                  <button id="glowCookies-customize-save" style="background-color: ${this.selector.btnBackground}; 
+                                  color: ${this.selector.btnColor};" class="glowCookies-customize-save">
+                                    ${this.selector.btnText}
                                   </button>
                                 </div>
                                 </div>
@@ -193,31 +198,47 @@ class GlowCookies {
     this.DOMbanner.classList.remove('glowCookies__show');
     this.Customizer.style.display = "block";
     for(let i = 1; i < 4; i++){
-      this.CustomizeSwitches[i - 1].classList.add("glowCookies__customize_switch_button_off");
+      if(this.cookiesAllowed[i - 1] == undefined || this.cookiesAllowed[i - 1] == false){
+        this.switch_on[i - 1] = "glowCookies__customize_switch_button_off";
+        this.switch_colors[i - 1] = "switch_color_off";
+      }else{
+        this.switch_on[i - 1] = "glowCookies__customize_switch_button_on";
+        this.switch_colors[i - 1] = "switch_color_on";
+      }
+      this.CustomizeSwitches[i - 1].classList.add(this.switch_on[i-1]);
+      this.CustomizeSwitches[i - 1].classList.add(this.switch_colors[i-1]);
     }
   }
 
   switchCustomizer(switch_num) {
     switch_num = switch_num - 1
     this.CustomizeSwitches[switch_num].classList.remove(this.switch_on[switch_num]);
+    this.CustomizeSwitches[switch_num].classList.remove(this.switch_colors[switch_num]);
     if(this.switch_on[switch_num] == "glowCookies__customize_switch_button_off"){
       // Off to on
       this.switch_on[switch_num] = "glowCookies__customize_switch_button_on";
-
+      this.switch_colors[switch_num] = "switch_color_on";
     }else{
       // On to off
       this.switch_on[switch_num] = "glowCookies__customize_switch_button_off"
+      this.switch_colors[switch_num] = "switch_color_off";
     }
     this.CustomizeSwitches[switch_num].classList.add(this.switch_on[switch_num]);
+    this.CustomizeSwitches[switch_num].classList.add(this.switch_colors[switch_num]);
   }
 
   savePreferences(){
-    this.DOMbanner.classList.add('glowCookies__show');
     this.Customizer.style.display = "none";
-    for(let i = 1; i < 4; i++){
-      this.CustomizeSwitches[i - 1].classList.remove("glowCookies__customize_switch_button_off");
+    for(let switch_num = 0; switch_num < 3; switch_num++){
+      if(this.switch_on[switch_num] == "glowCookies__customize_switch_button_off"){
+        this.cookiesAllowed[switch_num] = false;
+      }else{
+        this.cookiesAllowed[switch_num] = true;
+      }
     }
+    this.PreBanner.style.display = this.config.hideAfterClick ? "none" : "block"
   }
+
 
   activateTracking() {
     // Google Analytics Tracking
@@ -388,7 +409,56 @@ class GlowCookies {
         text: obj.manageText || lang.manageText,
       }
     }
+    let customizeUserPreferencesDisplay = 'flex'; 
+    if (!obj.customizeUserPreferences){
+      customizeUserPreferencesDisplay = 'none';
+    }
+    let customizeAnalyticsDisplay = 'flex'; 
+    if (!obj.customizeAnalytics){
+      customizeAnalyticsDisplay = 'none';
+    }
+    let customizeThirdPartyDisplay = 'flex'; 
+    if (!obj.customizeThirdParty){
+      customizeThirdPartyDisplay = 'none';
+    }
 
+    this.selector = {
+      titleText: obj.selectorTitleText || 'Customize Cookies',
+      titleColor: obj.selectorTitleColor || 'black',
+      btnText: obj.selectorBtnText || 'Save cookie preferences',
+      btnBackground: obj.selectorBtnBackground || 'blue',
+      btnColor: obj.selectorBtnColor || 'white',
+      customizeUserPreferences: {
+        display: customizeUserPreferencesDisplay
+      },
+      customizeAnalytics: {
+        display: customizeAnalyticsDisplay
+      },
+      customizeThirdParty: {
+        display: customizeThirdPartyDisplay
+      },
+      customizeSwitch: {
+        offColor: obj.customizeSwitchOffColor || 'gray',
+        onColor: obj.customizeSwitchOnColor || 'blue',
+      }
+    }
+    // Append two CSS classes to represent each background color for 
+    for(let i = 0; i < 2; i++){
+      var style = document.createElement('style');
+      document.head.appendChild(style);
+      let css = undefined
+      if(i == 0){
+        css = '.switch_color_off' + ' { background-color: ' + this.selector.customizeSwitch.offColor + ';}';
+      }else{
+        css = '.switch_color_on' + ' { background-color: ' + this.selector.customizeSwitch.onColor + ';}';
+      }
+      if (style.styleSheet) {
+        style.styleSheet.cssText = css;
+      } else {
+        style.appendChild(document.createTextNode(css));
+      }
+      document.head.appendChild(style);
+      }
     // Draw banner
     window.addEventListener('load', () => { this.render() })
   }

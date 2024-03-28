@@ -92,6 +92,7 @@ class GlowCookies {
                                     id="glowCookies-customize"
                                     class="glowCookies__customize glowCookies__${this.config.position}"
                                     style="">
+                                    <span class="close_btn_styles" ${this.banner.closeBtnHiddenText} style="color: ${this.banner.closeColor}; cursor: pointer" onclick="this.parentNode.parentNode.remove(); return false;">&#10006;</span>
                                     <h1 style="align-self: ${"center"}; color: ${this.selector.titleColor};">${this.selector.titleText}</h1>
                                     <div style="display: ${this.selector.customizeUserPreferences.display};" class ="glowCookies__customize_item_container"> 
                                       <div class ="glowCookies__customize_text"> 
@@ -178,6 +179,7 @@ class GlowCookies {
   openSelector() {
     this.PreBanner.style.display = "none";
     this.DOMbanner.classList.add('glowCookies__show')
+    this.Customizer.style.display = "none"
   }
 
   acceptCookies() {

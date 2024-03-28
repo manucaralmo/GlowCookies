@@ -233,6 +233,7 @@ class GlowCookiesTester {
     openSelector() {
       this.PreBanner.style.display = "none";
       this.DOMbanner.classList.add('glowCookies__show')
+      this.Customizer.style.display = "none";
     }
   
     acceptCookies() {

@@ -96,7 +96,7 @@ class GlowCookies {
                                     <h1 style="align-self: ${"center"}; color: ${this.selector.titleColor};">${this.selector.titleText}</h1>
                                     <div style="display: ${this.selector.customizeUserPreferences.display};" class ="glowCookies__customize_item_container"> 
                                       <div class ="glowCookies__customize_text"> 
-                                        User Preferences
+                                        Session Only
                                       </div>
                                       <div>
                                         <button id="glowCookies-customize-switch-1"  class="glowCookies__customize_switch_button">
@@ -230,6 +230,41 @@ class GlowCookies {
     }
     this.CustomizeSwitches[switch_num].classList.add(this.switch_on[switch_num]);
     this.CustomizeSwitches[switch_num].classList.add(this.switch_colors[switch_num]);
+
+    
+   // 1st switch (user preferences / session only)
+    if (switch_num === 0) {
+      let isSessionOnly = 0
+      if (this.switch_on[switch_num ] == "glowCookies__customize_switch_button_on") {
+        isSessionOnly = 1
+      } else {
+        isSessionOnly = 0
+      }
+      sessionStorage.setItem('isSessionOnly', isSessionOnly ? 'true' : 'false');
+
+      // split document.cookie string to get all cookies
+      let cookies = document.cookie.split(';');
+
+      for (let i = 0; i < cookies.length; i++) {
+        let cookie = cookies[i];
+        let eqPos = cookie.indexOf('=');
+        let name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
+        let value = eqPos > -1 ? cookie.substr(eqPos + 1) : null;
+        if (isSessionOnly) {
+          // makes it a session cookie
+          document.cookie = `${name}=${value}; path=/`;
+        } else {
+          // set cookie with 8-hour expiration
+          // need to change to the custom retention period
+          const date = new Date();
+          date.setTime(date.getTime() + (8 * 60 * 60 * 1000)); // 8 hours
+          let expires = "expires=" + date.toUTCString();
+          document.cookie = `${name}=${value}; ${expires}; path=/`;
+        }
+      }
+
+    }
+
   }
 
   savePreferences(){

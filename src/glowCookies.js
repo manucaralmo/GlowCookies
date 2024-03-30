@@ -188,8 +188,9 @@ class GlowCookies {
     this.openManageCookies()
     this.activateTracking()
     this.addCustomScript()
-    this.setRetentionPeriod(this.tracking.retentionPeriod);
+    this.setRetentionPeriod(this.tracking.retentionPeriod)
   }
+  
 
   rejectCookies() {
     localStorage.setItem("GlowCookies", "0");

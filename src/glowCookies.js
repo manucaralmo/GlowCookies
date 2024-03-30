@@ -30,8 +30,8 @@ class GlowCookies {
 
   addCss() {
     const stylesheet = document.createElement('link');
-    stylesheet.setAttribute('rel', 'stylesheet');
-    stylesheet.setAttribute('href', `./glowCookies.css`);
+    // stylesheet.setAttribute('rel', 'stylesheet');
+    // stylesheet.setAttribute('href', `GlowCookies/src/glowCookies.css`);
     document.head.appendChild(stylesheet);
   }
 
@@ -161,6 +161,7 @@ class GlowCookies {
         this.openManageCookies();
         this.activateTracking();
         this.addCustomScript();
+        this.setRetentionPeriod(this.tracking.retentionPeriod);
         break;
       case "0":
         this.openManageCookies();
@@ -187,6 +188,7 @@ class GlowCookies {
     this.openManageCookies()
     this.activateTracking()
     this.addCustomScript()
+    this.setRetentionPeriod(this.tracking.retentionPeriod);
   }
 
   rejectCookies() {
@@ -334,6 +336,26 @@ class GlowCookies {
       }
     }
   }
+  setRetentionPeriod(daystoLive) {
+    let cookies = document.cookie.split("; ");
+    for(let c = 0; c < cookies.length; c++) {
+      let d  = window.location.hostname.split(".");
+      const date = new Date();
+      date.setTime(date.getTime() + (daystoLive * 24* 60 * 60 *1000));
+      // date.setTime(date.getTime() + (daystoLive *1000));
+      
+      while (d.length > 0) {
+        let cookieBase = encodeURIComponent(cookies[c].split(";")[0].split("=")[0]) + `=; expires=${date.toUTCString()}; domain=` + d.join('.') + ' ;path=';
+        let p = location.pathname.split('/');
+        document.cookie = cookieBase + '/';
+        // while (p.length > 0) {
+        //   document.cookie = cookieBase + p.join('/');
+        //   p.pop();
+        // };
+        d.shift();
+      }
+    }
+  }
 
   addCustomScript() {
     if (this.tracking.customScript !== undefined) {
@@ -372,7 +394,8 @@ class GlowCookies {
       AnalyticsCode: obj.analytics || undefined,
       FacebookPixelCode: obj.facebookPixel || undefined,
       HotjarTrackingCode: obj.hotjar || undefined,
-      customScript: obj.customScript || undefined
+      customScript: obj.customScript || undefined,
+      retentionPeriod: obj.retentionPeriod || 1
     }
     let customizeBtnDisplayVal = 'block'; 
     if (!obj.customizeBtnDisplay){

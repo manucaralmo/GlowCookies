@@ -13,6 +13,20 @@ function assert(condition, lineNum) {
   }
 }
 
+function assertParameters(parameters, glowCookiesObj) {
+  let keys = Object.keys(glowCookiesObj);
+  
+  for (i in keys) {
+    console.log("\n" + keys[i] + ", " + typeof glowCookiesObj[keys[i]]);
+    if (typeof glowCookiesObj[keys[i]] === 'object') {
+      let inner_keys = Object.keys(glowCookiesObj[keys[i]]);
+      for (in_i in inner_keys) {
+        console.log(inner_keys[in_i] + ", " + typeof glowCookiesObj[keys[i]][inner_keys[in_i]]);
+      }
+    }
+  }
+}
+
 
 class CombinatorialTestingSetup {
 
@@ -86,6 +100,8 @@ class CombinatorialTestingSetup {
 
 }
 
+
+
 class GlowCookiesTester {
   constructor(glowCookies){
     this.glowCookies = glowCookies;
@@ -96,6 +112,7 @@ class GlowCookiesTester {
     //this.test3();
 
     this.ctest1();
+    //assertParameters({}, this.glowCookies);
   }
 
       // Default Testing
@@ -164,6 +181,7 @@ class GlowCookiesTester {
       })
       console.log("Passed Combinatorial Test 1 for selector");
   }
+
 }
 
 
@@ -182,12 +200,20 @@ class GlowCookies {
     this.cookiesAllowed = [undefined, undefined, undefined, undefined] // Upon saving a selection or selecting accept/ reject these will be updated accordingly
     this.Cookies = undefined
     this.DOMbanner = undefined
+
+    // Selections
+    this.customizers = undefined;
   }
 
   render() {
-    this.addCss()
-    this.createDOMElements()
-    this.checkStatus()
+    try {
+      this.addCss()
+      this.createDOMElements()
+      this.checkStatus()
+    } catch (error) {
+      console.log(error);
+      console.log(this.customizers);
+    }
 
     new GlowCookiesTester(this);
   }
@@ -610,6 +636,8 @@ class GlowCookies {
     if (!obj) obj = {}
     const lang = new LanguagesGC(languaje)
 
+    this.customizers = obj;
+
     this.config = {
       border: obj.border || 'border',
       position: obj.position || 'left',
@@ -941,4 +969,112 @@ class GlowCookies {
   }
   
   const glowCookies = new GlowCookies()
+
+  function getRandomColorHex() {
+    var hexDigits = '0123456789ABCDEF';
+    var randomColor = '#';
+    for (let i = 0; i < 6; i++) {
+      randomColor += hexDigits[Math.floor(Math.random() * 16)];
+    }
+    return randomColor;
+  }
+
+  function getRandomColorWithOpacity() {
+    var randomColor = 'rgba(';
+    for (let i = 0; i < 3; i++) {
+      randomColor += Math.floor(Math.random() * 256);
+      randomColor += ",";
+    }
+    randomColor += Math.random();
+    randomColor += ")";
+    return randomColor;
+  }
+
+  function getRandomString(length) {
+    var randomString = "";
+    var strLength = Math.floor(Math.random() * length);
+    for (let i = 0; i < strLength; i++) {
+      randomString += String.fromCharCode(Math.floor(Math.random() * (126 - 33) + 33))
+    }
+    return randomString;
+  }
+
+  const customizationOptions = {
+    selections: {
+      style: [1, 2, 3],
+      analytics: ['G-FH87DE17XF'],
+      facebookPixel: ['990955817632355'],
+      customScript: [{ type: 'custom', position: 'body', content: `console.log('my custom js');` }],
+      hideAfterClick: [false], // SHOULD BE [true, false]
+      border: ["border", "none"],
+      position: ["left", "right"],
+      customizeBtnDisplay: [true, false],
+      customizeUserPreferences: [true, false],
+      customizeAnalytics: [true, false],
+      customizeThirdParty: [true, false],
+      policyLink: ['https://policies.google.com/technologies/cookies'],
+      shadowSpread: ["0em", "0.5em", "1em", "1.25em", "1.75em", "2.0000em", "2.5em"]
+    },
+    hexColors: ["bannerBackground", "bannerColor", "acceptBtnColor", "acceptBtnBackground",
+      "customizeBtnBackground", "customizeBtnColor", "rejectBtnBackground", "rejectBtnColor",
+      "manageColor", "manageBackground", "selectorTitleColor", "customizeSwitchOnColor", "selectorBtnBackground"],
+    opacityColors: ["shadowColor"],
+    strings: ["bannerDescription", "bannerLinkText", "bannerHeading", "acceptBtnText", "rejectBtnText", "customizeBtnText", "manageText", "selectorTitleText"]
+  }
+
+  class Fuzzer {
+    constructor(numTests, setProbability) {
+      this.numTests = numTests;
+      this.setProbability = setProbability;
+      this.customizers = {};
+      this.glowCookies = undefined;
+    }
+
+    
+  
+    setCustomizers() {
+      var keys = Object.keys(customizationOptions.selections);
+      for (let i = 0; i < keys.length; i++) {
+        if (Math.random() < this.setProbability) {
+          this.customizers[keys[i]] = customizationOptions.selections[keys[i]][Math.floor(Math.random() * customizationOptions.selections[keys[i]].length)];
+        }
+      }
+
+      for (let i = 0; i < customizationOptions.hexColors.length; i++) {
+        if (Math.random() < this.setProbability) {
+          this.customizers[customizationOptions.hexColors[i]] = getRandomColorHex();
+        }
+      }
+
+      for (let i = 0; i < customizationOptions.opacityColors.length; i++) {
+        if (Math.random() < this.setProbability) {
+          this.customizers[customizationOptions.opacityColors[i]] = getRandomColorWithOpacity();
+        }
+      }
+
+      for (let i = 0; i < customizationOptions.strings.length; i++) {
+        if (Math.random() < this.setProbability) {
+          this.customizers[customizationOptions.strings[i]] = getRandomString(20);
+        }
+      }
+    }
+  
+    fuzz() {
+      try {
+        for (let i = 0; i < this.numTests; i++) {
+          this.setCustomizers();
+          this.glowCookies = new GlowCookies()
+          this.glowCookies.start('en', this.customizers);
+          // delete the object
+          console.log(this.customizers);
+        }
+      } catch (error) {
+        console.log(error);
+        console.log(this.customizers);
+      }
+    }
+  }
+  
+  const fuzzer = new Fuzzer(1, 0.5);
+  fuzzer.fuzz();
   

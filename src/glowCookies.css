@@ -33,7 +33,7 @@
   user-select: none;
   display: flex;
   flex-direction: column;
-  gap: 50px;
+  gap: 40px;
   -webkit-box-shadow: 0 .625em 1.875em rgba(2,2,3,.1);
   -moz-box-shadow: 0 .625em 1.875em rgba(2,2,3,.1);
   box-shadow: 0 .625em 1.875em rgba(2,2,3,.1);
@@ -80,6 +80,12 @@
   width: 1.4em;
   border-radius: 100%;
   
+}
+
+.glowCookies-customize-save-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
 
 .glowCookies-customize-save {

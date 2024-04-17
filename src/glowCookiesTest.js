@@ -63,7 +63,7 @@ function presetParams(){
     additionalCookies: ['Test 1', 'Test 2'],
     //additionalCookieScripts: [[{ type: 'custom', position: 'body', content: `console.log('test 1');` }], 
     //[{ type: 'custom', position: 'body', content: `console.log('test 2');` }]],
-    customizeUserPreferences: false,
+    customizeUserPreferences: true,
     //userPreferencesScript: [{ type: 'custom', position: 'body', content: `console.log('my user preferences js');` }],
     //thirdPartyScript: [{ type: 'custom', position: 'body', content: `console.log('my third party js');` }],
     //analyticsScript: [{ type: 'custom', position: 'body', content: `console.log('my analytics js');` }],
@@ -221,10 +221,12 @@ class Fuzzer {
   }
 }
 
-
-
-// Pass in labels for tests to run each corresponding test
 class GlowCookiesTester {
+
+  // Test inputs is an array of arrays.
+  // Each input array should be as followed: [test_name, test_args...]
+  // For instance, if you want to use the fuzzer, it would be [["fuzz", 0.5, 1]], or if you
+  // wanted to use test1 and test 2 it would look like [["test1"], ["test2"]].
   constructor(test_inputs){
     this.glowCookies = new GlowCookies()
     // If you are running the fuzzer, it must be on its own, as default + combinatorial tests
@@ -242,19 +244,25 @@ class GlowCookiesTester {
     }else{
       this.glowCookies.start('en', presetParams());
     }
-    this.test_inputs = test_inputs; // Test inputs are in the following form: [test_name, test_args...]
+    this.test_inputs = test_inputs; 
+    // Map each test string to the correspondng function, so we can call it later
     this.test_object = {
       'test1': this.test1,
       'test2': this.test2,
       'test3': this.test3,
       'test4': this.test4,
       'test5': this.test5,
+      'test6': this.test6,
       'ctest1': this.ctest1,
+      'ctest2': this.ctest2,
       'fuzz': this.fuzz,
     }
     this.waitForRender();
   }
 
+  // waitForRender() is a function dedicated to waiting for the page to render
+  // before actually running tests. This does not matter for the fuzzer, so we choose
+  // to go straight to this test in this case.
   waitForRender = () => {
     if(!this.glowCookies.rendered && !this.containsFuzzer) {
       window.setTimeout(this.waitForRender, 100); 
@@ -263,8 +271,9 @@ class GlowCookiesTester {
    }
   }
 
+  // runTests() simply runs each test case based off the provided name in the input,
+  // and passes in the arguments if possible as well.
   runTests = () => {
-    // Tests
     this.test_inputs.forEach(test_input => {
       console.log(Object.keys(this.test_object));
       if(test_input.length >= 1 && Object.keys(this.test_object).includes(test_input[0])){
@@ -274,21 +283,14 @@ class GlowCookiesTester {
         }
         this.test_object[test_input[0]](...args);
       }
-      
-
     });
-    //this.test1();
-    //this.test2();
-    //this.test3();
-
-    //this.ctest1();
-    //assertParameters({}, this.glowCookies);
   }
 
 
   // Default Testing
-  // Assuming no user input
-  // Testing purely for accepting cookies
+
+  // Test1
+  // Checking whether accepting cookies successfully updates local storage
   test1 = () => {
       console.log("Running Test 1");
       this.glowCookies.openManageCookies();
@@ -297,6 +299,8 @@ class GlowCookiesTester {
       console.log("Passed all parts of Test 1")
   }
 
+  // Test2
+  // Checking whether accepting cookies and then rejecting them updates correctly (twice)
   test2 = () => {
       console.log("Running Test 2");
       // Ensure that hideafterclick is not true
@@ -310,6 +314,8 @@ class GlowCookiesTester {
       console.log("Passed all parts of Test 2")
   }
 
+  // Test3
+  // Checking whether just rejecting cookies updates correctly
   test3 = () => {
       console.log("Running Test 3");
       this.glowCookies.openManageCookies();
@@ -318,6 +324,8 @@ class GlowCookiesTester {
       console.log("Passed all parts of Test 3")
   }
 
+  // Test4
+  // Ensures that glowCookies can add a new script, and that this is saved into the body of the doc
   test4 = () => {
     console.log("Running Test 4");
     this.glowCookies.addNewScript([{ type: 'custom', position: 'body', content: `console.log('Test script for Test 4!');` }]);
@@ -331,6 +339,8 @@ class GlowCookiesTester {
     console.log("Passed all parts of Test 4")
   }
 
+  // Test5
+  // Ensures that glowCookies can add a two parts of one script, and that both are saved into the body of the doc
   test5 = () => {
     console.log("Running Test 5");
     let foundScripts = [false, false];
@@ -349,6 +359,24 @@ class GlowCookiesTester {
     console.log("Passed all parts of Test 5")
   }
 
+  // Test6
+  // Checks that updating a specific cookie switch, makes that change
+  test6 = () => {
+    console.log("Running Test 6");
+    this.glowCookies.updateSpecificCookieAllowed(0, true)
+    assert(this.glowCookies.cookiesAllowed[0] == true)
+    assert(this.glowCookies.switch_on[0] == "glowCookies__customize_switch_button_on")
+    assert(this.glowCookies.switch_colors[0] == "switch_color_on")
+    this.glowCookies.updateSpecificCookieAllowed(0, false)
+    assert(this.glowCookies.cookiesAllowed[0] == false)
+    assert(this.glowCookies.switch_on[0] == "glowCookies__customize_switch_button_off")
+    assert(this.glowCookies.switch_colors[0] == "switch_color_off")
+    console.log("Passed all parts of Test 6")
+  }
+  
+  // Combinatorial test 1
+  // This test is dedicated at ensuring that the four default switches in the cookie 
+  // customizer save the preferences correctly no matter the combination.
   ctest1 = () => {
       console.log("Running Combinatorial Test 1 for selector");
       // Ensure hide after click is false
@@ -384,8 +412,46 @@ class GlowCookiesTester {
       console.log("Passed Combinatorial Test 1 for selector");
   }
 
+  // Combinatorial test 2
+  // This test is dedicated at ensuring that the four default switches as well as 
+  // 2 additional switches added by the developer in the cookie customizer
+  // save the preferences correctly no matter the combination.
+  ctest2 = () => {
+    console.log("Running Combinatorial Test 2 for selector");
+    // Ensure hide after click is false
+    this.glowCookies.config.hideAfterClick = false
+    let selectorTestInputs = new CombinatorialTestingSetup(['bool', 'bool', 'bool', 'bool', 'bool', 'bool'], ['','','', '', '', ''])['inputCombinations'];
+    console.log(selectorTestInputs)
+    selectorTestInputs.forEach((selectorTestComb) => {
+        this.glowCookies.openManageCookies();
+        this.glowCookies.openSelector();
+        // Go through each comb, and set switches
+        console.log("Testing selector combination: " + selectorTestComb)
+        for(let switch_num = 0; switch_num < 6; switch_num++){
+
+            this.glowCookies.CustomizeSwitches[switch_num].classList.remove(this.glowCookies.switch_on[switch_num]);
+            this.glowCookies.CustomizeSwitches[switch_num].classList.remove(this.glowCookies.switch_colors[switch_num]);
+            if(selectorTestComb[switch_num]){
+                this.glowCookies.switch_on[switch_num] = "glowCookies__customize_switch_button_on";
+                this.glowCookies.switch_colors[switch_num] = "switch_color_on";
+            }else{
+                this.glowCookies.switch_on[switch_num] = "glowCookies__customize_switch_button_off";
+                this.glowCookies.switch_colors[switch_num] = "switch_color_off";
+            }
+            this.glowCookies.CustomizeSwitches[switch_num].classList.add(this.glowCookies.switch_on[switch_num]);
+            this.glowCookies.CustomizeSwitches[switch_num].classList.add(this.glowCookies.switch_colors[switch_num]);   
+        }
+        this.glowCookies.savePreferences();
+        // After saving, let's ensure that all of the selections held and are now applied
+        for(let switch_num = 0; switch_num < 6; switch_num++){
+            assert(this.glowCookies.cookiesAllowed[switch_num] == selectorTestComb[switch_num], new Error().lineNumber);
+        }
+        console.log("Selector combination: " + selectorTestComb + " was saved correctly.")
+    })
+    console.log("Passed Combinatorial Test 2 for selector");
+}
+
   fuzz = (numTests, prob) => {
-    console.log("fuzzing")
     const fuzzer = new Fuzzer(numTests, prob);
     fuzzer.fuzz();
   }
@@ -393,5 +459,5 @@ class GlowCookiesTester {
 }
 
 
-new GlowCookiesTester([["test4"], ["test5"]]);
+//new GlowCookiesTester([["test1"], ["test2"], ["test3"], ["test4"], ["test5"], ["test6"], ["ctest1"], ["ctest2"]]);
 //new GlowCookiesTester([["fuzz", 1, 0.5]]);

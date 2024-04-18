@@ -104,6 +104,9 @@ Now there are certain parameters that you can change to customize your banner.
 | `manageColor`         | String | Example: `"#fff"` Example: `"white"`                                                                   |
 | `manageBackground`    | String | Example: `"#f2f2f2"` Example: `"blue"`                                                                 |
 | `manageText`          | String | Example: `"Manage cookies"`                                                                            |
+| `maxWidth`            | String | Example: `"300px"`                                                                            |
+| `shadowSpread`            | String | Example: `"3em"`                                                                            |
+| `shadowColor`            | String | Example: `"rgba(255,0,0,.2)"`                                                                            |
 
 
 ## Fully customized banner
@@ -124,6 +127,9 @@ Now there are certain parameters that you can change to customize your banner.
         bannerBackground: '#000',
         bannerColor: '#fafafa',
         bannerHeading: '<h2>Cookies</h2>',
+        shadowSpread: '3em',
+        shadowColor: 'rgba(100,0,0,.2)',
+        maxWidth: '500px',
         acceptBtnText: 'accept btn text',
         acceptBtnColor: 'green',
         acceptBtnBackground: 'red',
@@ -132,7 +138,7 @@ Now there are certain parameters that you can change to customize your banner.
         rejectBtnColor: 'blue',
         manageColor: 'white',
         manageBackground: 'blue',
-        manageText: 'cookies text'
+        manageText: 'cookies text',
     });
 </script>
 ```

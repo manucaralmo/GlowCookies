@@ -46,7 +46,11 @@ class GlowCookies {
     this.Cookies.innerHTML = `<div
                                     id="glowCookies-banner"
                                     class="glowCookies__banner glowCookies__banner__${this.config.bannerStyle} glowCookies__${this.config.border} glowCookies__${this.config.position}"
-                                    style="background-color: ${this.banner.background};"
+                                    style="background-color: ${this.banner.background};
+                                    -webkit-box-shadow: 0 .625em ${this.banner.shadowSpread} ${this.banner.shadowColor};
+                                    -moz-box-shadow: 0 .625em ${this.banner.shadowSpread} ${this.banner.shadowColor};
+                                    box-shadow: 0 .625em ${this.banner.shadowSpread} ${this.banner.shadowColor};
+                                    max-width: ${this.banner.maxWidth}""
                                 >
                                     <h3 style="color: ${this.banner.color};">${this.banner.heading}</h3>
                                     <p style="color: ${this.banner.color};">
@@ -272,7 +276,11 @@ class GlowCookies {
         color: obj.manageColor || '#1d2e38',
         background: obj.manageBackground || '#fff',
         text: obj.manageText || lang.manageText,
-      }
+      },
+      shadowSpread: obj.shadowSpread || '1.875em',
+      shadowColor: obj.shadowColor || 'rgba(255,2,3,.2)',
+      maxWidth: obj.maxWidth || '375px',
+
     }
 
     // Draw banner

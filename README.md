@@ -77,6 +77,7 @@ These are the parameters that you can modify to add your tracking codes, or cust
 | `thirdPartyScript`      | Object | Example: `[{ type: 'custom', position: 'body', content: 'console.log('custom script');' }]`                         |
 | `analyticsScript`       | Object | Example: `[{ type: 'custom', position: 'body', content: 'console.log('custom script');' }]`                         |
 | `additionalCookieScripts`| Object Array | Example: `[[{ type: 'custom', position: 'body', content: 'console.log('custom script');' }]]`                         |
+| `retentionPeriod`| Number | Example: `1` (In days)                         |
 
 ## Config Banner
 These are the parameters that you can modify to change certain banner options
@@ -178,6 +179,7 @@ There are certain perameters that you can change to customize the selector menu 
             customizeSessionCookies: true,
             customizeSwitchOnColor: 'green',
             selectorBtnBackground: 'green',
+            retentionPeriod: '4',
         });
 </script>
 ```

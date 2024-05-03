@@ -111,6 +111,8 @@ Now there are certain parameters that you can change to customize your banner.
 | `maxBannerWidth`      | String | Example `"300px"`                                                                                      |
 | `shadowSpread`        | String | Example `"300px"`                                                                                      |
 | `shadowColor`         | String | Example: `"#f2f2f2"` Example: `"blue"`                                                                 |
+| `closeBtnHidden`      | String | (`"hidden"` or `""`) Default:  `""`                                                                    |
+| `closeColor`          | String | Example: `"#f00"` Default: `"#000"`                                                                 |
 | `customizeBtnDisplay` | Boolean | (`true` or `false`) Default: `false` (Include the customize cookies button or not)                    |
 | `customizeBtnText`    | String | Example: `"More options"`                                                                              |
 | `customizeBtnColor`   | String | Example: `"#f2f2f2"` Example: `"blue"`                                                                 |

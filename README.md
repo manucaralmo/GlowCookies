@@ -5,7 +5,7 @@
 # GlowCookies 🍪 - Powerful Cookie Consent Banner In JavaScript
 Simple and full automated cookies banner for any website. Complies with the new European regulations with GlowCookies. Activate and deactivate Google Analytics, Facebook Pixel, Hotjar (and coming soon) cookies whenever the user wishes, with just 1 click.
 
-[![Foo](https://cdn.glowmedia.es/upload/uploads/ed1952btn.svg)](https://manucaralmo.github.io/glow-cookies-web/)
+[![Foo](https://cdn.glowmedia.es/upload/uploads/ed1952btn.svg)](https://abhird11.github.io/GlowCookies/src/)
 
 
 ## The cookies banner
@@ -63,8 +63,8 @@ Now you can choose between these available languages:
 
 Set language in the first parameter of `glowCookies.start('en', { })` method.
 
-## Tracking options
-These are the parameters that you can modify to add your tracking codes or custom scripts.
+## Cookie functionality options
+These are the parameters that you can modify to add your tracking codes, or custom scripts used throughout.
 
 | Parameter               | Type   | Values                                                                                                              |
 | ----------------------- | ------ | ------------------------------------------------------------------------------------------------------------------- |
@@ -73,6 +73,11 @@ These are the parameters that you can modify to add your tracking codes or custo
 | `HotjarTrackingCode`    | String | Example: `"990955817632355"` (Hotjar tracking code)                                                                 |
 | `customScript` (Inline) | Object | Example: `[{ type: 'custom', position: 'body', content: 'console.log('custom script');' }]`                         |
 | `customScript` (src)    | Object | Example: `[{ type: 'src', position: 'head', content: 'https://www.googletagmanager.com/gtag/js?id=G-FH87DE17XF' }]` |
+| `userPreferencesScript` | Object | Example: `[{ type: 'custom', position: 'body', content: 'console.log('custom script');' }]`                         |
+| `thirdPartyScript`      | Object | Example: `[{ type: 'custom', position: 'body', content: 'console.log('custom script');' }]`                         |
+| `analyticsScript`       | Object | Example: `[{ type: 'custom', position: 'body', content: 'console.log('custom script');' }]`                         |
+| `additionalCookieScripts`| Object Array | Example: `[[{ type: 'custom', position: 'body', content: 'console.log('custom script');' }]]`                         |
+| `retentionPeriod`| Number | Example: `1` (In days)                         |
 
 ## Config Banner
 These are the parameters that you can modify to change certain banner options
@@ -83,7 +88,7 @@ These are the parameters that you can modify to change certain banner options
 | `hideAfterClick` | Boolean | (`true` or `false`) Default: `true` (Hide banner after Accept or Reject cookies) |
 
 
-## Customize Banner
+## Customize Cookie Main Banner
 Now there are certain parameters that you can change to customize your banner.
 
 | Parameter             | Type   | Values                                                                                                 |
@@ -104,36 +109,80 @@ Now there are certain parameters that you can change to customize your banner.
 | `manageColor`         | String | Example: `"#fff"` Example: `"white"`                                                                   |
 | `manageBackground`    | String | Example: `"#f2f2f2"` Example: `"blue"`                                                                 |
 | `manageText`          | String | Example: `"Manage cookies"`                                                                            |
+| `maxBannerWidth`      | String | Example `"300px"`                                                                                      |
+| `shadowSpread`        | String | Example `"300px"`                                                                                      |
+| `shadowColor`         | String | Example: `"#f2f2f2"` Example: `"blue"`                                                                 |
+| `closeBtnHidden`      | String | (`"hidden"` or `""`) Default:  `""`                                                                    |
+| `closeColor`          | String | Example: `"#f00"` Default: `"#000"`                                                                 |
+| `customizeBtnDisplay` | Boolean | (`true` or `false`) Default: `false` (Include the customize cookies button or not)                    |
+| `customizeBtnText`    | String | Example: `"More options"`                                                                              |
+| `customizeBtnColor`   | String | Example: `"#f2f2f2"` Example: `"blue"`                                                                 |
+| `customizeBtnBackground` | String | Example: `"#f2f2f2"` Example: `"blue"`                                                              |
 
+## Customize Cookie Selector Menu
+There are certain perameters that you can change to customize the selector menu banner.
+
+| Parameter             | Type   | Values                                                                                                 |
+| --------------------- | ------ | ------------------------------------------------------------------------------------------------------ |
+| `selectorSwitchOffColor` | String | Example: `"#f2f2f2"` Example: `"blue"`                                                              |
+| `selectorSwitchOnColor`  | String | Example: `"#f2f2f2"` Example: `"blue"`                                                              |
+| `selectorTitleText`   | String | Example: `"Customize your cookies"`                                                                    |
+| `selectorTitleColor`  | String | Example: `"#f2f2f2"` Example: `"blue"`                                                                 |
+| `customizeUserPreferemnces`  | Boolean | (`true` or `false`) Default: `true` (Include a switch for this type of cookie)                 | 
+| `customizeAnalytics`  | Boolean | (`true` or `false`) Default: `true` (Include a switch for this type of cookie)                        | 
+| `customizeThirdParty`  | Boolean | (`true` or `false`) Default: `true` (Include a switch for this type of cookie)                       | 
+| `customizeSessionCookies`  | Boolean | (`true` or `false`) Default: `true` (Include a switch for this type of cookie)                   |
+| `additionalCookies`   | String Array | Example: `"[Unique Cookie 1", "Unique Cookie 2"]`                                                |
 
 ## Fully customized banner
 ```html
 <script src="https://cdn.jsdelivr.net/gh/manucaralmo/GlowCookies@3.1.8/src/glowCookies.min.js"></script>
 <script>
-    glowCookies.start('en', {
-        style: 2,
-        analytics: 'G-FH87DE17XF',
-        facebookPixel: '990955817632355',
-        hideAfterClick: true,
-        border: 'none',
-        position: 'right',
-        policyLink: 'https://google.es',
-        customScript: [{ type: 'custom', position: 'body', content: `console.log('my custom js');` }],
-        bannerDescription: 'banner desc',
-        bannerLinkText: 'banner link text',
-        bannerBackground: '#000',
-        bannerColor: '#fafafa',
-        bannerHeading: '<h2>Cookies</h2>',
-        acceptBtnText: 'accept btn text',
-        acceptBtnColor: 'green',
-        acceptBtnBackground: 'red',
-        rejectBtnText: 'reject btn text',
-        rejectBtnBackground: 'lightblue',
-        rejectBtnColor: 'blue',
-        manageColor: 'white',
-        manageBackground: 'blue',
-        manageText: 'cookies text'
-    });
+        glowCookies.start('en', {
+            style: 1,
+            analytics: 'G-FH87DE17XF',
+            facebookPixel: '990955817632355',
+            hideAfterClick: false,
+            shadowSpread: '1.875em',
+            shadowColor: 'rgba(255,0,0,.2)',
+            border: 'none',
+            position: 'right',
+            policyLink: 'https://google.es',
+            customScript: [{ type: 'custom', position: 'body', content: `console.log('my custom js');` }],
+            bannerDescription: 'banner desc',
+            bannerLinkText: 'banner link text',
+            bannerBackground: '#fff',
+            bannerColor: '#fafafa',
+            bannerHeading: '<h2>Cookies</h2>',
+            acceptBtnText: 'accept btn text',
+            acceptBtnColor: 'green',
+            acceptBtnBackground: 'red',
+            rejectBtnText: 'reject btn text',
+            customizeBtnDisplay: true,
+            customizeBtnText: 'More options',
+            customizeBtnBackground: 'gray',
+            customizeBtnColor: 'black',
+            rejectBtnBackground: 'lightblue',
+            rejectBtnColor: 'blue',
+            manageColor: 'white',
+            manageBackground: 'blue',
+            manageText: 'cookies text',
+            selectorTitleText: 'Customize your cookies',
+            selectorTitleColor: 'green',
+            additionalCookies: ['Test 1', 'Test 2'],
+            additionalCookieScripts: [[{ type: 'custom', position: 'body', content: `console.log('test 1');` }], 
+            [{ type: 'custom', position: 'body', content: `console.log('test 2');` }]],
+            customizeUserPreferences: false,
+            userPreferencesScript: [{ type: 'custom', position: 'body', content: `console.log('my user preferences js');` }],
+            thirdPartyScript: [{ type: 'custom', position: 'body', content: `console.log('my third party js');` }],
+            analyticsScript: [{ type: 'custom', position: 'body', content: `console.log('my analytics js');` }],
+            customizeAnalytics: true,
+            customizeThirdParty: true,
+            customizeSessionCookies: true,
+            customizeSwitchOnColor: 'green',
+            selectorBtnBackground: 'green',
+            retentionPeriod: '4',
+        });
 </script>
 ```
 

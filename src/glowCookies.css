@@ -17,6 +17,92 @@
   transform: scale(1) !important;
 }
 
+.glowCookies__customize {
+  position: fixed;
+  bottom: 15px;
+  z-index: 999;
+  min-height: 200px;
+  min-width: 300px;
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: bolder;
+  line-height: normal;
+  border: none;
+  padding: 12px 18px;
+  text-decoration: none;
+  user-select: none;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  -webkit-box-shadow: 0 .625em 1.875em rgba(2,2,3,.1);
+  -moz-box-shadow: 0 .625em 1.875em rgba(2,2,3,.1);
+  box-shadow: 0 .625em 1.875em rgba(2,2,3,.1);
+}
+
+.glowCookies__customize_item_container{
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  font-size: 1em;
+  justify-content: space-between;
+}
+
+.glowCookies__customize_text{
+  justify-self: flex-start;
+}
+
+.glowCookies__customize_switch_button {
+  justify-self: flex-start;
+  align-self: flex-start;
+  align-self: center;
+  display : inline-block;
+  min-width: 40px;
+  height: 1.5em;
+  display: flex;
+  align-items: center;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.glowCookies__customize_switch_button_on{
+  border: 2px solid gray;
+  justify-content: flex-end;
+}
+
+.glowCookies__customize_switch_button_off{
+  border: 2px solid gray;
+  justify-content: flex-start;
+}
+
+.glowCookies__customize_switch_circle {
+  background-color: white;
+  height: 1.4em;
+  width: 1.4em;
+  border-radius: 100%;
+  
+}
+
+.glowCookies-customize-save-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.glowCookies-customize-save {
+  border: none;
+  padding: 10px 13px;
+  font-size: 15px;
+  width: 50%;
+  align-self: center;
+  border-radius: 5%;
+  cursor: pointer;
+}
+
+.glowCookies-customize-save:hover {
+  -webkit-filter: contrast(85%);
+  filter: contrast(85%);
+}
+
 /* COMMON STYLES */
 /* ========================= */
 .glowCookies__banner {
@@ -28,11 +114,9 @@
   width: auto;
   max-width: 375px;
   z-index: 999;
-  -webkit-box-shadow: 0 .625em 1.875em rgba(2,2,3,.2);
-  -moz-box-shadow: 0 .625em 1.875em rgba(2,2,3,.2);
-  box-shadow: 0 .625em 1.875em rgba(2,2,3,.2);
   transition: transform .2s ease, opacity .2s ease !important;
 }
+
 
 .glowCookies__banner .accept__btn__styles {
   border: none;
@@ -80,6 +164,8 @@
       width: 100%;
   }
 }
+
+
 
 /* BANNER STYLE 1 */
 /* ========================= */

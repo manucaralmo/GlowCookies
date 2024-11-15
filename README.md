@@ -7,7 +7,6 @@ Simple and full automated cookies banner for any website. Complies with the new 
 
 [![Foo](https://cdn.glowmedia.es/upload/uploads/ed1952btn.svg)](https://manucaralmo.github.io/glow-cookies-web/)
 
-
 ## The cookies banner
 <img src="https://cdn.glowmedia.es/upload/uploads/90c82dbanner.png" data-canonical-src="https://cdn.glowmedia.es/upload/uploads/90c82dbanner.png" width="375" />
 
